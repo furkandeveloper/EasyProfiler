@@ -34,7 +34,8 @@ namespace QueryProfiler.Context
     /// <typeparam name="TUserToken">
     /// The type of the user token object.
     /// </typeparam>
-    public class ProfilerIdentityDbContext<TUser, TRole, TKey, TUserClaim, TUserRole, TUserLogin, TRoleClaim, TUserToken> : IdentityUserContext<TUser, TKey, TUserClaim, TUserLogin, TUserToken>
+    public class ProfilerDbContext<TUser, TRole, TKey, TUserClaim, TUserRole, TUserLogin, TRoleClaim, TUserToken>
+        : IdentityUserContext<TUser, TKey, TUserClaim, TUserLogin, TUserToken>
         where TUser : IdentityUser<TKey>
         where TRole : IdentityRole<TKey>
         where TKey : IEquatable<TKey>
@@ -44,11 +45,11 @@ namespace QueryProfiler.Context
         where TRoleClaim : IdentityRoleClaim<TKey>
         where TUserToken : IdentityUserToken<TKey>
     {
-        public ProfilerIdentityDbContext()
+        public ProfilerDbContext()
         {
         }
 
-        public ProfilerIdentityDbContext(DbContextOptions options) : base(options)
+        public ProfilerDbContext(DbContextOptions options) : base(options)
         {
         }
     }
