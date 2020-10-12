@@ -14,14 +14,14 @@ namespace QueryProfiler.Context
     /// <typeparam name="TUser">
     /// Identity User.
     /// </typeparam>
-    public class ProfilerDbContext<TUser> : IdentityDbContext<TUser>
+    internal class ProfilerDbContext<TUser> : IdentityDbContext<TUser>
         where TUser : IdentityUser
     {
-        public ProfilerDbContext(DbContextOptions options) : base(options)
+        internal ProfilerDbContext(DbContextOptions options) : base(options)
         {
         }
 
-        public ProfilerDbContext()
+        internal ProfilerDbContext()
         {
         }
     }
