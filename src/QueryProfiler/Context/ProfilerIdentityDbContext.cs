@@ -20,9 +20,9 @@ namespace QueryProfiler.Context
     ///  The type of the primary key for users and roles.
     /// </typeparam>
     public class ProfilerIdentityDbContext<TUser, TRole, TKey> : IdentityDbContext<TUser, TRole, TKey>
-        where TUser : IdentityUser<TKey>
-        where TRole : IdentityRole<TKey>
-        where TKey : IEquatable<TKey>
+            where TUser : IdentityUser<TKey>
+            where TRole : IdentityRole<TKey>
+            where TKey : IEquatable<TKey>
     {
         public ProfilerIdentityDbContext(DbContextOptions options) : base(options)
         {
