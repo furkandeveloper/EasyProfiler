@@ -9,25 +9,6 @@ namespace QueryProfiler.Context
 {
     /// <summary>
     /// Profiler Identity DbContext.
-    /// Use this dbcontext if use identity framework.
-    /// </summary>
-    /// <typeparam name="TUser">
-    /// Identity User.
-    /// </typeparam>
-    public class ProfilerIdentityDbContext<TUser> : IdentityDbContext<TUser>
-        where TUser : IdentityUser
-    {
-        public ProfilerIdentityDbContext(DbContextOptions options) : base(options)
-        {
-        }
-
-        public ProfilerIdentityDbContext()
-        {
-        }
-    }
-
-    /// <summary>
-    /// Profiler Identity DbContext.
     /// Use this dbcontext if use identity framework.</summary>
     /// <typeparam name="TUser">
     /// Identity User.
