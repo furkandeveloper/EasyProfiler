@@ -9,13 +9,13 @@ namespace QueryProfiler.Context
     /// <summary>
     /// Profiler DbContext.
     /// </summary>
-    public class ProfilerDbContext : DbContext
+    internal class ProfilerDbContext : DbContext
     {
-        public ProfilerDbContext(DbContextOptions options) : base(options)
+        internal ProfilerDbContext(DbContextOptions options) : base(options)
         {
         }
 
-        public ProfilerDbContext()
+        internal ProfilerDbContext()
         {
         }
     }
