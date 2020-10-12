@@ -19,32 +19,6 @@ namespace QueryProfiler.Context
     /// <typeparam name="TKey">
     ///  The type of the primary key for users and roles.
     /// </typeparam>
-    public class ProfilerIdentityDbContext<TUser, TRole, TKey> : IdentityDbContext<TUser, TRole, TKey>
-            where TUser : IdentityUser<TKey>
-            where TRole : IdentityRole<TKey>
-            where TKey : IEquatable<TKey>
-    {
-        public ProfilerIdentityDbContext(DbContextOptions options) : base(options)
-        {
-        }
-
-        public ProfilerIdentityDbContext()
-        {
-        }
-    }
-
-    /// <summary>
-    /// Profiler Identity DbContext.
-    /// Use this dbcontext if use identity framework.</summary>
-    /// <typeparam name="TUser">
-    /// Identity User.
-    /// </typeparam>
-    /// <typeparam name="TRole">
-    /// Identity Role.
-    /// </typeparam>
-    /// <typeparam name="TKey">
-    ///  The type of the primary key for users and roles.
-    /// </typeparam>
     /// <typeparam name="TUserClaim">
     /// The type of the user claim object.
     /// </typeparam>
