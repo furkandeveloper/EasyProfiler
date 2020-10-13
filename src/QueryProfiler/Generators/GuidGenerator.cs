@@ -9,7 +9,7 @@ namespace QueryProfiler.Generators
     /// <summary>
     /// Guid value generator for primary key.
     /// </summary>
-    public class GuidGenerator : ValueGenerator
+    internal class GuidGenerator : ValueGenerator
     {
         public override bool GeneratesTemporaryValues => false;
 
