@@ -8,6 +8,9 @@ using System.Threading.Tasks;
 
 namespace EasyProfiler.SQLServer.Concrete
 {
+    /// <summary>
+    /// This class includes query log.
+    /// </summary>
     public class EasyProfilerManager : IEasyProfilerService
     {
         private readonly ProfilerDbContext profilerDbContext;
@@ -16,6 +19,16 @@ namespace EasyProfiler.SQLServer.Concrete
         {
             this.profilerDbContext = profilerDbContext;
         }
+
+        /// <summary>
+        /// Insert Query Log.
+        /// </summary>
+        /// <param name="profiler">
+        /// Profiler Entity.
+        /// </param>
+        /// <returns>
+        /// NoContent.
+        /// </returns>
         public async Task InsertLogAsync(Profiler profiler)
         {
             await profilerDbContext.Profilers.AddAsync(profiler);
