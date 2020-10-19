@@ -1,4 +1,6 @@
-﻿using EasyProfiler.SQLServer.Context;
+﻿using EasyProfiler.SQLServer.Abstractions;
+using EasyProfiler.SQLServer.Concrete;
+using EasyProfiler.SQLServer.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using System;
@@ -27,6 +29,7 @@ namespace EasyProfiler.SQLServer.Extensions
         public static IServiceCollection AddEasyProfilerDbContext(this IServiceCollection services, Action<DbContextOptionsBuilder> optionsBuilder)
         {
             services.AddDbContext<ProfilerDbContext>(optionsBuilder);
+            services.AddTransient<IEasyProfilerService, EasyProfilerManager>();
             return services;
         }
     }
