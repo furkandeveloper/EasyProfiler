@@ -6,7 +6,7 @@ using System.Text;
 
 namespace EasyProfiler.SQLServer.Context
 {
-    public class DesignTimeDbContext : IDesignTimeDbContextFactory<ProfilerDbContext>
+    internal class DesignTimeDbContext : IDesignTimeDbContextFactory<ProfilerDbContext>
     {
         public ProfilerDbContext CreateDbContext(string[] args)
         {
