@@ -8,12 +8,24 @@ using System.Text;
 
 namespace EasyProfiler.SQLServer.Extensions
 {
+    /// <summary>
+    /// This class includes Application Builder extensions for database migrations.
+    /// Implements database migration.
+    /// </summary>
     public static class ApplicationBuilder
     {
-        public static IApplicationBuilder ApplyEasyProfilerSQLServer(this IApplicationBuilder app, ProfilerDbContext dbContext)
+        /// <summary>
+        /// Database migration for SQL Server.
+        /// </summary>
+        /// <param name="app">
+        /// IApplicationBuilder
+        /// </param>
+        /// <param name="dbContext">
+        /// Profiler DbContext
+        /// </param>
+        public static void ApplyEasyProfilerSQLServer(this IApplicationBuilder app, ProfilerDbContext dbContext)
         {
             dbContext.Database.Migrate();
-            return app;
         }
     }
 }

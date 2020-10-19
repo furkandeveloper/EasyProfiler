@@ -9,13 +9,13 @@ namespace EasyProfiler.SQLServer.Context
     /// <summary>
     /// Profiler DbContext.
     /// </summary>
-    internal class ProfilerDbContext : DbContext
+    public class ProfilerDbContext : DbContext
     {
-        internal ProfilerDbContext(DbContextOptions options) : base(options)
+        public ProfilerDbContext(DbContextOptions options) : base(options)
         {
         }
 
-        internal ProfilerDbContext()
+        public ProfilerDbContext()
         {
         }
         #region Tables
