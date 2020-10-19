@@ -29,13 +29,13 @@ namespace EasyProfiler.Web
 
             services.AddDbContext<SampleDbContext>(options =>
             {
-                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")).AddEasyProfiler();
-            });
-
-            services.AddEasyProfilerDbContext(options =>
-            {
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
             });
+
+            //services.AddEasyProfilerDbContext(options =>
+            //{
+            //    options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
+            //});
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

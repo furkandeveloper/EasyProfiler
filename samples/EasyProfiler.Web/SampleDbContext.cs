@@ -8,7 +8,7 @@ namespace EasyProfiler.Web
 {
     public class SampleDbContext : DbContext
     {
-        public SampleDbContext(DbContextOptions options) : base(options)
+        public SampleDbContext(DbContextOptions<SampleDbContext> options) : base(options)
         {
         }
 
