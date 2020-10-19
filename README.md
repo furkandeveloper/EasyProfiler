@@ -3,6 +3,9 @@
 </p>
 
 [![CodeFactor](https://www.codefactor.io/repository/github/furkandeveloper/easyprofiler/badge)](https://www.codefactor.io/repository/github/furkandeveloper/easyprofiler)
+<a href="https://gitmoji.carloscuesta.me">
+  <img src="https://img.shields.io/badge/gitmoji-%20😜%20😍-FFDD67.svg?style=flat-square" alt="Gitmoji">
+</a>
 
 ## Easy Profiler
 This repo, provides query profiler for EF Core.
