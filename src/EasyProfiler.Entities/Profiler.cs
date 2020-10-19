@@ -11,6 +11,6 @@ namespace EasyProfiler.Entities
     {
         public string Query { get; set; }
 
-        public int Duration { get; set; }
+        public TimeSpan Duration { get; set; }
     }
 }

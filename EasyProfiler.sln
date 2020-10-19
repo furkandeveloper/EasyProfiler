@@ -7,7 +7,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{9AE5BFB8-BA7
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyProfiler.SQLServer", "src\EasyProfiler.SQLServer\EasyProfiler.SQLServer.csproj", "{A6CF2E31-7D4C-465A-9E3D-72DD012C26C3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyProfiler.Entities", "src\EasyProfiler.Entities\EasyProfiler.Entities.csproj", "{7EA52047-90A2-48E3-A1E6-48A56B4B8E0A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyProfiler.Entities", "src\EasyProfiler.Entities\EasyProfiler.Entities.csproj", "{7EA52047-90A2-48E3-A1E6-48A56B4B8E0A}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{A6E015BB-C6E2-4EBF-BDE1-421F601B63FB}"
 	ProjectSection(SolutionItems) = preProject
