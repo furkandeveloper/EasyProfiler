@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace QueryProfiler.Entities
+namespace EasyProfiler.Entities
 {
     /// <summary>
     /// Profiler entity.

@@ -1,14 +1,12 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using EasyProfiler.SQLServer.Context;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Diagnostics;
-using Microsoft.Extensions.Caching.Memory;
-using QueryProfiler.Context;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
 using System.Text;
 
-namespace QueryProfiler.Extensions
+namespace EasyProfiler.SQLServer.Extensions
 {
     /// <summary>
     /// Interception extension method for dbcontext.
@@ -26,7 +24,7 @@ namespace QueryProfiler.Extensions
         /// </returns>
         public static DbContextOptionsBuilder AddEasyProfiler(this DbContextOptionsBuilder optionsBuilder)
         {
-            var interceptors = typeof(ProfilerDbContext).Assembly.GetTypes().Where(x => typeof(DbCommandInterceptor).IsAssignableFrom(x) && x!= typeof(DbConnectionInterceptor) && x.IsClass) as IEnumerable<IInterceptor>;
+            var interceptors = typeof(ProfilerDbContext).Assembly.GetTypes().Where(x => typeof(DbCommandInterceptor).IsAssignableFrom(x) && x != typeof(DbConnectionInterceptor) && x.IsClass) as IEnumerable<IInterceptor>;
             optionsBuilder.AddInterceptors(interceptors);
             return optionsBuilder;
         }

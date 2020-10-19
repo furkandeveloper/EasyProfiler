@@ -1,11 +1,11 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using EasyProfiler.SQLServer.Context;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
-using QueryProfiler.Context;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace QueryProfiler.Extensions
+namespace EasyProfiler.SQLServer.Extensions
 {
     /// <summary>
     /// Service collection extensions method for DbContext.
@@ -24,7 +24,7 @@ namespace QueryProfiler.Extensions
         /// <returns>
         /// Service Collection.
         /// </returns>
-        public static IServiceCollection AddEasyProfilerDbContext(this IServiceCollection services,Action<DbContextOptionsBuilder> optionsBuilder)
+        public static IServiceCollection AddEasyProfilerDbContext(this IServiceCollection services, Action<DbContextOptionsBuilder> optionsBuilder)
         {
             services.AddDbContext<ProfilerDbContext>(optionsBuilder);
             return services;

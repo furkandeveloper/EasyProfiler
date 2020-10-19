@@ -1,23 +1,21 @@
-﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using EasyProfiler.Entities;
 using Microsoft.EntityFrameworkCore;
-using QueryProfiler.Entities;
-using QueryProfiler.Generators;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace QueryProfiler.Context
+namespace EasyProfiler.SQLServer.Context
 {
     /// <summary>
     /// Profiler DbContext.
     /// </summary>
-    internal class ProfilerDbContext : DbContext
+    public class ProfilerDbContext : DbContext
     {
-        internal ProfilerDbContext(DbContextOptions options) : base(options)
+        public ProfilerDbContext(DbContextOptions options) : base(options)
         {
         }
 
-        internal ProfilerDbContext()
+        public ProfilerDbContext()
         {
         }
         #region Tables

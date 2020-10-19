@@ -4,12 +4,12 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace QueryProfiler.Generators
+namespace EasyProfiler.Entities
 {
     /// <summary>
     /// Guid value generator for primary key.
     /// </summary>
-    internal class GuidGenerator : ValueGenerator
+    public class GuidGenerator : ValueGenerator
     {
         public override bool GeneratesTemporaryValues => false;
 
