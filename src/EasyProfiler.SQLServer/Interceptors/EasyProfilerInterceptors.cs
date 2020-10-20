@@ -21,11 +21,16 @@ namespace EasyProfiler.SQLServer.Interceptors
 
         public override InterceptionResult DataReaderDisposing(DbCommand command, DataReaderDisposingEventData eventData, InterceptionResult result)
         {
-            Task.Run(() => easyProfilerService.InsertLogAsync(new Entities.Profiler()
+            //Task.Run(() => easyProfilerService.InsertLogAsync(new Entities.Profiler()
+            //{
+            //    Query = command.CommandText,
+            //    Duration = eventData.Duration
+            //}));
+            easyProfilerService.InsertLogAsync(new Entities.Profiler()
             {
                 Query = command.CommandText,
                 Duration = eventData.Duration
-            }));
+            });
             return base.DataReaderDisposing(command, eventData, result);
         }
     }
