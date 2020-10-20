@@ -14,5 +14,7 @@ namespace EasyProfiler.Web
         public string Surname { get; set; }
 
         public DateTime CreateDate { get; set; }
+
+        //public DateTime UpdateDate { get; set; }
     }
 }
