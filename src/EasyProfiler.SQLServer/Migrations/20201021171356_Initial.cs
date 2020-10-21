@@ -13,7 +13,7 @@ namespace EasyProfiler.SQLServer.Migrations
                 {
                     Id = table.Column<Guid>(nullable: false),
                     Query = table.Column<string>(nullable: false),
-                    Duration = table.Column<int>(nullable: false)
+                    Duration = table.Column<TimeSpan>(type: "time(7)", nullable: false)
                 },
                 constraints: table =>
                 {
