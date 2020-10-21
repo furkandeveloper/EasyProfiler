@@ -39,6 +39,10 @@ namespace EasyProfiler.SQLServer.Context
                 entity
                     .Property(p => p.Query)
                     .IsRequired();
+
+                entity
+                    .Property(p => p.Duration)
+                    .HasColumnType("time");
             });
             base.OnModelCreating(modelBuilder);
         }
