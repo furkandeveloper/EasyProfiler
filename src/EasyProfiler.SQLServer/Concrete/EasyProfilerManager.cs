@@ -49,17 +49,9 @@ namespace EasyProfiler.SQLServer.Concrete
         /// </returns>
         public async Task InsertLogAsync(Profiler profiler)
         {
-            try
-            {
-                profiler.Id = Guid.NewGuid();
-                profilerDbContext.Profilers.Add(profiler);
-                profilerDbContext.SaveChanges();
-            }
-            catch (Exception ex)
-            {
-
-                throw;
-            }
+            profiler.Id = Guid.NewGuid();
+            await profilerDbContext.Profilers.AddAsync(profiler);
+            await profilerDbContext.SaveChangesAsync();
         }
     }
 }

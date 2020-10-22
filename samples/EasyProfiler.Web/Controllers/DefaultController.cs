@@ -20,6 +20,12 @@ namespace EasyProfiler.Web.Controllers
             this.sampleDbContext = sampleDbContext;
         }
 
+        /// <summary>
+        /// Insert Customers
+        /// </summary>
+        /// <returns>
+        /// NoContent
+        /// </returns>
         [HttpPost("InsertCustomers")]
         public async Task<IActionResult> InsertCustomerAsync()
         {
@@ -36,12 +42,30 @@ namespace EasyProfiler.Web.Controllers
             return NoContent();
         }
 
+        /// <summary>
+        /// Get All Customers.
+        /// </summary>
+        /// <returns>
+        /// List of customers.
+        /// </returns>
         [HttpGet("GetAllCustomers")]
         public async Task<IActionResult> GetAllCustomersAsync()
         {
             return Ok(await sampleDbContext.Customers.ToListAsync());
         }
 
+        /// <summary>
+        /// Advanced filter for easy profiler.
+        /// </summary>
+        /// <param name="model">
+        /// Advanced filter model.
+        /// </param>
+        /// <param name="easyProfilerService">
+        /// Easy profiler service.
+        /// </param>
+        /// <returns>
+        /// List of profiler.
+        /// </returns>
         [HttpGet("AdvancedFilterForEasyProfiler")]
         public async Task<IActionResult> AdvancedFilterForEasyProfilerAsync([FromQuery] AdvancedFilterModel model,[FromServices] IEasyProfilerService easyProfilerService)
         {
