@@ -4,6 +4,10 @@
 		<TargetFramework>netcoreapp3.1</TargetFramework>
 	</PropertyGroup>
 
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+	  <DocumentationFile>D:\PublicRepository\EasyProfiler\EasyProfiler\samples\EasyProfiler.Web\EasyProfiler.Web.xml</DocumentationFile>
+	</PropertyGroup>
+
 	<ItemGroup>
 		<Compile Remove="Migrations\20201020192529_AddUpdateDateField.cs" />
 		<Compile Remove="Migrations\20201020192529_AddUpdateDateField.Designer.cs" />

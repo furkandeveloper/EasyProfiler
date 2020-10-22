@@ -2,6 +2,7 @@ using EasyProfiler.SQLServer.Abstractions;
 using EasyProfiler.SQLServer.Context;
 using EasyProfiler.SQLServer.Extensions;
 using EasyProfiler.SQLServer.Interceptors;
+using MarkdownDocumenting.Extensions;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -11,7 +12,9 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Runtime.Intrinsics;
 using System.Threading.Tasks;
 
@@ -55,7 +58,16 @@ namespace EasyProfiler.Web
                         Url = new Uri("https://github.com/furkandeveloper/EasyProfiler")
                     }
                 });
+                var docFile = $"{Assembly.GetEntryAssembly().GetName().Name}.xml";
+                var filePath = Path.Combine(AppContext.BaseDirectory, docFile);
+
+                if (File.Exists((filePath)))
+                {
+                    options.IncludeXmlComments(filePath);
+                }
             });
+
+            services.AddDocumentation();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -78,9 +90,9 @@ namespace EasyProfiler.Web
                 options.DisplayRequestDuration();
                 options.DocExpansion(Swashbuckle.AspNetCore.SwaggerUI.DocExpansion.None);
                 options.RoutePrefix = "api-docs";
-                options.SwaggerEndpoint("/swagger/swagger.json","EasyProfilerSwagger");
+                options.SwaggerEndpoint("/swagger/EasyProfiler/swagger.json","EasyProfilerSwagger");
             });
-
+            app.UseDocumentation(opts => this.Configuration.Bind("DocumentationOptions", opts));
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
