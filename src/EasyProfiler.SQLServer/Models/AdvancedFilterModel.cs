@@ -1,5 +1,6 @@
 ﻿using AutoFilterer.Attributes;
 using AutoFilterer.Types;
+using EasyProfiler.Core.Helpers.Attributes;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -20,6 +21,7 @@ namespace EasyProfiler.SQLServer.Models
         /// <summary>
         /// SQL Query.
         /// </summary>
+        [ToLowerContainsComparison]
         public string Query { get; set; }
 
         /// <summary>
