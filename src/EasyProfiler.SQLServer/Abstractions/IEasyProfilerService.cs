@@ -1,4 +1,5 @@
 ﻿using EasyProfiler.Entities;
+using EasyProfiler.SQLServer.Models;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -21,5 +22,16 @@ namespace EasyProfiler.SQLServer.Abstractions
         /// NoContent.
         /// </returns>
         Task InsertLogAsync(Profiler profiler);
+
+        /// <summary>
+        /// Advanced filter.
+        /// </summary>
+        /// <param name="filterModel">
+        /// Filter object.
+        /// </param>
+        /// <returns>
+        /// List of profiler.
+        /// </returns>
+        Task<List<Profiler>> AdvancedFilterAsync(AdvancedFilterModel filterModel);
     }
 }
