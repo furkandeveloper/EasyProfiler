@@ -10,14 +10,14 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EasyProfiler.SQLServer.Migrations
 {
     [DbContext(typeof(ProfilerDbContext))]
-    [Migration("20201019184147_ChangeDurationFieldType")]
-    partial class ChangeDurationFieldType
+    [Migration("20201021171356_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "3.1.8")
+                .HasAnnotation("ProductVersion", "3.1.9")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -28,7 +28,7 @@ namespace EasyProfiler.SQLServer.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<TimeSpan>("Duration")
-                        .HasColumnType("time");
+                        .HasColumnType("time(7)");
 
                     b.Property<string>("Query")
                         .IsRequired()
