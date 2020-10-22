@@ -27,6 +27,6 @@ namespace EasyProfiler.SQLServer.Models
         /// <summary>
         /// Query duration.
         /// </summary>
-        public TimeSpan Duration { get; set; }
+        public Range<TimeSpan> Duration { get; set; }
     }
 }
