@@ -2,10 +2,23 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
+    <Authors>furkandeveloper</Authors>
+    <Description>This repo, provides query profiler for EF Core.</Description>
+    <PackageIcon>easyProfilerSQLServer.png</PackageIcon>
+    <RepositoryUrl>https://github.com/furkandeveloper/EasyProfiler</RepositoryUrl>
+    <PackageTags>sql-server, profiler, query-profiler,query-analyzer</PackageTags>
+    <PackageReleaseNotes>Implement helper methods for EasyProfiler.</PackageReleaseNotes>
   </PropertyGroup>
 
 	<ItemGroup>
 		<PackageReference Include="AutoFilterer" Version="2.1.7" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Include="easyProfilerSQLServer.png">
+	    <Pack>True</Pack>
+	    <PackagePath></PackagePath>
+	  </None>
 	</ItemGroup>
 	
 </Project>

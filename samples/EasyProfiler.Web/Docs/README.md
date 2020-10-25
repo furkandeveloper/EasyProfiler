@@ -1,5 +1,5 @@
 ﻿<p align="center">
-  <img src="https://user-images.githubusercontent.com/47147484/95654472-dbc9a000-0b08-11eb-81fa-2a2b21a5b55e.jpg" />
+  <img src="https://user-images.githubusercontent.com/47147484/97106329-e885f080-16d1-11eb-9278-e266673cdc67.png" />
 </p>
 
 [![CodeFactor](https://www.codefactor.io/repository/github/furkandeveloper/easyprofiler/badge)](https://www.codefactor.io/repository/github/furkandeveloper/easyprofiler)
