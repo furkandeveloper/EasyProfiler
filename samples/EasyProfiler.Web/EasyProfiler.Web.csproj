@@ -29,7 +29,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<Folder Include="Docs\" />
+	  <None Update="Docs\README.md">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </None>
 	</ItemGroup>
 
 </Project>
