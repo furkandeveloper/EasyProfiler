@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>EasyProfiler.Web</name>
+    </assembly>
+    <members>
+        <member name="M:EasyProfiler.Web.Controllers.DefaultController.InsertCustomerAsync">
+            <summary>
+            Insert Customers
+            </summary>
+            <returns>
+            NoContent
+            </returns>
+        </member>
+        <member name="M:EasyProfiler.Web.Controllers.DefaultController.GetAllCustomersAsync">
+            <summary>
+            Get All Customers.
+            </summary>
+            <returns>
+            List of customers.
+            </returns>
+        </member>
+        <member name="M:EasyProfiler.Web.Controllers.DefaultController.AdvancedFilterForEasyProfilerAsync(EasyProfiler.SQLServer.Models.AdvancedFilterModel,EasyProfiler.SQLServer.Abstractions.IEasyProfilerService)">
+            <summary>
+            Advanced filter for easy profiler.
+            </summary>
+            <param name="model">
+            Advanced filter model.
+            </param>
+            <param name="easyProfilerService">
+            Easy profiler service.
+            </param>
+            <returns>
+            List of profiler.
+            </returns>
+        </member>
+    </members>
+</doc>
