@@ -12,13 +12,14 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{A6E015BB-C6E2-4EBF-BDE1-421F601B63FB}"
 	ProjectSection(SolutionItems) = preProject
 		.gitignore = .gitignore
+		Dockerfile = Dockerfile
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "samples", "samples", "{E7EE1DF1-9E6C-4B2B-9847-3C03030EFF6E}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyProfiler.Web", "samples\EasyProfiler.Web\EasyProfiler.Web.csproj", "{E08FD8E2-2D4F-4DA2-A668-E7A3E84B8DE9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyProfiler.Core", "src\EasyProfiler.Core\EasyProfiler.Core.csproj", "{5900675D-AC82-4F00-A90E-486AA22F8FDF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyProfiler.Core", "src\EasyProfiler.Core\EasyProfiler.Core.csproj", "{5900675D-AC82-4F00-A90E-486AA22F8FDF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
