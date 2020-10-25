@@ -27,6 +27,7 @@ namespace EasyProfiler.Web.Controllers
         /// NoContent
         /// </returns>
         [HttpPost("InsertCustomers")]
+        [NonAction]
         public async Task<IActionResult> InsertCustomerAsync()
         {
             for (int i = 0; i < 10000; i++)
