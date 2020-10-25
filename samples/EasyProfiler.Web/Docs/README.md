@@ -1,0 +1,117 @@
+﻿<p align="center">
+  <img src="https://user-images.githubusercontent.com/47147484/95654472-dbc9a000-0b08-11eb-81fa-2a2b21a5b55e.jpg" />
+</p>
+
+[![CodeFactor](https://www.codefactor.io/repository/github/furkandeveloper/easyprofiler/badge)](https://www.codefactor.io/repository/github/furkandeveloper/easyprofiler)
+<a href="https://gitmoji.carloscuesta.me">
+  <img src="https://img.shields.io/badge/gitmoji-%20😜%20😍-FFDD67.svg?style=flat-square" alt="Gitmoji">
+</a>
+
+## Easy Profiler
+Welcome EasyProfiler documentation.
+
+### Purpose
+This repo, provides query profiler for EF Core.
+
+### Getting started with EasyProfiler
+
+Easy Profiler uses `Interceptor` to measure the performance of your queries.
+
+It uses the `ProfilerDbContext` object to store the results.
+
+### Supported Databases
+
+* [x] SQL Server
+* [ ] PostgreSQL
+* [ ] MariaDb
+* [ ] MySQL
+* [ ] MongoDB
+
+### Sample for SQL Server
+
+Initilaze `EasyProfilerDbContext` in `Startup.cs` to save the results.
+#### Sample
+```csharp
+services.AddEasyProfilerDbContext(options =>
+{
+    options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
+});
+```
+
+and `EasyProfilerInterceptor` extensions add for own `DbContext`.
+
+#### Sample
+```csharp
+services.AddDbContext<SampleDbContext>(options =>
+{
+    options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"))
+    .AddEasyProfiler(services);
+});
+```
+
+### Migrations
+Use the `ApplyEasyProfilerSQLServer` extension method for pending migrations.
+
+#### Sample
+
+```csharp
+public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ProfilerDbContext profilerDbContext)
+{
+    app.ApplyEasyProfilerSQLServer(profilerDbContext);
+}
+```
+
+<hr/>
+
+Run your application and check your db. Must be created `Profiler` entity.
+
+## Watch Queries with AdvancedFilter
+
+#### Usage
+Get `EasyProfilerService` From Dependency Injection.
+
+```csharp
+var queryProfilers = await easyProfilerService.AdvancedFilterAsync(new AdvancedFilterModel()
+{
+    CombineWith = CombineType.Or,
+    Duration = new Range<TimeSpan> { Max = TimeSpan.MaxValue, Min = TimeSpan.MinValue},
+    Page = 1,
+    PerPage = 15,
+    Query = "Select", // <---- Contains
+    SortBy = Sorting.Descending, // <---  Default value Sorting.Descending,
+    Sort = "Duration" // <--- Default value "Duration"
+});
+```
+
+#### Response
+
+```json
+[
+  {
+    "query": "SELECT [c].[CustomerId], [c].[CreateDate], [c].[Name], [c].[Surname]\r\nFROM [Customers] AS [c]",
+    "duration": {
+      "ticks": 8737783,
+      "days": 0,
+      "hours": 0,
+      "milliseconds": 873,
+      "minutes": 0,
+      "seconds": 0,
+      "totalDays": 0.000010113174768518518,
+      "totalHours": 0.00024271619444444446,
+      "totalMilliseconds": 873.7783,
+      "totalMinutes": 0.014562971666666667,
+      "totalSeconds": 0.8737783
+    },
+    "id": "c06cae66-3dd1-4e34-810c-498c979a5c6a"
+  }
+]
+```
+
+## RoadMap
+
+* [ ] PostgreSQL support.
+* [ ] MySQL support.
+* [ ] MariaDB support.
+* [ ] MongoDB support.
+* [ ] QueryType. (For Example : `Select`,`Insert`,`Update`,`Delete`)
+* [ ] Request Path. (For Example : "customer/getCustomer?fullname=sample")
