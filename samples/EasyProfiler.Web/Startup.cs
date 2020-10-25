@@ -16,6 +16,7 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Runtime.Intrinsics;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace EasyProfiler.Web
@@ -32,7 +33,11 @@ namespace EasyProfiler.Web
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc();
+            services.AddMvc()
+                .AddJsonOptions(options =>
+                {
+                    options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
+                });
             
             services.AddDbContext<SampleDbContext>(options =>
             {
@@ -65,6 +70,7 @@ namespace EasyProfiler.Web
                 {
                     options.IncludeXmlComments(filePath);
                 }
+                options.DescribeAllParametersInCamelCase();
             });
 
             services.AddDocumentation();
