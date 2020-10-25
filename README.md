@@ -6,6 +6,9 @@
 <a href="https://gitmoji.carloscuesta.me">
   <img src="https://img.shields.io/badge/gitmoji-%20😜%20😍-FFDD67.svg?style=flat-square" alt="Gitmoji">
 </a>
+![.NET Core](https://github.com/furkandeveloper/EasyProfiler/workflows/.NET%20Core/badge.svg?branch=develop)
+![Nuget](https://img.shields.io/nuget/dt/EasyProfiler.SQLServer)
+![Nuget](https://img.shields.io/nuget/v/EasyProfiler.SQLServer)
 
 ## Easy Profiler
 Welcome EasyProfiler documentation.
