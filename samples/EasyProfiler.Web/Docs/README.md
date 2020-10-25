@@ -29,6 +29,8 @@ It uses the `ProfilerDbContext` object to store the results.
 
 ### Sample for SQL Server
 
+Install `EasyProfiler.SQLServer` from [Nuget Package](https://www.nuget.org/packages/EasyProfiler.SQLServer/)
+
 Initilaze `EasyProfilerDbContext` in `Startup.cs` to save the results.
 #### Sample
 ```csharp
