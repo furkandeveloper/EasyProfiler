@@ -12,7 +12,7 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/7da8a3efef94f523f2c1/maintainability)](https://codeclimate.com/github/furkandeveloper/EasyProfiler/maintainability)
 
 ## Easy Profiler
-Welcome EasyProfiler documentation.
+Welcome EasyProfiler documentation. 
 
 ### Purpose
 This repo, provides query profiler for EF Core.
