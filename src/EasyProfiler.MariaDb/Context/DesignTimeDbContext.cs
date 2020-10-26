@@ -8,7 +8,7 @@ namespace EasyProfiler.MariaDb.Context
         public ProfilerDbContext CreateDbContext(string[] args)
         {
             var optionsBuilder = new DbContextOptionsBuilder<ProfilerDbContext>();
-            optionsBuilder.UseMySql("Server=localhost;Port=3360;Database=KargoEntegrasyon;Uid=entegrasyon;Pwd=entegrasyon;");
+            optionsBuilder.UseMySql("----");
             return new ProfilerDbContext(optionsBuilder.Options);
         }
     }
