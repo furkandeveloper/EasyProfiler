@@ -27,7 +27,7 @@ It uses the `ProfilerDbContext` object to store the results.
 
 * [x] SQL Server
 * [ ] PostgreSQL
-* [ ] MariaDb
+* [x] MariaDb
 * [ ] MySQL
 * [ ] MongoDB
 
