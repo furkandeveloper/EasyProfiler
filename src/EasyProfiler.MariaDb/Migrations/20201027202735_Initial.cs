@@ -13,7 +13,7 @@ namespace EasyProfiler.MariaDb.Migrations
                 {
                     Id = table.Column<Guid>(nullable: false),
                     Query = table.Column<string>(nullable: false),
-                    Duration = table.Column<TimeSpan>(type: "time", nullable: false)
+                    Duration = table.Column<long>(type: "bigint", nullable: false)
                 },
                 constraints: table =>
                 {
