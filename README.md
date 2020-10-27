@@ -72,6 +72,45 @@ public void Configure(IApplicationBuilder app, IWebHostEnvironment env, Profiler
 
 Run your application and check your db. Must be created `Profiler` entity.
 
+### Sample for MariaDb
+Install `EasyProfiler.MariaDb` from [Nuget Package](https://www.nuget.org/packages/EasyProfiler.MariaDb/)
+
+Initilaze `EasyProfilerDbContext` in `Startup.cs` to save the results.
+#### Sample
+```csharp
+services.AddEasyProfilerDbContext(options =>
+{
+    options.UseMySql(Configuration.GetConnectionString("DefaultConnection"));
+});
+```
+
+and `EasyProfilerInterceptor` extensions add for own `DbContext`.
+
+#### Sample
+```csharp
+services.AddDbContext<SampleDbContext>(options =>
+{
+    options.UseMySql(Configuration.GetConnectionString("DefaultConnection"))
+    .AddEasyProfiler(services);
+});
+```
+
+### Migrations
+Use the `ApplyEasyProfilerMariaDb` extension method for pending migrations.
+
+#### Sample
+
+```csharp
+public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ProfilerDbContext profilerDbContext)
+{
+    app.ApplyEasyProfilerMariaDb(profilerDbContext);
+}
+```
+
+<hr/>
+
+Run your application and check your db. Must be created `Profiler` entity.
+
 ## Watch Queries with AdvancedFilter
 
 #### Usage
