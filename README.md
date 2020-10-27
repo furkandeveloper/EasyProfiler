@@ -8,7 +8,7 @@
 </a>
 ![.NET Core](https://github.com/furkandeveloper/EasyProfiler/workflows/.NET%20Core/badge.svg?branch=develop)
 ![Nuget](https://img.shields.io/nuget/dt/EasyProfiler.SQLServer?label=SQLServer%20Downloads)
-![Nuget](https://img.shields.io/nuget/v/EasyProfiler.SQLServer)
+![Nuget](https://img.shields.io/nuget/v/EasyProfiler.SQLServer?label=SQLServer)
 [![Maintainability](https://api.codeclimate.com/v1/badges/7da8a3efef94f523f2c1/maintainability)](https://codeclimate.com/github/furkandeveloper/EasyProfiler/maintainability)
 
 ## Easy Profiler
