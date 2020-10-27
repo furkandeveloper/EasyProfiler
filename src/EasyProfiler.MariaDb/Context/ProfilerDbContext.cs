@@ -1,5 +1,6 @@
 ﻿using EasyProfiler.Entities;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace EasyProfiler.MariaDb.Context
 {
@@ -39,7 +40,8 @@ namespace EasyProfiler.MariaDb.Context
 
                 entity
                     .Property(p => p.Duration)
-                    .HasColumnType("time");
+                    .HasColumnType("bigint")
+                    .HasConversion(new TimeSpanToTicksConverter());
             });
             base.OnModelCreating(modelBuilder);
         }

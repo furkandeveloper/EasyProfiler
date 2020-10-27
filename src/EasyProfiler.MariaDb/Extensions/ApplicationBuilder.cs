@@ -19,9 +19,8 @@ namespace EasyProfiler.MariaDb.Extensions
         /// <param name="dbContext">
         /// Profiler DbContext
         /// </param>
-        public static void ApplyEasyProfilerSQLServer(this IApplicationBuilder app, ProfilerDbContext dbContext)
+        public static void ApplyEasyProfilerMariaDb(this IApplicationBuilder app, ProfilerDbContext dbContext)
         {
-            var migrations = dbContext.Database.GetPendingMigrations();
             dbContext.Database.Migrate();
         }
     }
