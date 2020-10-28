@@ -162,3 +162,4 @@ var queryProfilers = await easyProfilerService.AdvancedFilterAsync(new AdvancedF
 * [ ] MongoDB support.
 * [ ] QueryType. (For Example : `Select`,`Insert`,`Update`,`Delete`)
 * [ ] Request Path. (For Example : "customer/getCustomer?fullname=sample")
+* [ ] Dashboard UI Support.
