@@ -1,22 +1,23 @@
 ﻿using System.Data.Common;
 using System.Threading.Tasks;
-using EasyProfiler.MariaDb.Abstractions;
+using EasyProfiler.Core.Abstractions;
+using EasyProfiler.MariaDb.Context;
 using Microsoft.EntityFrameworkCore.Diagnostics;
 
 namespace EasyProfiler.MariaDb.Interceptors
 {
     public class EasyProfilerInterceptors : DbCommandInterceptor
     {
-        private readonly IEasyProfilerService easyProfilerService;
+        private readonly IEasyProfilerBaseService<ProfilerDbContext> baseService;
 
-        public EasyProfilerInterceptors(IEasyProfilerService easyProfilerService)
+        public EasyProfilerInterceptors(IEasyProfilerBaseService<ProfilerDbContext> baseService)
         {
-            this.easyProfilerService = easyProfilerService;
+            this.baseService = baseService;
         }
 
         public override InterceptionResult DataReaderDisposing(DbCommand command, DataReaderDisposingEventData eventData, InterceptionResult result)
         {
-            Task.Run(() => easyProfilerService.InsertLogAsync(new Entities.Profiler()
+            Task.Run(() => baseService.InsertAsync(new Entities.Profiler()
             {
                 Query = command.CommandText,
                 Duration = eventData.Duration

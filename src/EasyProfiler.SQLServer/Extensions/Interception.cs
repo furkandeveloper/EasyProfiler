@@ -7,8 +7,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Microsoft.Extensions.DependencyInjection;
-using EasyProfiler.SQLServer.Abstractions;
 using Microsoft.EntityFrameworkCore.ChangeTracking.Internal;
+using EasyProfiler.Core.Abstractions;
 
 namespace EasyProfiler.SQLServer.Extensions
 {
@@ -28,13 +28,7 @@ namespace EasyProfiler.SQLServer.Extensions
         /// </returns>
         public static DbContextOptionsBuilder AddEasyProfiler(this DbContextOptionsBuilder optionsBuilder, IServiceCollection services)
         {
-            var interceptors = typeof(ProfilerDbContext).Assembly.GetTypes().Where(x => typeof(DbCommandInterceptor).IsAssignableFrom(x) && x != typeof(DbConnectionInterceptor) && x.IsClass).ToList();
-            //foreach (var interceptor in interceptors)
-            //{
-            //    optionsBuilder.AddInterceptors(interceptor);
-            //}
-            optionsBuilder.AddInterceptors(new EasyProfilerInterceptors(services.BuildServiceProvider().GetService<IEasyProfilerService>()));
-            
+            optionsBuilder.AddInterceptors(new EasyProfilerInterceptors(services.BuildServiceProvider().GetService<IEasyProfilerBaseService<ProfilerDbContext>>()));
             return optionsBuilder;
         }
     }
