@@ -114,7 +114,7 @@ Run your application and check your db. Must be created `Profiler` entity.
 ## Watch Queries with AdvancedFilter
 
 #### Usage
-Get `EasyProfilerService` From Dependency Injection.
+Get `IEasyProfilerBaseService<ProfilerDbContext>` From Dependency Injection.
 
 ```csharp
 var queryProfilers = await easyProfilerService.AdvancedFilterAsync(new AdvancedFilterModel()
