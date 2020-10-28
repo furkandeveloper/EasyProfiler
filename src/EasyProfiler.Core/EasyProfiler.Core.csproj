@@ -7,7 +7,8 @@
     <PackageIcon>easyProfilerSQLServer.png</PackageIcon>
     <RepositoryUrl>https://github.com/furkandeveloper/EasyProfiler</RepositoryUrl>
     <PackageTags>sql-server, profiler, query-profiler,query-analyzer</PackageTags>
-    <PackageReleaseNotes>Implement helper methods for EasyProfiler.</PackageReleaseNotes>
+    <PackageReleaseNotes>Added base service.</PackageReleaseNotes>
+    <Version>1.1.0</Version>
   </PropertyGroup>
 
 	<ItemGroup>

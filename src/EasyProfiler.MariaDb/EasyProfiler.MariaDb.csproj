@@ -6,10 +6,11 @@
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <Description>This repo, provides query profiler for EF Core.</Description>
     <PackageTags>mariadb, profiler, query-profiler,query-analyzer</PackageTags>
-    <PackageReleaseNotes>Implement query profiler.</PackageReleaseNotes>
+    <PackageReleaseNotes>Move service layer EasyProfiler.MariaDb to EasyProfiler.Core</PackageReleaseNotes>
     <PackageIcon>easyProfilerMariaDb.png</PackageIcon>
     <RepositoryUrl>https://github.com/furkandeveloper/EasyProfiler</RepositoryUrl>
     <Authors>furkandeveloper</Authors>
+    <Version>1.1.0</Version>
   </PropertyGroup>
 
   <ItemGroup>
