@@ -1,14 +1,16 @@
-﻿using System;
-using AutoFilterer.Attributes;
+﻿using AutoFilterer.Attributes;
 using AutoFilterer.Types;
 using EasyProfiler.Core.Helpers.Attributes;
+using System;
+using System.Collections.Generic;
+using System.Text;
 
-namespace EasyProfiler.MariaDb.Models
+namespace EasyProfiler.Core.Helpers.AdvancedQuery
 {
     /// <summary>
     /// Advanced filter model for profiler entity.
     /// </summary>
-    [PossibleSortings("Query","Duration")]
+    [PossibleSortings("Query", "Duration")]
     public class AdvancedFilterModel : PaginationFilterBase
     {
         public AdvancedFilterModel()

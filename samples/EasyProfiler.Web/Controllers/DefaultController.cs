@@ -1,5 +1,6 @@
-﻿using EasyProfiler.SQLServer.Abstractions;
-using EasyProfiler.SQLServer.Models;
+﻿using EasyProfiler.Core.Abstractions;
+using EasyProfiler.Core.Helpers.AdvancedQuery;
+using EasyProfiler.SQLServer.Context;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -30,7 +31,7 @@ namespace EasyProfiler.Web.Controllers
         [NonAction]
         public async Task<IActionResult> InsertCustomerAsync()
         {
-            for (int i = 0; i < 10000; i++)
+            for (int i = 0; i < 12; i++)
             {
                 await sampleDbContext.Customers.AddAsync(new Customer
                 {
@@ -68,9 +69,9 @@ namespace EasyProfiler.Web.Controllers
         /// List of profiler.
         /// </returns>
         [HttpGet("AdvancedFilterForEasyProfiler")]
-        public async Task<IActionResult> AdvancedFilterForEasyProfilerAsync([FromQuery] AdvancedFilterModel model,[FromServices] IEasyProfilerService easyProfilerService)
+        public async Task<IActionResult> AdvancedFilterForEasyProfilerAsync([FromQuery] AdvancedFilterModel model,[FromServices]IEasyProfilerBaseService<ProfilerDbContext> baseService)
         {
-            return Ok(await easyProfilerService.AdvancedFilterAsync(model));
+            return Ok(await baseService.AdvancedFilterAsync(model));
         }
     }
 }

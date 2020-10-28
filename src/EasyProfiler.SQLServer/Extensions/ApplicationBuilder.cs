@@ -25,7 +25,6 @@ namespace EasyProfiler.SQLServer.Extensions
         /// </param>
         public static void ApplyEasyProfilerSQLServer(this IApplicationBuilder app, ProfilerDbContext dbContext)
         {
-            var migrations = dbContext.Database.GetPendingMigrations();
             dbContext.Database.Migrate();
         }
     }
