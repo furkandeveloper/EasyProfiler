@@ -20,13 +20,17 @@
 
 	<ItemGroup>
 		<PackageReference Include="AspNetCore.MarkdownDocumenting" Version="2.0.0" />
-		<PackageReference Include="EasyProfiler.SQLServer" Version="1.0.0" />
+		<!--<PackageReference Include="EasyProfiler.SQLServer" Version="1.0.0" />-->
 		<PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.9">
 			<PrivateAssets>all</PrivateAssets>
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
 		<PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.10.9" />
 		<PackageReference Include="Swashbuckle.AspNetCore" Version="5.0.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\..\src\EasyProfiler.SQLServer\EasyProfiler.SQLServer.csproj" />
 	</ItemGroup>
 
 	<ItemGroup>
