@@ -157,7 +157,8 @@ var queryProfilers = await easyProfilerService.AdvancedFilterAsync(new AdvancedF
 
 * [ ] PostgreSQL support.
 * [ ] MySQL support.
-* [ ] MariaDB support.
+* [x] MariaDB support.
+* [x] SQLServer support.
 * [ ] MongoDB support.
 * [ ] QueryType. (For Example : `Select`,`Insert`,`Update`,`Delete`)
 * [ ] Request Path. (For Example : "customer/getCustomer?fullname=sample")
