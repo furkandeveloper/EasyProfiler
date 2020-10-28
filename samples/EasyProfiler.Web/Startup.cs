@@ -1,4 +1,3 @@
-using EasyProfiler.SQLServer.Abstractions;
 using EasyProfiler.SQLServer.Context;
 using EasyProfiler.SQLServer.Extensions;
 using EasyProfiler.SQLServer.Interceptors;
