@@ -1,6 +1,5 @@
 ﻿using System.Linq;
 using EasyProfiler.Core.Abstractions;
-using EasyProfiler.MariaDb.Abstractions;
 using EasyProfiler.MariaDb.Context;
 using EasyProfiler.MariaDb.Interceptors;
 using Microsoft.EntityFrameworkCore;

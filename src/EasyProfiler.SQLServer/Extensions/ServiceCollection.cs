@@ -1,7 +1,5 @@
 ﻿using EasyProfiler.Core.Abstractions;
 using EasyProfiler.Core.Concrete;
-using EasyProfiler.SQLServer.Abstractions;
-using EasyProfiler.SQLServer.Concrete;
 using EasyProfiler.SQLServer.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;

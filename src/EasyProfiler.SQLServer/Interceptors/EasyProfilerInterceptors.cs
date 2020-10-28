@@ -1,5 +1,4 @@
 ﻿using EasyProfiler.Core.Abstractions;
-using EasyProfiler.SQLServer.Abstractions;
 using EasyProfiler.SQLServer.Context;
 using Microsoft.EntityFrameworkCore.Diagnostics;
 using System;
