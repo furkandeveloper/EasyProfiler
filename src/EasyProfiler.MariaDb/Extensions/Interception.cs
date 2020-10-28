@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using EasyProfiler.Core.Abstractions;
 using EasyProfiler.MariaDb.Abstractions;
 using EasyProfiler.MariaDb.Context;
 using EasyProfiler.MariaDb.Interceptors;
@@ -24,7 +25,7 @@ namespace EasyProfiler.MariaDb.Extensions
         /// </returns>
         public static DbContextOptionsBuilder AddEasyProfiler(this DbContextOptionsBuilder optionsBuilder, IServiceCollection services)
         {
-            optionsBuilder.AddInterceptors(new EasyProfilerInterceptors(services.BuildServiceProvider().GetService<IEasyProfilerService>()));   
+            optionsBuilder.AddInterceptors(new EasyProfilerInterceptors(services.BuildServiceProvider().GetService<IEasyProfilerBaseService<ProfilerDbContext>>()));
             return optionsBuilder;
         }
     }
