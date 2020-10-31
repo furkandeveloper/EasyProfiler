@@ -114,7 +114,7 @@ Run your application and check your db. Must be created `Profiler` entity.
 ## Watch Queries with AdvancedFilter
 
 #### Usage
-Get `EasyProfilerService` From Dependency Injection.
+Get `IEasyProfilerBaseService<ProfilerDbContext>` From Dependency Injection.
 
 ```csharp
 var queryProfilers = await easyProfilerService.AdvancedFilterAsync(new AdvancedFilterModel()
@@ -157,7 +157,9 @@ var queryProfilers = await easyProfilerService.AdvancedFilterAsync(new AdvancedF
 
 * [ ] PostgreSQL support.
 * [ ] MySQL support.
-* [ ] MariaDB support.
+* [x] MariaDB support.
+* [x] SQLServer support.
 * [ ] MongoDB support.
 * [ ] QueryType. (For Example : `Select`,`Insert`,`Update`,`Delete`)
 * [ ] Request Path. (For Example : "customer/getCustomer?fullname=sample")
+* [ ] Dashboard UI Support.
