@@ -192,6 +192,10 @@ var queryProfilers = await easyProfilerService.AdvancedFilterAsync(new AdvancedF
   }
 ]
 ```
+You can try it !! [Sample Project](https://easy-profiler.herokuapp.com/Docs/)
+
+![README-Mozilla-Firefox-2020-11-0](https://user-images.githubusercontent.com/47147484/97806125-17b8d680-1c6b-11eb-8ce4-d5e107f2903c.gif)
+
 
 ## RoadMap
 
