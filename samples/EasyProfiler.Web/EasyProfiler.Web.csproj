@@ -8,11 +8,12 @@
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-	  <DocumentationFile>D:\PublicRepository\EasyProfiler\EasyProfiler\samples\EasyProfiler.Web\EasyProfiler.Web.xml</DocumentationFile>
+    <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\$(AssemblyName).xml</DocumentationFile>
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="AspNetCore.MarkdownDocumenting" Version="2.0.0" />
+		<PackageReference Include="AspNetCore.MarkdownDocumenting" Version="2.1.2" />
+		<PackageReference Include="AutoFilterer.Swagger" Version="2.2.0" />
 		<!--<PackageReference Include="EasyProfiler.SQLServer" Version="1.0.0" />-->
 		<PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.9">
 			<PrivateAssets>all</PrivateAssets>
