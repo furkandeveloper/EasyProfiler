@@ -11,6 +11,8 @@
 ![Nuget](https://img.shields.io/nuget/v/EasyProfiler.SQLServer?label=SQLServer)
 ![Nuget](https://img.shields.io/nuget/dt/EasyProfiler.MariaDb?label=MariaDb%20Downloads)
 ![Nuget](https://img.shields.io/nuget/v/EasyProfiler.MariaDb?label=MariaDb)
+![Nuget](https://img.shields.io/nuget/dt/EasyProfiler.PostgreSQL?label=PostgreSQL%20Downloads)
+![Nuget](https://img.shields.io/nuget/v/EasyProfiler.PostgreSQL?label=PostgreSQL)
 [![Maintainability](https://api.codeclimate.com/v1/badges/7da8a3efef94f523f2c1/maintainability)](https://codeclimate.com/github/furkandeveloper/EasyProfiler/maintainability)
 
 ## Easy Profiler
