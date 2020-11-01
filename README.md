@@ -111,7 +111,7 @@ public void Configure(IApplicationBuilder app, IWebHostEnvironment env, Profiler
 
 Run your application and check your db. Must be created `Profiler` entity.
 
-### Sample for MariaDb
+### Sample for PostgreSQL
 Install `EasyProfiler.PostgreSQL` from [Nuget Package](https://www.nuget.org/packages/EasyProfiler.PostgreSQL/)
 
 Initilaze `EasyProfilerDbContext` in `Startup.cs` to save the results.
