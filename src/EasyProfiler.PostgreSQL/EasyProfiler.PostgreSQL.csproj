@@ -2,6 +2,12 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
+    <Description>This repo, provides query profiler for EF Core.</Description>
+    <RepositoryUrl>https://github.com/furkandeveloper/EasyProfiler</RepositoryUrl>
+    <PackageTags>sql-server, profiler, query-profiler,query-analyzer</PackageTags>
+    <PackageReleaseNotes>✨Supported PostgreSQL</PackageReleaseNotes>
+    <PackageIcon>easyProfilerSQLServer.png</PackageIcon>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
 
 	<ItemGroup>
@@ -16,6 +22,13 @@
 	<ItemGroup>
 	  <ProjectReference Include="..\EasyProfiler.Core\EasyProfiler.Core.csproj" />
 	  <ProjectReference Include="..\EasyProfiler.Entities\EasyProfiler.Entities.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Include="C:\Users\furka\OneDrive\Masaüstü\easyProfilerSQLServer.png">
+	    <Pack>True</Pack>
+	    <PackagePath></PackagePath>
+	  </None>
 	</ItemGroup>
 
 </Project>
