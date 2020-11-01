@@ -11,7 +11,8 @@
 ![Nuget](https://img.shields.io/nuget/v/EasyProfiler.SQLServer?label=SQLServer)
 ![Nuget](https://img.shields.io/nuget/dt/EasyProfiler.MariaDb?label=MariaDb%20Downloads)
 ![Nuget](https://img.shields.io/nuget/v/EasyProfiler.MariaDb?label=MariaDb)
-[![Maintainability](https://api.codeclimate.com/v1/badges/7da8a3efef94f523f2c1/maintainability)](https://codeclimate.com/github/furkandeveloper/EasyProfiler/maintainability)
+![Nuget](https://img.shields.io/nuget/dt/EasyProfiler.PostgreSQL?label=PostgreSQL%20Downloads)
+![Nuget](https://img.shields.io/nuget/v/EasyProfiler.PostgreSQL?label=PostgreSQL)
 
 ## Easy Profiler
 Welcome EasyProfiler documentation.
@@ -28,7 +29,7 @@ It uses the `ProfilerDbContext` object to store the results.
 ### Supported Databases
 
 * [x] SQL Server
-* [ ] PostgreSQL
+* [x] PostgreSQL
 * [x] MariaDb
 * [ ] MySQL
 * [ ] MongoDB
@@ -111,6 +112,45 @@ public void Configure(IApplicationBuilder app, IWebHostEnvironment env, Profiler
 
 Run your application and check your db. Must be created `Profiler` entity.
 
+### Sample for PostgreSQL
+Install `EasyProfiler.PostgreSQL` from [Nuget Package](https://www.nuget.org/packages/EasyProfiler.PostgreSQL/)
+
+Initilaze `EasyProfilerDbContext` in `Startup.cs` to save the results.
+#### Sample
+```csharp
+services.AddEasyProfilerDbContext(options =>
+{
+    options.UseNpsql(Configuration.GetConnectionString("DefaultConnection"));
+});
+```
+
+and `EasyProfilerInterceptor` extensions add for own `DbContext`.
+
+#### Sample
+```csharp
+services.AddDbContext<SampleDbContext>(options =>
+{
+    options.UseNpsql(Configuration.GetConnectionString("DefaultConnection"))
+    .AddEasyProfiler(services);
+});
+```
+
+### Migrations
+Use the `ApplyEasyProfilerPostgreSQL` extension method for pending migrations.
+
+#### Sample
+
+```csharp
+public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ProfilerDbContext profilerDbContext)
+{
+    app.ApplyEasyProfilerPostgreSQL(profilerDbContext);
+}
+```
+
+<hr/>
+
+Run your application and check your db. Must be created `Profiler` entity.
+
 ## Watch Queries with AdvancedFilter
 
 #### Usage
@@ -155,7 +195,7 @@ var queryProfilers = await easyProfilerService.AdvancedFilterAsync(new AdvancedF
 
 ## RoadMap
 
-* [ ] PostgreSQL support.
+* [x] PostgreSQL support.
 * [ ] MySQL support.
 * [x] MariaDB support.
 * [x] SQLServer support.
