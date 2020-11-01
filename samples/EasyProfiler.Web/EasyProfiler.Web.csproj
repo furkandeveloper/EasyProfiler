@@ -12,13 +12,6 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<Compile Remove="Migrations\20201020192529_AddUpdateDateField.cs" />
-		<Compile Remove="Migrations\20201020192529_AddUpdateDateField.Designer.cs" />
-		<Compile Remove="Migrations\20201020192828_AddUpdateDateField.cs" />
-		<Compile Remove="Migrations\20201020192828_AddUpdateDateField.Designer.cs" />
-	</ItemGroup>
-
-	<ItemGroup>
 		<PackageReference Include="AspNetCore.MarkdownDocumenting" Version="2.0.0" />
 		<!--<PackageReference Include="EasyProfiler.SQLServer" Version="1.0.0" />-->
 		<PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.9">
@@ -30,7 +23,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\..\src\EasyProfiler.SQLServer\EasyProfiler.SQLServer.csproj" />
+	  <ProjectReference Include="..\..\src\EasyProfiler.PostgreSQL\EasyProfiler.PostgreSQL.csproj" />
 	</ItemGroup>
 
 	<ItemGroup>
