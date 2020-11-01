@@ -20,7 +20,7 @@
             List of customers.
             </returns>
         </member>
-        <member name="M:EasyProfiler.Web.Controllers.DefaultController.AdvancedFilterForEasyProfilerAsync(EasyProfiler.Core.Helpers.AdvancedQuery.AdvancedFilterModel,EasyProfiler.Core.Abstractions.IEasyProfilerBaseService{EasyProfiler.SQLServer.Context.ProfilerDbContext})">
+        <member name="M:EasyProfiler.Web.Controllers.DefaultController.AdvancedFilterForEasyProfilerAsync(EasyProfiler.Core.Helpers.AdvancedQuery.AdvancedFilterModel,EasyProfiler.Core.Abstractions.IEasyProfilerBaseService{EasyProfiler.PostgreSQL.Context.ProfilerDbContext})">
             <summary>
             Advanced filter for easy profiler.
             </summary>

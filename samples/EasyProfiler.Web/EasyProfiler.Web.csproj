@@ -23,7 +23,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\..\src\EasyProfiler.SQLServer\EasyProfiler.SQLServer.csproj" />
+	  <ProjectReference Include="..\..\src\EasyProfiler.PostgreSQL\EasyProfiler.PostgreSQL.csproj" />
 	</ItemGroup>
 
 	<ItemGroup>

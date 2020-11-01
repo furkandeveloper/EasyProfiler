@@ -1,6 +1,5 @@
-using EasyProfiler.SQLServer.Context;
-using EasyProfiler.SQLServer.Extensions;
-using EasyProfiler.SQLServer.Interceptors;
+using EasyProfiler.PostgreSQL.Context;
+using EasyProfiler.PostgreSQL.Extensions;
 using MarkdownDocumenting.Extensions;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -40,13 +39,13 @@ namespace EasyProfiler.Web
             
             services.AddDbContext<SampleDbContext>(options =>
             {
-                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"))
+                options.UseNpgsql(Configuration.GetConnectionString("DefaultConnection"))
                 .AddEasyProfiler(services);
             });
 
             services.AddEasyProfilerDbContext(options =>
             {
-                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
+                options.UseNpgsql(Configuration.GetConnectionString("DefaultConnection"));
             });
 
             services.AddSwaggerGen(options =>
@@ -78,7 +77,7 @@ namespace EasyProfiler.Web
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ProfilerDbContext profilerDbContext)
         {
-            app.ApplyEasyProfilerSQLServer(profilerDbContext);
+            app.ApplyEasyProfilerPostgreSQL(profilerDbContext);
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
