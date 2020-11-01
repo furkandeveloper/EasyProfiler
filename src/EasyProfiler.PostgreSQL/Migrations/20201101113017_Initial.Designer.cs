@@ -10,7 +10,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace EasyProfiler.PostgreSQL.Migrations
 {
     [DbContext(typeof(ProfilerDbContext))]
-    [Migration("20201101103107_Initial")]
+    [Migration("20201101113017_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -18,7 +18,7 @@ namespace EasyProfiler.PostgreSQL.Migrations
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn)
-                .HasAnnotation("ProductVersion", "3.1.8")
+                .HasAnnotation("ProductVersion", "3.1.9")
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
             modelBuilder.Entity("EasyProfiler.Entities.Profiler", b =>
@@ -27,8 +27,8 @@ namespace EasyProfiler.PostgreSQL.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
-                    b.Property<TimeSpan>("Duration")
-                        .HasColumnType("time");
+                    b.Property<long>("Duration")
+                        .HasColumnType("bigint");
 
                     b.Property<string>("Query")
                         .IsRequired()
