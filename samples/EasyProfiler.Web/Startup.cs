@@ -1,3 +1,4 @@
+using AutoFilterer.Swagger;
 using EasyProfiler.PostgreSQL.Context;
 using EasyProfiler.PostgreSQL.Extensions;
 using MarkdownDocumenting.Extensions;
@@ -61,6 +62,7 @@ namespace EasyProfiler.Web
                         Url = new Uri("https://github.com/furkandeveloper/EasyProfiler")
                     }
                 });
+                options.UseAutoFiltererParameters();
                 var docFile = $"{Assembly.GetEntryAssembly().GetName().Name}.xml";
                 var filePath = Path.Combine(AppContext.BaseDirectory, docFile);
 
