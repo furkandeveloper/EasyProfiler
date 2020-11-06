@@ -13,6 +13,7 @@
 ![Nuget](https://img.shields.io/nuget/v/EasyProfiler.MariaDb?label=MariaDb)
 ![Nuget](https://img.shields.io/nuget/dt/EasyProfiler.PostgreSQL?label=PostgreSQL%20Downloads)
 ![Nuget](https://img.shields.io/nuget/v/EasyProfiler.PostgreSQL?label=PostgreSQL)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## Easy Profiler
 Welcome EasyProfiler documentation.
