@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace EasyProfiler.SQLServer.Migrations
 {
-    public partial class Initial : Migration
+    public partial class ChangeDurationDataType : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -13,7 +13,7 @@ namespace EasyProfiler.SQLServer.Migrations
                 {
                     Id = table.Column<Guid>(nullable: false),
                     Query = table.Column<string>(nullable: false),
-                    Duration = table.Column<TimeSpan>(type: "time(7)", nullable: false)
+                    Duration = table.Column<long>(type: "bigint", nullable: false)
                 },
                 constraints: table =>
                 {

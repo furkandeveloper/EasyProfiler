@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EasyProfiler.SQLServer.Migrations
 {
     [DbContext(typeof(ProfilerDbContext))]
-    [Migration("20201021172101_ChangeDurationType")]
-    partial class ChangeDurationType
+    [Migration("20201107194601_ChangeDurationDataType")]
+    partial class ChangeDurationDataType
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -27,8 +27,8 @@ namespace EasyProfiler.SQLServer.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<TimeSpan>("Duration")
-                        .HasColumnType("time");
+                    b.Property<long>("Duration")
+                        .HasColumnType("bigint");
 
                     b.Property<string>("Query")
                         .IsRequired()
