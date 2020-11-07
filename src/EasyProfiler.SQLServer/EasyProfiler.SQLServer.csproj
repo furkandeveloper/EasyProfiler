@@ -6,11 +6,11 @@
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <Description>This repo, provides query profiler for EF Core.</Description>
     <PackageTags>sql-server, profiler, query-profiler,query-analyzer</PackageTags>
-    <PackageReleaseNotes>Move service layer EasyProfiler.SQLServer to EasyProfiler.Core</PackageReleaseNotes>
+    <PackageReleaseNotes>Change `Duration` field data type from `time` to `bigint` for SQL Server provider.</PackageReleaseNotes>
     <PackageIcon>easyProfilerSQLServer.png</PackageIcon>
     <RepositoryUrl>https://github.com/furkandeveloper/EasyProfiler</RepositoryUrl>
     <Authors>furkandeveloper</Authors>
-    <Version>1.1.0</Version>
+    <Version>1.2.0</Version>
   </PropertyGroup>
 
   <ItemGroup>
