@@ -1,5 +1,6 @@
 ﻿using EasyProfiler.Entities;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -42,7 +43,8 @@ namespace EasyProfiler.SQLServer.Context
 
                 entity
                     .Property(p => p.Duration)
-                    .HasColumnType("time");
+                    .HasColumnType("bigint")
+                    .HasConversion(new TimeSpanToTicksConverter());
             });
             base.OnModelCreating(modelBuilder);
         }
