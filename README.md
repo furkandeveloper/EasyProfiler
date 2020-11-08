@@ -32,7 +32,7 @@ It uses the `ProfilerDbContext` object to store the results.
 * [x] SQL Server
 * [x] PostgreSQL
 * [x] MariaDb
-* [ ] MySQL
+* [x] MySQL
 * [ ] MongoDB
 
 ### Sample for SQL Server
@@ -201,7 +201,7 @@ You can try it !! [Sample Project](https://easy-profiler.herokuapp.com/Docs/)
 ## RoadMap
 
 * [x] PostgreSQL support.
-* [ ] MySQL support.
+* [x] MySQL support.
 * [x] MariaDB support.
 * [x] SQLServer support.
 * [ ] MongoDB support.
