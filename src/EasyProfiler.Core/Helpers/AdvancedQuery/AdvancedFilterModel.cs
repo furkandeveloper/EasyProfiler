@@ -23,10 +23,5 @@ namespace EasyProfiler.Core.Helpers.AdvancedQuery
         /// </summary>
         [ToLowerContainsComparison]
         public string Query { get; set; }
-
-        /// <summary>
-        /// Query duration.
-        /// </summary>
-        public Range<TimeSpan> Duration { get; set; }
     }
 }
