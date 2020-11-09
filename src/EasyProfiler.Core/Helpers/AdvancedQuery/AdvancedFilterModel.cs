@@ -23,5 +23,11 @@ namespace EasyProfiler.Core.Helpers.AdvancedQuery
         /// </summary>
         [ToLowerContainsComparison]
         public string Query { get; set; }
+
+        /// <summary>
+        /// Request Url
+        /// </summary>
+        [ToLowerContainsComparison]
+        public string RequestUrl { get; set; }
     }
 }
