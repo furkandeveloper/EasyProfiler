@@ -12,5 +12,7 @@ namespace EasyProfiler.Entities
         public string Query { get; set; }
 
         public TimeSpan Duration { get; set; }
+
+        public string RequestUrl { get; set; } = "/";
     }
 }
