@@ -3,15 +3,17 @@ using System;
 using EasyProfiler.PostgreSQL.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace EasyProfiler.PostgreSQL.Migrations
 {
     [DbContext(typeof(ProfilerDbContext))]
-    partial class ProfilerDbContextModelSnapshot : ModelSnapshot
+    [Migration("20201109183336_AddRequestUrl")]
+    partial class AddRequestUrl
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
