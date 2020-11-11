@@ -35,9 +35,8 @@ namespace EasyProfiler.Core.Concrete
                     RequestUrl = s.Key,
                     Count = s.Count(),
                     AvarageDurationTime = new TimeSpan(s.Sum(a => a.Duration) / s.Count())
-                }).OrderByDescending(x=>x.AvarageDurationTime)
-                .ToListAsync();
-            return data;
+                }).ToListAsync();
+            return data.OrderByDescending(x=>x.AvarageDurationTime).ToList();
         }
 
         public async Task InsertAsync(Profiler profiler)
