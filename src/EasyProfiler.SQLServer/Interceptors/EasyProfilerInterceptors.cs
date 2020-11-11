@@ -1,4 +1,5 @@
 ﻿using EasyProfiler.Core.Abstractions;
+using EasyProfiler.Core.Entities;
 using EasyProfiler.SQLServer.Context;
 using Microsoft.EntityFrameworkCore.Diagnostics;
 using System;
@@ -21,10 +22,10 @@ namespace EasyProfiler.SQLServer.Interceptors
 
         public override InterceptionResult DataReaderDisposing(DbCommand command, DataReaderDisposingEventData eventData, InterceptionResult result)
         {
-            Task.Run(() => baseService.InsertAsync(new Entities.Profiler()
+            Task.Run(() => baseService.InsertAsync(new Profiler()
             {
                 Query = command.CommandText,
-                Duration = eventData.Duration
+                Duration = eventData.Duration.Ticks
             }));
             return base.DataReaderDisposing(command, eventData, result);
         }
