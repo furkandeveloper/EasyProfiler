@@ -23,9 +23,5 @@
 	    <PackagePath></PackagePath>
 	  </None>
 	</ItemGroup>
-
-	<ItemGroup>
-	  <ProjectReference Include="..\EasyProfiler.Entities\EasyProfiler.Entities.csproj" />
-	</ItemGroup>
 	
 </Project>
