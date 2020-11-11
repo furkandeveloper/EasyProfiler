@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
@@ -6,7 +6,11 @@
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <Description>This repo, provides query profiler for EF Core.</Description>
     <PackageTags>mariadb, profiler, query-profiler,query-analyzer</PackageTags>
-    <PackageReleaseNotes>Move service layer EasyProfiler.MariaDb to EasyProfiler.Core</PackageReleaseNotes>
+	  <PackageReleaseNotes>
+		  *♻️ Move Profiler entity from EasyProfiler.Entites to EasyProfiler.Core
+		  *✨ Add RequestUrl feature.
+		  *✨ Add SlowestEndpoint feature.
+	  </PackageReleaseNotes>
     <PackageIcon>easyProfilerMariaDb.png</PackageIcon>
     <RepositoryUrl>https://github.com/furkandeveloper/EasyProfiler</RepositoryUrl>
     <Authors>furkandeveloper</Authors>
