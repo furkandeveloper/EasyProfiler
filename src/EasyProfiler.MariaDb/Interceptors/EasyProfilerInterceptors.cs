@@ -20,7 +20,7 @@ namespace EasyProfiler.MariaDb.Interceptors
             Task.Run(() => baseService.InsertAsync(new Entities.Profiler()
             {
                 Query = command.CommandText,
-                Duration = eventData.Duration
+                Duration = eventData.Duration.Ticks
             }));
             return base.DataReaderDisposing(command, eventData, result);
         }
