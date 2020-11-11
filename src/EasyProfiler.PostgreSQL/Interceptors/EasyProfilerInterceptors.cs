@@ -1,4 +1,5 @@
 ﻿using EasyProfiler.Core.Abstractions;
+using EasyProfiler.Core.Entities;
 using EasyProfiler.PostgreSQL.Context;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore.Diagnostics;
@@ -38,9 +39,9 @@ namespace EasyProfiler.PostgreSQL.Interceptors
         /// <returns></returns>
         public override InterceptionResult DataReaderDisposing(DbCommand command, DataReaderDisposingEventData eventData, InterceptionResult result)
         {
-            Task.Run(() => baseService.InsertAsync(new Entities.Profiler
+            Task.Run(() => baseService.InsertAsync(new Profiler
             {
-                Duration = eventData.Duration,
+                Duration = eventData.Duration.Ticks,
                 Query = command.CommandText,
                 RequestUrl = httpContextAccessor?.HttpContext?.Request?.Path.Value
             }));
