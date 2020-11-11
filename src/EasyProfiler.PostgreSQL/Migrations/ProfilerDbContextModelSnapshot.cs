@@ -32,6 +32,9 @@ namespace EasyProfiler.PostgreSQL.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
+                    b.Property<string>("RequestUrl")
+                        .HasColumnType("text");
+
                     b.HasKey("Id");
 
                     b.HasIndex("Duration");

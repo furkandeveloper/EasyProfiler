@@ -73,5 +73,20 @@ namespace EasyProfiler.Web.Controllers
         {
             return Ok(await baseService.AdvancedFilterAsync(model));
         }
+
+        /// <summary>
+        /// Find slowest endpoint.
+        /// </summary>
+        /// <param name="baseService">
+        /// EasyProfilerBaseService
+        /// </param>
+        /// <returns>
+        /// List of SlowestEndpointResponseModel.
+        /// </returns>
+        [HttpGet("SlowestEndpoint")]
+        public async Task<IActionResult> SlowestEndpointAsync([FromServices] IEasyProfilerBaseService<ProfilerDbContext> baseService)
+        {
+             return Ok(await baseService.GetSlowestEndpointsAsync());
+        }
     }
 }
