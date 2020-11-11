@@ -1,8 +1,8 @@
 ﻿using AutoFilterer.Extensions;
 using EasyProfiler.Core.Abstractions;
+using EasyProfiler.Core.Entities;
 using EasyProfiler.Core.Helpers.AdvancedQuery;
 using EasyProfiler.Core.Helpers.Responses;
-using EasyProfiler.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Diagnostics;
 using System;
