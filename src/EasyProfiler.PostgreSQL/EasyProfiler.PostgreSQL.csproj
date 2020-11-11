@@ -21,7 +21,6 @@
 
 	<ItemGroup>
 	  <ProjectReference Include="..\EasyProfiler.Core\EasyProfiler.Core.csproj" />
-	  <ProjectReference Include="..\EasyProfiler.Entities\EasyProfiler.Entities.csproj" />
 	</ItemGroup>
 
 	<ItemGroup>
