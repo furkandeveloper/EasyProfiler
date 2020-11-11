@@ -1,4 +1,5 @@
-﻿using EasyProfiler.Entities;
+﻿using EasyProfiler.Core.Entities;
+using EasyProfiler.Core.Helpers.Generators;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using System;
@@ -40,11 +41,10 @@ namespace EasyProfiler.SQLServer.Context
                 entity
                     .Property(p => p.Query)
                     .IsRequired();
-
+                
                 entity
                     .Property(p => p.Duration)
-                    .HasColumnType("bigint")
-                    .HasConversion(new TimeSpanToTicksConverter());
+                    .HasColumnType("bigint");
             });
             base.OnModelCreating(modelBuilder);
         }
