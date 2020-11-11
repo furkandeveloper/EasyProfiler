@@ -1,5 +1,7 @@
 ﻿using EasyProfiler.Core.Abstractions;
+using EasyProfiler.Core.Entities;
 using EasyProfiler.PostgreSQL.Context;
+using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore.Diagnostics;
 using System;
 using System.Collections.Generic;
@@ -15,10 +17,12 @@ namespace EasyProfiler.PostgreSQL.Interceptors
     public class EasyProfilerInterceptors : DbCommandInterceptor
     {
         private readonly IEasyProfilerBaseService<ProfilerDbContext> baseService;
+        private readonly IHttpContextAccessor httpContextAccessor;
 
-        public EasyProfilerInterceptors(IEasyProfilerBaseService<ProfilerDbContext> baseService)
+        public EasyProfilerInterceptors(IEasyProfilerBaseService<ProfilerDbContext> baseService,IHttpContextAccessor httpContextAccessor)
         {
             this.baseService = baseService;
+            this.httpContextAccessor = httpContextAccessor;
         }
         /// <summary>
         /// Data reader Disposing.
@@ -35,10 +39,11 @@ namespace EasyProfiler.PostgreSQL.Interceptors
         /// <returns></returns>
         public override InterceptionResult DataReaderDisposing(DbCommand command, DataReaderDisposingEventData eventData, InterceptionResult result)
         {
-            Task.Run(() => baseService.InsertAsync(new Entities.Profiler
+            Task.Run(() => baseService.InsertAsync(new Profiler
             {
-                Duration = eventData.Duration,
-                Query = command.CommandText
+                Duration = eventData.Duration.Ticks,
+                Query = command.CommandText,
+                RequestUrl = httpContextAccessor?.HttpContext?.Request?.Path.Value
             }));
             return base.DataReaderDisposing(command, eventData, result);
         }

@@ -1,6 +1,7 @@
 ﻿using EasyProfiler.Core.Abstractions;
 using EasyProfiler.PostgreSQL.Context;
 using EasyProfiler.PostgreSQL.Interceptors;
+using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using System;
@@ -25,7 +26,8 @@ namespace EasyProfiler.PostgreSQL.Extensions
         /// </returns>
         public static DbContextOptionsBuilder AddEasyProfiler(this DbContextOptionsBuilder optionsBuilder, IServiceCollection services)
         {
-            optionsBuilder.AddInterceptors(new EasyProfilerInterceptors(services.BuildServiceProvider().GetService<IEasyProfilerBaseService<ProfilerDbContext>>()));
+            var buildServices = services.BuildServiceProvider();
+            optionsBuilder.AddInterceptors(new EasyProfilerInterceptors(buildServices.GetService<IEasyProfilerBaseService<ProfilerDbContext>>(),buildServices.GetService<IHttpContextAccessor>()));
             return optionsBuilder;
         }
     }

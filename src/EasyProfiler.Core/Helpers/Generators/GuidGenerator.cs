@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace EasyProfiler.Entities
+namespace EasyProfiler.Core.Helpers.Generators
 {
     /// <summary>
     /// Guid value generator for primary key.

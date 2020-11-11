@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace EasyProfiler.Entities
+namespace EasyProfiler.Core.Entities
 {
     /// <summary>
     /// Profiler entity.
@@ -11,6 +11,8 @@ namespace EasyProfiler.Entities
     {
         public string Query { get; set; }
 
-        public TimeSpan Duration { get; set; }
+        public long Duration { get; set; }
+
+        public string RequestUrl { get; set; } = "/";
     }
 }

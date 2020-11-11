@@ -1,14 +1,20 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
-    <Description>This repo, provides query profiler for EF Core.</Description>
-    <RepositoryUrl>https://github.com/furkandeveloper/EasyProfiler</RepositoryUrl>
-    <PackageTags>sql-server, profiler, query-profiler,query-analyzer</PackageTags>
-    <PackageReleaseNotes>✨Supported PostgreSQL</PackageReleaseNotes>
-    <PackageIcon>easyProfilerPostgreSQL.png</PackageIcon>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>netcoreapp3.1</TargetFramework>
+		<Description>This repo, provides query profiler for EF Core.</Description>
+		<RepositoryUrl>https://github.com/furkandeveloper/EasyProfiler</RepositoryUrl>
+		<PackageTags>sql-server, profiler, query-profiler,query-analyzer</PackageTags>
+		<PackageReleaseNotes>
+			*♻️ Move Profiler entity from EasyProfiler.Entites to EasyProfiler.Core
+			*✨ Add RequestUrl feature.
+			*✨ Add SlowestEndpoint feature.
+		</PackageReleaseNotes>
+		<PackageIcon>easyProfilerPostgreSQL.png</PackageIcon>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		<Authors>furkandeveloper</Authors>
+		<Version>1.1.0</Version>
+	</PropertyGroup>
 
 	<ItemGroup>
 		<PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" />
@@ -20,8 +26,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\EasyProfiler.Core\EasyProfiler.Core.csproj" />
-	  <ProjectReference Include="..\EasyProfiler.Entities\EasyProfiler.Entities.csproj" />
+		<ProjectReference Include="..\EasyProfiler.Core\EasyProfiler.Core.csproj" />
 	</ItemGroup>
 
 	<ItemGroup>
