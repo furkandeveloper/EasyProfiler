@@ -10,7 +10,7 @@
     <PackageIcon>easyProfilerMariaDb.png</PackageIcon>
     <RepositoryUrl>https://github.com/furkandeveloper/EasyProfiler</RepositoryUrl>
     <Authors>furkandeveloper</Authors>
-    <Version>1.1.0</Version>
+    <Version>1.2.0</Version>
   </PropertyGroup>
 
   <ItemGroup>
