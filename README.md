@@ -196,6 +196,55 @@ var queryProfilers = await easyProfilerService.AdvancedFilterAsync(new AdvancedF
   }
 ]
 ```
+
+## Find slowest endpoint with EasyProfiler
+
+Get `IEasyProfilerBaseService<ProfilerDbContext>` From Dependency Injection.
+
+```csharp
+var slowetEndpoints = await easyProfilerService.GetSlowestEndpointsAsync();
+```
+
+#### Response
+```json
+[
+  {
+    "requestUrl": "/Default/GetAllCustomers",
+    "count": 25,
+    "avarageDurationTime": {
+      "ticks": 664882,
+      "days": 0,
+      "hours": 0,
+      "milliseconds": 66,
+      "minutes": 0,
+      "seconds": 0,
+      "totalDays": 7.695393518518518e-7,
+      "totalHours": 0.000018468944444444444,
+      "totalMilliseconds": 66.4882,
+      "totalMinutes": 0.0011081366666666668,
+      "totalSeconds": 0.0664882
+    }
+  },
+  {
+    "requestUrl": "/Default/InsertCustomers",
+    "count": 6,
+    "avarageDurationTime": {
+      "ticks": 44127,
+      "days": 0,
+      "hours": 0,
+      "milliseconds": 4,
+      "minutes": 0,
+      "seconds": 0,
+      "totalDays": 5.107291666666667e-8,
+      "totalHours": 0.00000122575,
+      "totalMilliseconds": 4.4127,
+      "totalMinutes": 0.000073545,
+      "totalSeconds": 0.0044127
+    }
+  }
+]
+```
+
 You can try it !! [Sample Project](https://easy-profiler.herokuapp.com/Docs/)
 
 ![README-Mozilla-Firefox-2020-11-0](https://user-images.githubusercontent.com/47147484/97806125-17b8d680-1c6b-11eb-8ce4-d5e107f2903c.gif)
