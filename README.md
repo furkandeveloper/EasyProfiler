@@ -258,5 +258,5 @@ You can try it !! [Sample Project](https://easy-profiler.herokuapp.com/Docs/)
 * [x] SQLServer support.
 * [ ] MongoDB support.
 * [ ] QueryType. (For Example : `Select`,`Insert`,`Update`,`Delete`)
-* [ ] Request Path. (For Example : "customer/getCustomer?fullname=sample")
+* [x] Request Path. (For Example : "customer/getCustomer?fullname=sample")
 * [ ] Dashboard UI Support.
