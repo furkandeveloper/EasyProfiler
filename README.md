@@ -16,7 +16,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## Give a Star 🌟
-If you liked the project or if EasyProfiler helped you, please give a star 
+If you liked the project or if EasyProfiler helped you, please give a star.
 
 ## Easy Profiler
 Welcome EasyProfiler documentation.
