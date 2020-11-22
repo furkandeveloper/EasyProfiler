@@ -14,5 +14,7 @@ namespace EasyProfiler.Core.Entities
         public long Duration { get; set; }
 
         public string RequestUrl { get; set; } = "/";
+
+        public QueryType QueryType { get; set; }
     }
 }
