@@ -45,6 +45,11 @@ namespace EasyProfiler.SQLServer.Context
                 entity
                     .Property(p => p.Duration)
                     .HasColumnType("bigint");
+
+                entity
+                    .Property(p => p.QueryType)
+                    .HasDefaultValue(QueryType.NONE)
+                    .IsRequired();
             });
             base.OnModelCreating(modelBuilder);
         }
