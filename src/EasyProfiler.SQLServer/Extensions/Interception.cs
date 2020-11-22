@@ -9,6 +9,7 @@ using System.Text;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore.ChangeTracking.Internal;
 using EasyProfiler.Core.Abstractions;
+using Microsoft.AspNetCore.Http;
 
 namespace EasyProfiler.SQLServer.Extensions
 {
@@ -28,7 +29,8 @@ namespace EasyProfiler.SQLServer.Extensions
         /// </returns>
         public static DbContextOptionsBuilder AddEasyProfiler(this DbContextOptionsBuilder optionsBuilder, IServiceCollection services)
         {
-            optionsBuilder.AddInterceptors(new EasyProfilerInterceptors(services.BuildServiceProvider().GetService<IEasyProfilerBaseService<ProfilerDbContext>>()));
+            var buildServices = services.BuildServiceProvider();
+            optionsBuilder.AddInterceptors(new EasyProfilerInterceptors(buildServices.GetService<IEasyProfilerBaseService<ProfilerDbContext>>(), buildServices.GetService<IHttpContextAccessor>()));
             return optionsBuilder;
         }
     }
