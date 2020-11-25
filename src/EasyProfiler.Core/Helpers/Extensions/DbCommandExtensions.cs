@@ -25,18 +25,18 @@ namespace EasyProfiler.Core.Helpers.Extensions
         public static QueryType FindQueryType(this DbCommand dbCommand)
         {
             QueryType queryType = QueryType.NONE;
-            switch (dbCommand.CommandText.Split(' ')[0])
+            switch (dbCommand.CommandText.Split(' ')[0].ToLowerInvariant())
             {
-                case "Select":
+                case "select":
                     queryType = QueryType.SELECT;
                     break;
-                case "Update":
+                case "update":
                     queryType = QueryType.UPDATE;
                     break;
-                case "Delete":
+                case "delete":
                     queryType = QueryType.DELETE;
                     break;
-                case "Insert":
+                case "insert":
                     queryType = QueryType.INSERT;
                     break;
                 default:
