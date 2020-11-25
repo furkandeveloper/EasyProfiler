@@ -1,5 +1,6 @@
 ﻿using EasyProfiler.Core.Abstractions;
 using EasyProfiler.Core.Entities;
+using EasyProfiler.Core.Helpers.Extensions;
 using EasyProfiler.PostgreSQL.Context;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore.Diagnostics;
@@ -40,30 +41,12 @@ namespace EasyProfiler.PostgreSQL.Interceptors
         /// <returns></returns>
         public override InterceptionResult DataReaderDisposing(DbCommand command, DataReaderDisposingEventData eventData, InterceptionResult result)
         {
-            QueryType queryType = QueryType.NONE;
-            switch (command.CommandText.Split(' ')[0])
-            {
-                case "Select":
-                    queryType = QueryType.SELECT;
-                    break;
-                case "Update":
-                    queryType = QueryType.UPDATE;
-                    break;
-                case "Delete":
-                    queryType = QueryType.DELETE;
-                    break;
-                case "Insert":
-                    queryType = QueryType.INSERT;
-                    break;
-                default:
-                    break;
-            }
             Task.Run(() => baseService.InsertAsync(new Profiler
             {
                 Duration = eventData.Duration.Ticks,
                 Query = command.CommandText,
                 RequestUrl = httpContextAccessor?.HttpContext?.Request?.Path.Value,
-                QueryType = queryType
+                QueryType = command.GetQueryType()
             }));
             return base.DataReaderDisposing(command, eventData, result);
         }
