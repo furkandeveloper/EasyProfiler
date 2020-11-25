@@ -172,7 +172,8 @@ var queryProfilers = await easyProfilerService.AdvancedFilterAsync(new AdvancedF
     PerPage = 15,
     Query = "Select", // <---- Contains
     SortBy = Sorting.Descending, // <---  Default value Sorting.Descending,
-    Sort = "Duration" // <--- Default value "Duration"
+    Sort = "Duration" // <--- Default value "Duration",
+    QueryType = QueryType.SELECT
 });
 ```
 
