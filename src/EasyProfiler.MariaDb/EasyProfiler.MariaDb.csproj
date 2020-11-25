@@ -7,15 +7,12 @@
     <Description>This repo, provides query profiler for EF Core.</Description>
     <PackageTags>mariadb, profiler, query-profiler,query-analyzer</PackageTags>
 	  <PackageReleaseNotes>
-		  *♻️ Move Profiler entity from EasyProfiler.Entites to EasyProfiler.Core
-		  *✨ Add RequestUrl feature.
-		  *✨ Add SlowestEndpoint feature.
-		  * 🐛 Fix RequestUrl sending data.
+		  *✨ Add QueryType feature.
 	  </PackageReleaseNotes>
     <PackageIcon>easyProfilerMariaDb.png</PackageIcon>
     <RepositoryUrl>https://github.com/furkandeveloper/EasyProfiler</RepositoryUrl>
     <Authors>furkandeveloper</Authors>
-    <Version>1.2.1</Version>
+    <Version>1.3.0</Version>
   </PropertyGroup>
 
   <ItemGroup>
