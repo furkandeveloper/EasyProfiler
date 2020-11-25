@@ -260,6 +260,6 @@ You can try it !! [Sample Project](https://easy-profiler.herokuapp.com/Docs/)
 * [x] MariaDB support.
 * [x] SQLServer support.
 * [ ] MongoDB support.
-* [ ] QueryType. (For Example : `Select`,`Insert`,`Update`,`Delete`)
+* [x] QueryType. (For Example : `Select`,`Insert`,`Update`,`Delete`)
 * [x] Request Path. (For Example : "customer/getCustomer?fullname=sample")
 * [ ] Dashboard UI Support.
