@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore.Diagnostics;
 using System;
 using System.Collections.Generic;
 using System.Data.Common;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -39,11 +40,30 @@ namespace EasyProfiler.PostgreSQL.Interceptors
         /// <returns></returns>
         public override InterceptionResult DataReaderDisposing(DbCommand command, DataReaderDisposingEventData eventData, InterceptionResult result)
         {
+            QueryType queryType = QueryType.NONE;
+            switch (command.CommandText.Split(' ')[0])
+            {
+                case "Select":
+                    queryType = QueryType.SELECT;
+                    break;
+                case "Update":
+                    queryType = QueryType.UPDATE;
+                    break;
+                case "Delete":
+                    queryType = QueryType.DELETE;
+                    break;
+                case "Insert":
+                    queryType = QueryType.INSERT;
+                    break;
+                default:
+                    break;
+            }
             Task.Run(() => baseService.InsertAsync(new Profiler
             {
                 Duration = eventData.Duration.Ticks,
                 Query = command.CommandText,
-                RequestUrl = httpContextAccessor?.HttpContext?.Request?.Path.Value
+                RequestUrl = httpContextAccessor?.HttpContext?.Request?.Path.Value,
+                QueryType = queryType
             }));
             return base.DataReaderDisposing(command, eventData, result);
         }
