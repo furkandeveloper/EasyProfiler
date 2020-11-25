@@ -1,5 +1,6 @@
 ﻿using EasyProfiler.Core.Abstractions;
 using EasyProfiler.Core.Entities;
+using EasyProfiler.Core.Helpers.Extensions;
 using EasyProfiler.SQLServer.Context;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore.Diagnostics;
@@ -29,7 +30,8 @@ namespace EasyProfiler.SQLServer.Interceptors
             {
                 Query = command.CommandText,
                 Duration = eventData.Duration.Ticks,
-                RequestUrl = httpContextAccessor?.HttpContext?.Request?.Path.Value
+                RequestUrl = httpContextAccessor?.HttpContext?.Request?.Path.Value,
+                QueryType = command.FindQueryType()
             }));
             return base.DataReaderDisposing(command, eventData, result);
         }

@@ -19,7 +19,7 @@ namespace EasyProfiler.SQLServer.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("EasyProfiler.Entities.Profiler", b =>
+            modelBuilder.Entity("EasyProfiler.Core.Entities.Profiler", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -29,6 +29,10 @@ namespace EasyProfiler.SQLServer.Migrations
                         .HasColumnType("bigint");
 
                     b.Property<string>("Query")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("QueryType")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 

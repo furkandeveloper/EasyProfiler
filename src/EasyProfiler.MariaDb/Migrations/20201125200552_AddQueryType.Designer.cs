@@ -3,14 +3,16 @@ using System;
 using EasyProfiler.MariaDb.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace EasyProfiler.MariaDb.Migrations
 {
     [DbContext(typeof(ProfilerDbContext))]
-    partial class ProfilerDbContextModelSnapshot : ModelSnapshot
+    [Migration("20201125200552_AddQueryType")]
+    partial class AddQueryType
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

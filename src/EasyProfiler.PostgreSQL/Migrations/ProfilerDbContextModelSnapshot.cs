@@ -16,10 +16,10 @@ namespace EasyProfiler.PostgreSQL.Migrations
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn)
-                .HasAnnotation("ProductVersion", "3.1.9")
+                .HasAnnotation("ProductVersion", "3.1.8")
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
-            modelBuilder.Entity("EasyProfiler.Entities.Profiler", b =>
+            modelBuilder.Entity("EasyProfiler.Core.Entities.Profiler", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -29,6 +29,10 @@ namespace EasyProfiler.PostgreSQL.Migrations
                         .HasColumnType("bigint");
 
                     b.Property<string>("Query")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("QueryType")
                         .IsRequired()
                         .HasColumnType("text");
 

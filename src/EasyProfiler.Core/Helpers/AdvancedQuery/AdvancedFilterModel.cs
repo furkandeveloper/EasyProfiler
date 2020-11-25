@@ -1,5 +1,6 @@
 ﻿using AutoFilterer.Attributes;
 using AutoFilterer.Types;
+using EasyProfiler.Core.Entities;
 using EasyProfiler.Core.Helpers.Attributes;
 using System;
 using System.Collections.Generic;
@@ -34,5 +35,10 @@ namespace EasyProfiler.Core.Helpers.AdvancedQuery
         /// Duration.
         /// </summary>
         public Range<long> Duration { get; set; }
+
+        /// <summary>
+        /// QueryType. For Example : Select, Update, Insert, Delete.
+        /// </summary>
+        public QueryType? QueryType { get; set; }
     }
 }

@@ -1,11 +1,13 @@
 ﻿using EasyProfiler.Core.Abstractions;
 using EasyProfiler.Core.Entities;
+using EasyProfiler.Core.Helpers.Extensions;
 using EasyProfiler.PostgreSQL.Context;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore.Diagnostics;
 using System;
 using System.Collections.Generic;
 using System.Data.Common;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -43,7 +45,8 @@ namespace EasyProfiler.PostgreSQL.Interceptors
             {
                 Duration = eventData.Duration.Ticks,
                 Query = command.CommandText,
-                RequestUrl = httpContextAccessor?.HttpContext?.Request?.Path.Value
+                RequestUrl = httpContextAccessor?.HttpContext?.Request?.Path.Value,
+                QueryType = command.FindQueryType()
             }));
             return base.DataReaderDisposing(command, eventData, result);
         }

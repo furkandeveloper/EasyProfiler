@@ -40,6 +40,11 @@ namespace EasyProfiler.MariaDb.Context
                     .IsRequired();
 
                 entity
+                    .Property(p => p.QueryType)
+                    .IsRequired()
+                    .HasConversion(new EnumToStringConverter<QueryType>());
+
+                entity
                     .Property(p => p.Duration)
                     .HasColumnType("bigint");
             });

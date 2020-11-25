@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using EasyProfiler.Core.Abstractions;
 using EasyProfiler.Core.Entities;
+using EasyProfiler.Core.Helpers.Extensions;
 using EasyProfiler.MariaDb.Context;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore.Diagnostics;
@@ -25,7 +26,8 @@ namespace EasyProfiler.MariaDb.Interceptors
             {
                 Query = command.CommandText,
                 Duration = eventData.Duration.Ticks,
-                RequestUrl = httpContextAccessor?.HttpContext?.Request?.Path.Value
+                RequestUrl = httpContextAccessor?.HttpContext?.Request?.Path.Value,
+                QueryType = command.FindQueryType()
             }));
             return base.DataReaderDisposing(command, eventData, result);
         }
