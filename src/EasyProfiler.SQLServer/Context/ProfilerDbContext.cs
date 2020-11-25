@@ -48,8 +48,8 @@ namespace EasyProfiler.SQLServer.Context
 
                 entity
                     .Property(p => p.QueryType)
-                    .HasDefaultValue(QueryType.NONE)
-                    .IsRequired();
+                    .IsRequired()
+                    .HasConversion(new EnumToStringConverter<QueryType>());
             });
             base.OnModelCreating(modelBuilder);
         }
