@@ -3,15 +3,17 @@ using System;
 using EasyProfiler.PostgreSQL.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace EasyProfiler.PostgreSQL.Migrations
 {
     [DbContext(typeof(ProfilerDbContext))]
-    partial class ProfilerDbContextModelSnapshot : ModelSnapshot
+    [Migration("20201125195653_AddQueryTypeField")]
+    partial class AddQueryTypeField
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -28,13 +30,11 @@ namespace EasyProfiler.PostgreSQL.Migrations
                     b.Property<long>("Duration")
                         .HasColumnType("bigint");
 
-                    b.Property<string>("Query")
-                        .IsRequired()
-                        .HasColumnType("text");
+                    b.Property<int>("Query")
+                        .HasColumnType("integer");
 
-                    b.Property<string>("QueryType")
-                        .IsRequired()
-                        .HasColumnType("text");
+                    b.Property<int>("QueryType")
+                        .HasColumnType("integer");
 
                     b.Property<string>("RequestUrl")
                         .HasColumnType("text");
