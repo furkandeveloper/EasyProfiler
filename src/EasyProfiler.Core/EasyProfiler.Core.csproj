@@ -8,11 +8,9 @@
     <RepositoryUrl>https://github.com/furkandeveloper/EasyProfiler</RepositoryUrl>
     <PackageTags>sql-server, profiler, query-profiler,query-analyzer</PackageTags>
 	  <PackageReleaseNotes>
-		  *♻️ Move Profiler entity from EasyProfiler.Entites to EasyProfiler.Core
-		  *✨ Add RequestUrl feature.
-		  *✨ Add SlowestEndpoint feature.
+		  *✨ Add QueryType feature.
 	  </PackageReleaseNotes>
-    <Version>1.2.0</Version>
+    <Version>1.3.0</Version>
   </PropertyGroup>
 
 	<ItemGroup>
