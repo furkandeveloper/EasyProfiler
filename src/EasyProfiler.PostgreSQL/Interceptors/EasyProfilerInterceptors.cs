@@ -46,7 +46,7 @@ namespace EasyProfiler.PostgreSQL.Interceptors
                 Duration = eventData.Duration.Ticks,
                 Query = command.CommandText,
                 RequestUrl = httpContextAccessor?.HttpContext?.Request?.Path.Value,
-                QueryType = command.GetQueryType()
+                QueryType = command.FindQueryType()
             }));
             return base.DataReaderDisposing(command, eventData, result);
         }
