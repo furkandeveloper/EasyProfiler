@@ -40,6 +40,7 @@ namespace EasyProfiler.Core.Helpers.Extensions
                     queryType = QueryType.INSERT;
                     break;
                 default:
+                    queryType = QueryType.OTHER;
                     break;
             }
             return queryType;
