@@ -37,9 +37,7 @@ It uses the `ProfilerDbContext` object to store the results.
 * [x] MariaDb
 * [x] MySQL
 * [ ] MongoDB
-* [ ] SQLite
 * [ ] Firebird
-* [ ] Oracle
 
 ### Sample for SQL Server
 Install `EasyProfiler.SQLServer` from [Nuget Package](https://www.nuget.org/packages/EasyProfiler.SQLServer/)
