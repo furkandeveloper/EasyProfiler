@@ -1,5 +1,8 @@
 ﻿using EasyCache.Helpers.Extensions;
 using EasyProfiler.Mongo.Configuration;
+using EasyProfiler.Mongo.Context;
+using EasyProfiler.Mongo.Services.Abstractions;
+using EasyProfiler.Mongo.Services.Concrete;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -31,6 +34,8 @@ namespace EasyProfiler.Mongo.Extensions
             configuration.Invoke(connectionModel);
             services.AddSingleton(connectionModel);
             services.AddEasyMemoryCache();
+            services.AddSingleton<IEasyProfilerContext, EasyProfilerContext>();
+            services.AddSingleton<IMongoService, MongoService>();
             return services;
         }
     }
