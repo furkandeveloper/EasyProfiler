@@ -8,6 +8,7 @@
 		<PackageIcon>easyProfilerMongo.png</PackageIcon>
 		<RepositoryUrl>https://github.com/furkandeveloper/EasyProfiler</RepositoryUrl>
 		<PackageTags>mongoDb, profiler, query-profiler,query-analyzer, mongo</PackageTags>
+		<Version>1.0.1</Version>
 	</PropertyGroup>
 
 	<ItemGroup>
