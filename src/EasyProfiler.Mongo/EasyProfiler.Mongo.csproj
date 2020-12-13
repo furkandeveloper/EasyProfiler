@@ -1,0 +1,31 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>netcoreapp3.1</TargetFramework>
+		<Authors>furkandeveloper</Authors>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		<Description>This package provides Query Profiler for MongoDb</Description>
+		<PackageIcon>easyProfilerMongo.png</PackageIcon>
+		<RepositoryUrl>https://github.com/furkandeveloper/EasyProfiler</RepositoryUrl>
+		<PackageTags>mongoDb, profiler, query-profiler,query-analyzer, mongo</PackageTags>
+		<Version>1.0.1</Version>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="EasyCacheDotnetCore" Version="1.0.2" />
+		<PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="5.0.0" />
+		<PackageReference Include="MongoDB.Driver" Version="2.11.5" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\EasyProfiler.Core\EasyProfiler.Core.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Include="easyProfilerMongo.png">
+	    <Pack>True</Pack>
+	    <PackagePath></PackagePath>
+	  </None>
+	</ItemGroup>
+
+</Project>
