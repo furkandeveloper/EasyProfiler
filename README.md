@@ -36,7 +36,7 @@ It uses the `ProfilerDbContext` object to store the results.
 * [x] PostgreSQL
 * [x] MariaDb
 * [x] MySQL
-* [ ] MongoDB
+* [x] MongoDB
 * [ ] SQLite
 * [ ] Firebird
 * [ ] Oracle
@@ -259,7 +259,7 @@ You can try it !! [Sample Project](https://easy-profiler.herokuapp.com/Docs/)
 * [x] MySQL support.
 * [x] MariaDB support.
 * [x] SQLServer support.
-* [ ] MongoDB support.
+* [x] MongoDB support.
 * [ ] QueryType. (For Example : `Select`,`Insert`,`Update`,`Delete`)
 * [x] Request Path. (For Example : "customer/getCustomer?fullname=sample")
 * [ ] Dashboard UI Support.
