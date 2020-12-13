@@ -36,7 +36,7 @@ It uses the `ProfilerDbContext` object to store the results.
 * [x] PostgreSQL
 * [x] MariaDb
 * [x] MySQL
-* [ ] MongoDB
+* [x] MongoDB
 * [ ] SQLite
 * [ ] Firebird
 * [ ] Oracle
@@ -158,6 +158,48 @@ public void Configure(IApplicationBuilder app, IWebHostEnvironment env, Profiler
 
 Run your application and check your db. Must be created `Profiler` entity.
 
+### Sample for MongoDb
+
+Install `EasyProfiler.Mongo` from [Nuget Package](https://www.nuget.org/packages/EasyProfiler.Mongo/)
+
+Initilaze `EasyProfilerDbContext` in `Startup.cs` to save the results.
+#### Sample
+```csharp
+services.AddEasyProfilerDbContext(options =>
+{
+    options.ConnectionString = "mongodb://localhost:27017";
+    options.Database = "EasyProfiler";
+});
+```
+
+and `EasyProfilerInterceptor` extensions add for own `MongoContext`.
+
+#### Sample
+```csharp
+public MongoContext(IServiceProvider serviceProvider)
+{
+    var client = new MongoClient(new MongoClientSettings()
+    {
+        Server = new MongoServerAddress("localhost"),
+        ClusterConfigurator = cb =>
+        {
+            cb.Subscribe<CommandStartedEvent>(e =>
+            {
+                e.InitilazeStartedEvent(serviceProvider);
+        
+            cb.Subscribe<CommandSucceededEvent>(e =>
+            {
+                e.InitilazeSucceededEvent(serviceProvider);
+            });
+        }
+    });
+}
+```
+
+<hr/>
+
+Run your application and check your db. Must be created `Profiler` entity.
+
 ## Watch Queries with AdvancedFilter
 
 #### Usage
@@ -259,7 +301,7 @@ You can try it !! [Sample Project](https://easy-profiler.herokuapp.com/Docs/)
 * [x] MySQL support.
 * [x] MariaDB support.
 * [x] SQLServer support.
-* [ ] MongoDB support.
+* [x] MongoDB support.
 * [ ] QueryType. (For Example : `Select`,`Insert`,`Update`,`Delete`)
 * [x] Request Path. (For Example : "customer/getCustomer?fullname=sample")
 * [ ] Dashboard UI Support.
