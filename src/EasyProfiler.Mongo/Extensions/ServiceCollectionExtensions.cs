@@ -28,7 +28,7 @@ namespace EasyProfiler.Mongo.Extensions
         /// <returns>
         /// IServiceCollection
         /// </returns>
-        public static IServiceCollection AddEasyProfilerDbcontext(this IServiceCollection services, Action<ConnectionModel> configuration)
+        public static IServiceCollection AddEasyProfilerDbContext(this IServiceCollection services, Action<ConnectionModel> configuration)
         {
             ConnectionModel connectionModel = new ConnectionModel();
             configuration.Invoke(connectionModel);
