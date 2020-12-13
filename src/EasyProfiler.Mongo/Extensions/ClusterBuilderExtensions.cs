@@ -52,7 +52,7 @@ namespace EasyProfiler.Mongo.Extensions
                 {
                     Duration = command.Duration.Ticks,
                     Query = data.ToString(),
-                    QueryType = Core.Entities.QueryType.SELECT,
+                    QueryType = command.CommandName.FindQueryType(),
                     RequestUrl = httpContext?.HttpContext?.Request?.Path.Value
                 });
             }
