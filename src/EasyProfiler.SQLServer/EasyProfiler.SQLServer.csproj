@@ -7,16 +7,15 @@
     <Description>This repo, provides query profiler for EF Core.</Description>
     <PackageTags>sql-server, profiler, query-profiler,query-analyzer</PackageTags>
 	  <PackageReleaseNotes>
-		  *✨ Add QueryType feature.
+		  *🔥 Remove dependencies.
 	  </PackageReleaseNotes>
     <PackageIcon>easyProfilerSQLServer.png</PackageIcon>
     <RepositoryUrl>https://github.com/furkandeveloper/EasyProfiler</RepositoryUrl>
     <Authors>furkandeveloper</Authors>
-    <Version>1.4.0</Version>
+    <Version>1.5.0</Version>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.8" />
 	  <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.8">
 		  <PrivateAssets>all</PrivateAssets>

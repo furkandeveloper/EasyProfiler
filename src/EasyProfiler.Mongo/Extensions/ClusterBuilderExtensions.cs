@@ -1,4 +1,4 @@
-﻿using EasyCache.Services.Abstractions;
+﻿using EasyCache.Core.Abstractions;
 using EasyProfiler.Mongo.Services.Abstractions;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
@@ -7,6 +7,7 @@ using MongoDB.Driver.Core.Events;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace EasyProfiler.Mongo.Extensions
 {
@@ -26,7 +27,7 @@ namespace EasyProfiler.Mongo.Extensions
         /// </param>
         public static void InitilazeStartedEvent(this CommandStartedEvent command, IServiceProvider serviceProvider)
         {
-            var cacheService = serviceProvider.GetService<ICacheService>();
+            var cacheService = serviceProvider.GetService<IEasyCacheService>();
             if (command.OperationId != null)
                 cacheService.Set<string>(command.OperationId + command.CommandName, command.Command.ToString(), TimeSpan.FromMinutes(5));
         }
@@ -42,18 +43,21 @@ namespace EasyProfiler.Mongo.Extensions
         /// </param>
         public static void InitilazeSucceededEvent(this CommandSucceededEvent command, IServiceProvider serviceProvider)
         {
-            var cacheService = serviceProvider.GetService<ICacheService>();
+            var cacheService = serviceProvider.GetService<IEasyCacheService>();
             var mongoService = serviceProvider.GetService<IMongoService>();
             var httpContext = serviceProvider.GetService<IHttpContextAccessor>();
             var data = cacheService.Get<string>(command.OperationId + command.CommandName);
             if (data != null)
             {
-                mongoService.InsertAsync(new Models.Profiler()
+                Task.Run(() =>
                 {
-                    Duration = command.Duration.Ticks,
-                    Query = data.ToString(),
-                    QueryType = command.CommandName.FindQueryType(),
-                    RequestUrl = httpContext?.HttpContext?.Request?.Path.Value
+                    mongoService.InsertAsync(new Models.Profiler()
+                    {
+                        Duration = command.Duration.Ticks,
+                        Query = data.ToString(),
+                        QueryType = command.CommandName.FindQueryType(),
+                        RequestUrl = httpContext?.HttpContext?.Request?.Path.Value
+                    });
                 });
             }
         }
