@@ -1,4 +1,4 @@
-﻿using EasyCache.Helpers.Extensions;
+﻿using EasyCache.Memory.Extensions;
 using EasyProfiler.Mongo.Configuration;
 using EasyProfiler.Mongo.Context;
 using EasyProfiler.Mongo.Services.Abstractions;
