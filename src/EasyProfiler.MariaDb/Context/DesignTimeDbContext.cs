@@ -10,7 +10,7 @@ namespace EasyProfiler.MariaDb.Context
             var optionsBuilder = new DbContextOptionsBuilder<ProfilerDbContext>();
 #if NETCOREAPP3_1
             optionsBuilder.UseMySql("----");
-#else
+#elif NET5_0_OR_GREATER
             // TODO: Remove here if not necessary.
             optionsBuilder.UseMySql("----", ServerVersion.FromString("10.5.9")); 
 #endif
