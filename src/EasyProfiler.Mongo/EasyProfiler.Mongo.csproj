@@ -10,6 +10,7 @@
 			* ✨ Applyed EasyCache new version.
 		</PackageReleaseNotes>
     <Version>1.2.0</Version>
+    <PackageId>EasyProfiler.Mongo</PackageId>
 	</PropertyGroup>
 
 	<ItemGroup>

@@ -7,6 +7,7 @@
 	  <PackageReleaseNotes>
 		  * ➕ Add dependencies.
 	  </PackageReleaseNotes>
+    <PackageId>EasyProfiler.Core</PackageId>
     <Version>1.4.0</Version>
   </PropertyGroup>
 
