@@ -10,6 +10,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{A6E015BB-C6E2-4EBF-BDE1-421F601B63FB}"
 	ProjectSection(SolutionItems) = preProject
 		.gitignore = .gitignore
+		common.props = common.props
 		Dockerfile = Dockerfile
 	EndProjectSection
 EndProject
@@ -23,7 +24,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyProfiler.MariaDb", "src
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyProfiler.PostgreSQL", "src\EasyProfiler.PostgreSQL\EasyProfiler.PostgreSQL.csproj", "{FCC42610-B106-443B-9CDD-6DB922D47139}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyProfiler.Mongo", "src\EasyProfiler.Mongo\EasyProfiler.Mongo.csproj", "{0B3E45F9-7597-4828-B676-6A63BE13AA76}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyProfiler.Mongo", "src\EasyProfiler.Mongo\EasyProfiler.Mongo.csproj", "{0B3E45F9-7597-4828-B676-6A63BE13AA76}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

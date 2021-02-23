@@ -33,10 +33,13 @@ namespace EasyProfiler.Web
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc()
+#if NET5_0 || NETCOREAPP3_1           
                 .AddJsonOptions(options =>
                 {
                     options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
-                });
+                })
+#endif
+                ;
             
             services.AddDbContext<SampleDbContext>(options =>
             {

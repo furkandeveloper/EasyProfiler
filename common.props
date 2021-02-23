@@ -1,0 +1,13 @@
+<Project>
+  <PropertyGroup>
+    <TargetFrameworks>netcoreapp3.1;net5.0</TargetFrameworks>
+    <Version>1.4.0</Version>
+    <LangVersion>latest</LangVersion>  
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <RepositoryUrl>https://github.com/furkandeveloper/EasyProfiler</RepositoryUrl>
+    <Authors>furkandeveloper</Authors>
+    <Description>This repo, provides query profiler for EF Core.</Description>
+    <PackageTags>mariadb, profiler, query-profiler,query-analyzer</PackageTags>
+  </PropertyGroup>
+</Project>

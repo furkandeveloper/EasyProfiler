@@ -2,10 +2,7 @@
 using EasyProfiler.Core.Helpers.AdvancedQuery;
 using EasyProfiler.Core.Helpers.Responses;
 using Microsoft.EntityFrameworkCore;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace EasyProfiler.Core.Abstractions
