@@ -8,15 +8,7 @@
 		  * ➕ Add dependencies.
 	  </PackageReleaseNotes>
     <PackageId>EasyProfiler.Core</PackageId>
-    <Version>1.4.0</Version>
   </PropertyGroup>
-
-  <ItemGroup Condition="'$(TargetFramework)' == 'netcoreapp2.1'">
-    <PackageReference Include="Microsoft.AspNetCore" Version="2.1.7" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.1.14" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="2.1.14" />
-    <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" />
-  </ItemGroup>
 
   <ItemGroup Condition="'$(TargetFramework)' == 'netcoreapp3.1'">
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.12" />
