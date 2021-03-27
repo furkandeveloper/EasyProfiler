@@ -4,10 +4,9 @@
 
   <PropertyGroup>
 	  <PackageReleaseNotes>
-		  * 🔥 Remove dependencies.
+		  * ⬆️ Upgrade target framework
 	  </PackageReleaseNotes>
     <PackageIcon>easyProfilerMariaDb.png</PackageIcon>
-    <Version>1.4.0</Version>
     <PackageId>EasyProfiler.MariaDb</PackageId>
   </PropertyGroup>
 
