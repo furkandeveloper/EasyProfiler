@@ -1,26 +1,26 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
+  <Import Project="..\..\common.props" />
+
   <PropertyGroup>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
-    <Description>This repo, provides query profiler for EF Core.</Description>
-    <PackageTags>mariadb, profiler, query-profiler,query-analyzer</PackageTags>
 	  <PackageReleaseNotes>
-		  * 🔥 Remove dependencies.
+		  * ⬆️ Upgrade target framework
 	  </PackageReleaseNotes>
     <PackageIcon>easyProfilerMariaDb.png</PackageIcon>
-    <RepositoryUrl>https://github.com/furkandeveloper/EasyProfiler</RepositoryUrl>
-    <Authors>furkandeveloper</Authors>
-    <Version>1.4.0</Version>
+    <PackageId>EasyProfiler.MariaDb</PackageId>
   </PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="3.2.3" />
+  <ItemGroup Condition="'$(TargetFramework)' == 'netcoreapp3.1'">
+    <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="3.2.4" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.8">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'net5.0'">
+    <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="5.0.0-alpha.2" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="5.0.3" />
   </ItemGroup>
 
   <ItemGroup>

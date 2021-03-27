@@ -1,23 +1,27 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
+  <Import Project="..\..\common.props" />
+
   <PropertyGroup>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
-    <Description>This repo, provides query profiler for EF Core.</Description>
-    <PackageTags>sql-server, profiler, query-profiler,query-analyzer</PackageTags>
 	  <PackageReleaseNotes>
-		  *🔥 Remove dependencies.
+		  * ⬆️ Upgrade target framework
 	  </PackageReleaseNotes>
     <PackageIcon>easyProfilerSQLServer.png</PackageIcon>
-    <RepositoryUrl>https://github.com/furkandeveloper/EasyProfiler</RepositoryUrl>
-    <Authors>furkandeveloper</Authors>
-    <Version>1.5.0</Version>
+    <Version>1.6.0</Version>
+    <PackageId>EasyProfiler.SQLServer</PackageId>
   </PropertyGroup>
 
-  <ItemGroup>
+  <ItemGroup Condition="'$(TargetFramework)' == 'netcoreapp3.1'">
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.8" />
 	  <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.8">
+		  <PrivateAssets>all</PrivateAssets>
+		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+	  </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'net5.0'">
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.3" />
+	  <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="5.0.3">
 		  <PrivateAssets>all</PrivateAssets>
 		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 	  </PackageReference>
