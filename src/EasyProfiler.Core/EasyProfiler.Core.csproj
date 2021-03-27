@@ -1,24 +1,30 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
+  <Import Project="..\..\common.props" />
+
   <PropertyGroup>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
-    <Authors>furkandeveloper</Authors>
-    <Description>This repo, provides query profiler for EF Core.</Description>
     <PackageIcon>easyProfilerSQLServer.png</PackageIcon>
-    <RepositoryUrl>https://github.com/furkandeveloper/EasyProfiler</RepositoryUrl>
-    <PackageTags>sql-server, profiler, query-profiler,query-analyzer</PackageTags>
 	  <PackageReleaseNotes>
 		  * ➕ Add dependencies.
 	  </PackageReleaseNotes>
-    <Version>1.4.0</Version>
+    <PackageId>EasyProfiler.Core</PackageId>
   </PropertyGroup>
 
-	<ItemGroup>
-		<PackageReference Include="AutoFilterer" Version="2.1.7" />
-		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.8" />
-		<PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="3.1.8" />
-		<PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" />
-	</ItemGroup>
+  <ItemGroup Condition="'$(TargetFramework)' == 'netcoreapp3.1'">
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.12" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="3.1.12" />
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'net5.0'">
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.3" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="5.0.3" />
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoFilterer" Version="2.6.1" />
+  </ItemGroup>
 
 	<ItemGroup>
 	  <None Include="easyProfilerSQLServer.png">

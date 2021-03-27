@@ -1,26 +1,23 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
+  <Import Project="..\..\common.props" />
+
 	<PropertyGroup>
-		<TargetFramework>netcoreapp3.1</TargetFramework>
-		<Authors>furkandeveloper</Authors>
-		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-		<Description>This package provides Query Profiler for MongoDb</Description>
 		<PackageIcon>easyProfilerMongo.png</PackageIcon>
-		<RepositoryUrl>https://github.com/furkandeveloper/EasyProfiler</RepositoryUrl>
-		<PackageTags>mongoDb, profiler, query-profiler,query-analyzer, mongo</PackageTags>
 		<PackageReleaseNotes>
 			* 🔥 Removed legacy EasyCache.
 			* ♻ Refactored insert log scenario.
 			* ✨ Applyed EasyCache new version.
 		</PackageReleaseNotes>
-		<Version>1.2.0</Version>
+    <Version>1.2.0</Version>
+    <PackageId>EasyProfiler.Mongo</PackageId>
 	</PropertyGroup>
 
-	<ItemGroup>
-		<PackageReference Include="EasyCache.Memory" Version="1.0.1" />
-		<PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="5.0.0" />
-		<PackageReference Include="MongoDB.Driver" Version="2.11.5" />
-	</ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="EasyCache.Memory" Version="1.0.1" />
+    <PackageReference Include="MongoDB.Driver" Version="2.11.5" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="5.0.0" />
+  </ItemGroup>
 
 	<ItemGroup>
 	  <ProjectReference Include="..\EasyProfiler.Core\EasyProfiler.Core.csproj" />

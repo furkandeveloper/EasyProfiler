@@ -1,10 +1,6 @@
 ﻿using AutoFilterer.Attributes;
 using AutoFilterer.Types;
 using EasyProfiler.Core.Entities;
-using EasyProfiler.Core.Helpers.Attributes;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace EasyProfiler.Core.Helpers.AdvancedQuery
 {
