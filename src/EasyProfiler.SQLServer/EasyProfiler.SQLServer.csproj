@@ -4,10 +4,10 @@
 
   <PropertyGroup>
 	  <PackageReleaseNotes>
-		  *🔥 Remove dependencies.
+		  * ⬆️ Upgrade target framework
 	  </PackageReleaseNotes>
     <PackageIcon>easyProfilerSQLServer.png</PackageIcon>
-    <Version>1.5.0</Version>
+    <Version>1.6.0</Version>
     <PackageId>EasyProfiler.SQLServer</PackageId>
   </PropertyGroup>
 
