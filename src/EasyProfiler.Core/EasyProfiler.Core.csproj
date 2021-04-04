@@ -32,5 +32,9 @@
 	    <PackagePath></PackagePath>
 	  </None>
 	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\EasyProfiler.CronJob\EasyProfiler.CronJob.csproj" />
+	</ItemGroup>
 	
 </Project>
