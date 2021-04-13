@@ -6,12 +6,14 @@ using EasyProfiler.Core.Helpers.Extensions;
 using EasyProfiler.PostgreSQL.Context;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore.Diagnostics;
+using Microsoft.Extensions.Caching.Memory;
 using System;
 using System.Collections.Generic;
 using System.Data.Common;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace EasyProfiler.PostgreSQL.Interceptors
 {
@@ -45,8 +47,21 @@ namespace EasyProfiler.PostgreSQL.Interceptors
         /// <returns></returns>
         public override InterceptionResult DataReaderDisposing(DbCommand command, DataReaderDisposingEventData eventData, InterceptionResult result)
         {
-            var cachedValue = easyCacheService.GetAndSet("easy-profiler",()=> new List<Profiler> { new Profiler { Query = "Ahmet"} },TimeSpan.FromSeconds(100));
-            var data = easyCacheService.Get<List<Profiler>>("easy-profiler");
+            //var cachedValue = easyCacheService.GetAndSet<Profiler>("easy-profiler", () => GetData(), TimeSpan.FromMinutes(2));
+            var cache = httpContextAccessor.HttpContext.RequestServices.GetService<IMemoryCache>();
+            cache.Set("test", "string", TimeSpan.FromMinutes(20));
+
+            //cachedValue.Add(new Profiler
+            //{
+            //    Duration = eventData.Duration.Ticks,
+            //    Query = command.CommandText,
+            //    RequestUrl = httpContextAccessor?.HttpContext?.Request?.Path.Value,
+            //    QueryType = command.FindQueryType()
+            //});
+            //easyCacheService.Set<List<Profiler>>("easy-profiler", cachedValue, TimeSpan.FromMinutes(2));
+            //var data = easyCacheService.Get<List<Profiler>>("easy-profiler");
+            //var cachedValue = easyCacheService.GetAndSet("easy-profiler",()=> new List<Profiler> { new Profiler { Query = "Ahmet"} },TimeSpan.FromSeconds(100));
+            //var data = easyCacheService.Get<List<Profiler>>("easy-profiler");
             //easyCacheService.GetAndSet("test", () => "12", TimeSpan.FromSeconds(100));
             //var data = easyCacheService.Get<string>("test");
             //cachedValue=new Profiler
@@ -65,6 +80,15 @@ namespace EasyProfiler.PostgreSQL.Interceptors
             //    QueryType = command.FindQueryType()
             //}));
             return base.DataReaderDisposing(command, eventData, result);
+        }
+
+        private Profiler GetData()
+        {
+            return new Profiler
+            {
+                Query = "Zalım",
+                RequestUrl = httpContextAccessor?.HttpContext?.Request?.Path.Value,
+            };
         }
     }
 }

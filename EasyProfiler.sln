@@ -28,7 +28,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyProfiler.PostgreSQL", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyProfiler.Mongo", "src\EasyProfiler.Mongo\EasyProfiler.Mongo.csproj", "{0B3E45F9-7597-4828-B676-6A63BE13AA76}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyProfiler.CronJob", "src\EasyProfiler.CronJob\EasyProfiler.CronJob.csproj", "{0180C130-A0AD-4EA4-A298-3FF6BD80B86F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyProfiler.CronJob", "src\EasyProfiler.CronJob\EasyProfiler.CronJob.csproj", "{0180C130-A0AD-4EA4-A298-3FF6BD80B86F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

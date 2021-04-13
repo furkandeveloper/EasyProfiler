@@ -15,7 +15,8 @@ namespace EasyProfiler.CronJob.Common
         /// <summary>
         /// 
         /// </summary>
-        [ResulationCron("*/2 * * * *")]
+        //[ResulationCron("*/2 * * * *")]
+        [ResulationCron("* * * * *")]
         LOW = 1,
         /// <summary>
         /// 

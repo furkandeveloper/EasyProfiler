@@ -49,7 +49,7 @@ namespace EasyProfiler.Web
                 options.UseNpgsql(Configuration.GetConnectionString("DefaultConnection"));
             }, options=>
             {
-                options.Resulation = CronJob.Common.Resulation.HIGH;
+                options.Resulation = CronJob.Common.Resulation.LOW;
                 //options.UseCronExpression = true;
                 //options.CronExpression = "*/2 * * * *";
             });

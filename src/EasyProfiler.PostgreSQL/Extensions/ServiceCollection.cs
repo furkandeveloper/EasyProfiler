@@ -2,16 +2,13 @@
 using EasyProfiler.Core.Abstractions;
 using EasyProfiler.Core.Concrete;
 using EasyProfiler.CronJob.Common;
-using EasyProfiler.CronJob.Concrete;
 using EasyProfiler.CronJob.Extensions;
+using EasyProfiler.PostgreSQL.BackgroundJobs;
 using EasyProfiler.PostgreSQL.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Reflection;
-using System.Text;
 
 namespace EasyProfiler.PostgreSQL.Extensions
 {
@@ -29,25 +26,25 @@ namespace EasyProfiler.PostgreSQL.Extensions
         /// <returns>
         /// Service Collection.
         /// </returns>
-        public static IServiceCollection AddEasyProfilerDbContext(this IServiceCollection services, Action<DbContextOptionsBuilder> optionsBuilder,
-            Action<DbResulationConfiguration> dbResulationConfiguration)
+        public static IServiceCollection AddEasyProfilerDbContext(this IServiceCollection services, Action<DbContextOptionsBuilder> optionsBuilder, Action<DbResulationConfiguration> resulationConfiguration)
         {
-            services.AddDbContext<ProfilerDbContext>(optionsBuilder);
+            services.AddDbContext<ProfilerDbContext>(optionsBuilder, ServiceLifetime.Transient, ServiceLifetime.Transient);
             services.AddTransient<IEasyProfilerBaseService<ProfilerDbContext>, EasyProfilerBaseManager<ProfilerDbContext>>();
-            services.AddEasyMemoryCache();
-            DbResulationConfiguration resulationConfiguration = new DbResulationConfiguration();
-            dbResulationConfiguration.Invoke(resulationConfiguration);
-            if (resulationConfiguration.UseCronExpression)
+            //services.AddEasyMemoryCache();
+            services.AddMemoryCache();
+            DbResulationConfiguration dbResulationConfiguration = new DbResulationConfiguration();
+            resulationConfiguration.Invoke(dbResulationConfiguration);
+            if (dbResulationConfiguration.UseCronExpression)
                 services.ApplyResulation<DbWriterCronJob>(options =>
                 {
-                    options.CronExpression = resulationConfiguration.CronExpression;
-                    options.TimeZoneInfo = resulationConfiguration.TimeZoneInfo;
+                    options.CronExpression = dbResulationConfiguration.CronExpression;
+                    options.TimeZoneInfo = dbResulationConfiguration.TimeZoneInfo;
                 });
             else
                 services.ApplyResulation<DbWriterCronJob>(options =>
                 {
-                    options.CronExpression = typeof(Resulation).GetField(resulationConfiguration.Resulation.ToString()).GetCustomAttribute<ResulationCronAttribute>().Cron;
-                    options.TimeZoneInfo = resulationConfiguration.TimeZoneInfo;
+                    options.CronExpression = dbResulationConfiguration.Resulation.GetType().GetField(dbResulationConfiguration.Resulation.ToString()).GetCustomAttribute<ResulationCronAttribute>().Cron;
+                    options.TimeZoneInfo = dbResulationConfiguration.TimeZoneInfo;
                 });
             return services;
         }
