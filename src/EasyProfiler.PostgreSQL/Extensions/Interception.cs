@@ -27,7 +27,10 @@ namespace EasyProfiler.PostgreSQL.Extensions
         public static DbContextOptionsBuilder AddEasyProfiler(this DbContextOptionsBuilder optionsBuilder, IServiceCollection services)
         {
             var buildServices = services.BuildServiceProvider();
-            optionsBuilder.AddInterceptors(new EasyProfilerInterceptors(buildServices.GetService<IEasyProfilerBaseService<ProfilerDbContext>>(),buildServices.GetService<IHttpContextAccessor>()));
+            optionsBuilder.AddInterceptors(
+                new EasyProfilerInterceptors(
+                    buildServices.GetService<ProfilerPostgreSqlDbContext>(),
+                    buildServices.GetService<IHttpContextAccessor>()));
             return optionsBuilder;
         }
     }

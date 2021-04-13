@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <Import Project="..\..\common.props" />
+    <PropertyGroup>
+        <PackageReleaseNotes>
+            * TODO
+        </PackageReleaseNotes>
+        <PackageId>EasyProfiler.EntityFrameworkCore</PackageId>
+    </PropertyGroup>
+    
+    <ItemGroup Condition="'$(TargetFramework)' == 'netcoreapp3.1'">
+        <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.12" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="3.1.12" />
+    </ItemGroup>
+
+    <ItemGroup Condition="'$(TargetFramework)' == 'net5.0'">
+        <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.3" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="5.0.3" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\EasyProfiler.Core\EasyProfiler.Core.csproj" />
+    </ItemGroup>
+
+</Project>

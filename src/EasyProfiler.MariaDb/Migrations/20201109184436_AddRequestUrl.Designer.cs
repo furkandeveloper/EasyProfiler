@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace EasyProfiler.MariaDb.Migrations
 {
-    [DbContext(typeof(ProfilerDbContext))]
+    [DbContext(typeof(ProfilerMariaDbContext))]
     [Migration("20201109184436_AddRequestUrl")]
     partial class AddRequestUrl
     {

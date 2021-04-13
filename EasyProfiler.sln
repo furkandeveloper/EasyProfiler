@@ -28,6 +28,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyProfiler.PostgreSQL", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyProfiler.Mongo", "src\EasyProfiler.Mongo\EasyProfiler.Mongo.csproj", "{0B3E45F9-7597-4828-B676-6A63BE13AA76}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyProfiler.EntityFrameworkCore", "src\EasyProfiler.EntityFrameworkCore\EasyProfiler.EntityFrameworkCore.csproj", "{35CF2F0B-7790-46D9-89F7-89E3985B7ACA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -58,6 +60,10 @@ Global
 		{0B3E45F9-7597-4828-B676-6A63BE13AA76}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0B3E45F9-7597-4828-B676-6A63BE13AA76}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0B3E45F9-7597-4828-B676-6A63BE13AA76}.Release|Any CPU.Build.0 = Release|Any CPU
+		{35CF2F0B-7790-46D9-89F7-89E3985B7ACA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{35CF2F0B-7790-46D9-89F7-89E3985B7ACA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{35CF2F0B-7790-46D9-89F7-89E3985B7ACA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{35CF2F0B-7790-46D9-89F7-89E3985B7ACA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -69,6 +75,7 @@ Global
 		{7D777586-91E5-4826-91AC-4ED0C9C30B13} = {9AE5BFB8-BA7B-4939-934E-B28220564041}
 		{FCC42610-B106-443B-9CDD-6DB922D47139} = {9AE5BFB8-BA7B-4939-934E-B28220564041}
 		{0B3E45F9-7597-4828-B676-6A63BE13AA76} = {9AE5BFB8-BA7B-4939-934E-B28220564041}
+		{35CF2F0B-7790-46D9-89F7-89E3985B7ACA} = {9AE5BFB8-BA7B-4939-934E-B28220564041}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A7351DCA-54A1-42A4-B8D8-50F5E9F1444A}

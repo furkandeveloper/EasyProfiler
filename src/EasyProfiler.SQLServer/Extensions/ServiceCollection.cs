@@ -28,8 +28,8 @@ namespace EasyProfiler.SQLServer.Extensions
         /// </returns>
         public static IServiceCollection AddEasyProfilerDbContext(this IServiceCollection services, Action<DbContextOptionsBuilder> optionsBuilder)
         {
-            services.AddDbContext<ProfilerDbContext>(optionsBuilder);
-            services.AddTransient<IEasyProfilerBaseService<ProfilerDbContext>, EasyProfilerBaseManager<ProfilerDbContext>>();
+            services.AddDbContext<ProfilerSqlServerDbContext>(optionsBuilder);
+            services.AddTransient<IEasyProfilerBaseService<ProfilerSqlServerDbContext>, EasyProfilerBaseManager<ProfilerSqlServerDbContext>>();
             return services;
         }
     }
