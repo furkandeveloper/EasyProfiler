@@ -47,6 +47,11 @@ namespace EasyProfiler.Web
             services.AddEasyProfilerDbContext(options =>
             {
                 options.UseNpgsql(Configuration.GetConnectionString("DefaultConnection"));
+            }, options=>
+            {
+                options.Resulation = CronJob.Common.Resulation.HIGH;
+                //options.UseCronExpression = true;
+                //options.CronExpression = "*/2 * * * *";
             });
 
             services.AddSwaggerGen(options =>
