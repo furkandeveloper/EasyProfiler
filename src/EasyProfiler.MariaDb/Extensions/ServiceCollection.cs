@@ -1,8 +1,6 @@
 ﻿using System;
 using EasyProfiler.Core.Abstractions;
 using EasyProfiler.Core.Concrete;
-using EasyProfiler.CronJob.Abstractions;
-using EasyProfiler.CronJob.Extensions;
 using EasyProfiler.MariaDb.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
