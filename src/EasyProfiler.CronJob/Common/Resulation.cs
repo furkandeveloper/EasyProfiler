@@ -15,14 +15,17 @@ namespace EasyProfiler.CronJob.Common
         /// <summary>
         /// 
         /// </summary>
+        [ResulationCron("*/2 * * * *")]
         LOW = 1,
         /// <summary>
         /// 
         /// </summary>
+        [ResulationCron("*/2 * * * *")]
         MEDIUM,
         /// <summary>
         /// 
         /// </summary>
+        [ResulationCron("*/2 * * * *")]
         HIGH
     }
 }
