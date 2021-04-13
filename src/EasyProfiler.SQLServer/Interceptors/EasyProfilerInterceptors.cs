@@ -10,23 +10,24 @@ using System.Data.Common;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using EasyProfiler.EntityFrameworkCore.Extensions;
 
 namespace EasyProfiler.SQLServer.Interceptors
 {
     public class EasyProfilerInterceptors : DbCommandInterceptor
     {
-        private readonly IEasyProfilerBaseService<ProfilerDbContext> baseService;
+        private readonly IEasyProfilerContext context;
         private readonly IHttpContextAccessor httpContextAccessor;
 
-        public EasyProfilerInterceptors(IEasyProfilerBaseService<ProfilerDbContext> baseService,IHttpContextAccessor httpContextAccessor)
+        public EasyProfilerInterceptors(IEasyProfilerContext context, IHttpContextAccessor httpContextAccessor)
         {
-            this.baseService = baseService;
+            this.context = context;
             this.httpContextAccessor = httpContextAccessor;
         }
 
         public override InterceptionResult DataReaderDisposing(DbCommand command, DataReaderDisposingEventData eventData, InterceptionResult result)
         {
-            Task.Run(() => baseService.InsertAsync(new Profiler()
+            Task.Run(() => context.InsertAsync(new Profiler()
             {
                 Query = command.CommandText,
                 Duration = eventData.Duration.Ticks,

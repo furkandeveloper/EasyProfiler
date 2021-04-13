@@ -1,10 +1,8 @@
-﻿using Microsoft.EntityFrameworkCore.ChangeTracking;
+﻿using System;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Microsoft.EntityFrameworkCore.ValueGeneration;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
-namespace EasyProfiler.Core.Helpers.Generators
+namespace EasyProfiler.EntityFrameworkCore.Generators
 {
     /// <summary>
     /// Guid value generator for primary key.

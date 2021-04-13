@@ -3,16 +3,17 @@ using Microsoft.EntityFrameworkCore.Design;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using EasyProfiler.EntityFrameworkCore;
 
 namespace EasyProfiler.SQLServer.Context
 {
-    internal class DesignTimeDbContext : IDesignTimeDbContextFactory<ProfilerDbContext>
+    internal class DesignTimeDbContext : IDesignTimeDbContextFactory<ProfilerSqlServerDbContext>
     {
-        public ProfilerDbContext CreateDbContext(string[] args)
+        public ProfilerSqlServerDbContext CreateDbContext(string[] args)
         {
-            var optionsBuilder = new DbContextOptionsBuilder<ProfilerDbContext>();
+            var optionsBuilder = new DbContextOptionsBuilder<ProfilerCoreDbContext>();
             optionsBuilder.UseSqlServer("xxxx");
-            return new ProfilerDbContext(optionsBuilder.Options);
+            return new ProfilerSqlServerDbContext(optionsBuilder.Options);
         }
     }
 }

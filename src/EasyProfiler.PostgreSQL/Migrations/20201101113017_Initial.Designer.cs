@@ -9,7 +9,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace EasyProfiler.PostgreSQL.Migrations
 {
-    [DbContext(typeof(ProfilerDbContext))]
+    [DbContext(typeof(ProfilerPostgreSqlDbContext))]
     [Migration("20201101113017_Initial")]
     partial class Initial
     {

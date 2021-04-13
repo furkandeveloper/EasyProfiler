@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using EasyProfiler.Core.Abstractions;
 using EasyProfiler.Core.Entities;
 using EasyProfiler.Core.Helpers.Extensions;
+using EasyProfiler.EntityFrameworkCore.Extensions;
 using EasyProfiler.MariaDb.Context;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore.Diagnostics;
@@ -11,18 +12,18 @@ namespace EasyProfiler.MariaDb.Interceptors
 {
     public class EasyProfilerInterceptors : DbCommandInterceptor
     {
-        private readonly IEasyProfilerBaseService<ProfilerDbContext> baseService;
+        private readonly IEasyProfilerContext context;
         private readonly IHttpContextAccessor httpContextAccessor;
 
-        public EasyProfilerInterceptors(IEasyProfilerBaseService<ProfilerDbContext> baseService,IHttpContextAccessor httpContextAccessor)
+        public EasyProfilerInterceptors(ProfilerMariaDbContext context, IHttpContextAccessor httpContextAccessor)
         {
-            this.baseService = baseService;
+            this.context = context;
             this.httpContextAccessor = httpContextAccessor;
         }
 
         public override InterceptionResult DataReaderDisposing(DbCommand command, DataReaderDisposingEventData eventData, InterceptionResult result)
         {
-            Task.Run(() => baseService.InsertAsync(new Profiler()
+            Task.Run(() => context.InsertAsync(new Profiler()
             {
                 Query = command.CommandText,
                 Duration = eventData.Duration.Ticks,

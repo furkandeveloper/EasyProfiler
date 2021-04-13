@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace EasyProfiler.SQLServer.Migrations
 {
-    [DbContext(typeof(ProfilerDbContext))]
+    [DbContext(typeof(ProfilerSqlServerDbContext))]
     [Migration("20201109184302_AddRequestUrl")]
     partial class AddRequestUrl
     {

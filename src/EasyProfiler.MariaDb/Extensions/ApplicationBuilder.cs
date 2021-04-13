@@ -16,12 +16,12 @@ namespace EasyProfiler.MariaDb.Extensions
         /// <param name="app">
         /// IApplicationBuilder
         /// </param>
-        /// <param name="dbContext">
+        /// <param name="mariaDbContext">
         /// Profiler DbContext
         /// </param>
-        public static void ApplyEasyProfilerMariaDb(this IApplicationBuilder app, ProfilerDbContext dbContext)
+        public static void ApplyEasyProfilerMariaDb(this IApplicationBuilder app, ProfilerMariaDbContext mariaDbContext)
         {
-            dbContext.Database.Migrate();
+            mariaDbContext.Database.Migrate();
         }
     }
 }

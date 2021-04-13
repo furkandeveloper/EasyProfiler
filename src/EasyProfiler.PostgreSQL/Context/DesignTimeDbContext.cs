@@ -3,13 +3,14 @@ using Microsoft.EntityFrameworkCore.Design;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using EasyProfiler.EntityFrameworkCore;
 
 namespace EasyProfiler.PostgreSQL.Context
 {
     /// <summary>
     /// Design time db context for migrations.
     /// </summary>
-    public class DesignTimeDbContext : IDesignTimeDbContextFactory<ProfilerDbContext>
+    public class DesignTimeDbContext : IDesignTimeDbContextFactory<ProfilerPostgreSqlDbContext>
     {
         /// <summary>
         /// Create DbContext instance.
@@ -20,11 +21,11 @@ namespace EasyProfiler.PostgreSQL.Context
         /// <returns>
         /// DbContext.
         /// </returns>
-        public ProfilerDbContext CreateDbContext(string[] args)
+        public ProfilerPostgreSqlDbContext CreateDbContext(string[] args)
         {
-            var optionsBuilder = new DbContextOptionsBuilder<ProfilerDbContext>();
+            var optionsBuilder = new DbContextOptionsBuilder<ProfilerCoreDbContext>();
             optionsBuilder.UseNpgsql("xxxx");
-            return new ProfilerDbContext(optionsBuilder.Options);
+            return new ProfilerPostgreSqlDbContext(optionsBuilder.Options);
         }
     }
 }
