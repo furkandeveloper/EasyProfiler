@@ -9,7 +9,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace EasyProfiler.PostgreSQL.Migrations
 {
-    [DbContext(typeof(ProfilerDbContext))]
+    [DbContext(typeof(ProfilerPostgreSqlDbContext))]
     [Migration("20201109183336_AddRequestUrl")]
     partial class AddRequestUrl
     {

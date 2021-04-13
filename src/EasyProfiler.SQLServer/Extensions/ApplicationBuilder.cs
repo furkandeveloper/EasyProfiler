@@ -20,12 +20,12 @@ namespace EasyProfiler.SQLServer.Extensions
         /// <param name="app">
         /// IApplicationBuilder
         /// </param>
-        /// <param name="dbContext">
+        /// <param name="sqlServerDbContext">
         /// Profiler DbContext
         /// </param>
-        public static void ApplyEasyProfilerSQLServer(this IApplicationBuilder app, ProfilerDbContext dbContext)
+        public static void ApplyEasyProfilerSQLServer(this IApplicationBuilder app, ProfilerSqlServerDbContext sqlServerDbContext)
         {
-            dbContext.Database.Migrate();
+            sqlServerDbContext.Database.Migrate();
         }
     }
 }

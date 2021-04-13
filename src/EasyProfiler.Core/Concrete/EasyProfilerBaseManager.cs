@@ -3,15 +3,15 @@ using EasyProfiler.Core.Abstractions;
 using EasyProfiler.Core.Entities;
 using EasyProfiler.Core.Helpers.AdvancedQuery;
 using EasyProfiler.Core.Helpers.Responses;
-using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using EasyProfiler.Core.Helpers.Extensions;
 
 namespace EasyProfiler.Core.Concrete
 {
-    public class EasyProfilerBaseManager<TDbContext> : IEasyProfilerBaseService<TDbContext> where TDbContext : DbContext
+    public class EasyProfilerBaseManager<TDbContext> : IEasyProfilerBaseService<TDbContext> where TDbContext : IEasyProfilerContext
     {
         private readonly TDbContext dbContext;
 
@@ -20,14 +20,14 @@ namespace EasyProfiler.Core.Concrete
             this.dbContext = dbContext;
         }
 
-        public async Task<List<Profiler>> AdvancedFilterAsync(AdvancedFilterModel advancedFilterModel)
+        public virtual async Task<List<Profiler>> AdvancedFilterAsync(AdvancedFilterModel advancedFilterModel)
         {
-            return await dbContext.Set<Profiler>().ApplyFilter(advancedFilterModel).ToListAsync();
+            return await dbContext.Get<Profiler>().ApplyFilter(advancedFilterModel).ToListAsync();
         }
 
-        public async Task<List<SlowestEndpointResponseModel>> GetSlowestEndpointsAsync()
+        public virtual async Task<List<SlowestEndpointResponseModel>> GetSlowestEndpointsAsync()
         {
-            var data = await dbContext.Set<Profiler>().Where(x => !string.IsNullOrEmpty(x.RequestUrl) && x.RequestUrl != "/")
+            var data = await dbContext.Get<Profiler>().Where(x => !string.IsNullOrEmpty(x.RequestUrl) && x.RequestUrl != "/")
                 .GroupBy(g => g.RequestUrl).Select(s => new SlowestEndpointResponseModel
                 {
                     RequestUrl = s.Key,
@@ -35,13 +35,6 @@ namespace EasyProfiler.Core.Concrete
                     AvarageDurationTime = new TimeSpan(s.Sum(a => a.Duration) / s.Count())
                 }).ToListAsync();
             return data.OrderByDescending(x=>x.AvarageDurationTime).ToList();
-        }
-
-        public async Task InsertAsync(Profiler profiler)
-        {
-            var entity = dbContext.Entry(profiler);
-            entity.State = EntityState.Added;
-            await dbContext.SaveChangesAsync();
         }
     }
 }
