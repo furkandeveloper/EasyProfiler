@@ -1,13 +1,14 @@
-﻿using EasyProfiler.Core.Entities;
-using EasyProfiler.Core.Helpers.AdvancedQuery;
+﻿using EasyProfiler.Core.Helpers.AdvancedQuery;
 using EasyProfiler.Core.Helpers.Responses;
-using Microsoft.EntityFrameworkCore;
+using EasyProfiler.Mongo.Models;
+using System;
 using System.Collections.Generic;
+using System.Text;
 using System.Threading.Tasks;
 
-namespace EasyProfiler.Core.Abstractions
+namespace EasyProfiler.Mongo.Services.Abstractions
 {
-    public interface IEasyProfilerBaseService<TDbContext> where TDbContext : DbContext
+    public interface IMongoService
     {
         Task InsertAsync(Profiler profiler);
 

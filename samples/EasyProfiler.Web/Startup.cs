@@ -77,9 +77,9 @@ namespace EasyProfiler.Web
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ProfilerPostgreSqlDbContext profilerPostgreSqlDbContext)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ProfilerDbContext profilerDbContext)
         {
-            app.ApplyEasyProfilerPostgreSQL(profilerPostgreSqlDbContext);
+            app.ApplyEasyProfilerPostgreSQL(profilerDbContext);
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();

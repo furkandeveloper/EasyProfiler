@@ -1,14 +1,13 @@
-﻿using EasyProfiler.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
 
 namespace EasyProfiler.MariaDb.Context
 {
-    internal class DesignTimeDbContext : IDesignTimeDbContextFactory<ProfilerMariaDbContext>
+    internal class DesignTimeDbContext : IDesignTimeDbContextFactory<ProfilerDbContext>
     {
-        public ProfilerMariaDbContext CreateDbContext(string[] args)
+        public ProfilerDbContext CreateDbContext(string[] args)
         {
-            var optionsBuilder = new DbContextOptionsBuilder<ProfilerCoreDbContext>();
+            var optionsBuilder = new DbContextOptionsBuilder<ProfilerDbContext>();
 #if NETCOREAPP3_1
             optionsBuilder.UseMySql("----");
 #elif NET5_0_OR_GREATER
@@ -16,7 +15,7 @@ namespace EasyProfiler.MariaDb.Context
             optionsBuilder.UseMySql("----", ServerVersion.FromString("10.5.9")); 
 #endif
 
-            return new ProfilerMariaDbContext(optionsBuilder.Options);
+            return new ProfilerDbContext(optionsBuilder.Options);
         }
     }
 }

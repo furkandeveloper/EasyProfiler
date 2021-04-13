@@ -26,9 +26,8 @@ namespace EasyProfiler.MariaDb.Extensions
         /// </returns>
         public static IServiceCollection AddEasyProfilerDbContext(this IServiceCollection services, Action<DbContextOptionsBuilder> optionsBuilder)
         {
-            services.AddDbContext<ProfilerMariaDbContext>(optionsBuilder);
-            services.AddTransient<IEasyProfilerContext>(sp => sp.GetService<ProfilerMariaDbContext>());
-            services.AddTransient<IEasyProfilerBaseService<ProfilerMariaDbContext>, EasyProfilerBaseManager<ProfilerMariaDbContext>>();
+            services.AddDbContext<ProfilerDbContext>(optionsBuilder);
+            services.AddTransient<IEasyProfilerBaseService<ProfilerDbContext>, EasyProfilerBaseManager<ProfilerDbContext>>();
             return services;
         }
     }

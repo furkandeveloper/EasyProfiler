@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace EasyProfiler.MariaDb.Migrations
 {
-    [DbContext(typeof(ProfilerMariaDbContext))]
+    [DbContext(typeof(ProfilerDbContext))]
     partial class ProfilerDbContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)

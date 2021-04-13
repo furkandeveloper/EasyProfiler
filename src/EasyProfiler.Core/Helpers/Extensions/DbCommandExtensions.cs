@@ -1,7 +1,10 @@
-﻿using System.Data.Common;
-using EasyProfiler.Core.Entities;
+﻿using EasyProfiler.Core.Entities;
+using System;
+using System.Collections.Generic;
+using System.Data.Common;
+using System.Text;
 
-namespace EasyProfiler.EntityFrameworkCore.Extensions
+namespace EasyProfiler.Core.Helpers.Extensions
 {
     /// <summary>
     /// This class includes extensions method for DbCommand are object.

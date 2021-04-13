@@ -69,7 +69,7 @@ namespace EasyProfiler.Web.Controllers
         /// List of profiler.
         /// </returns>
         [HttpGet("AdvancedFilterForEasyProfiler")]
-        public async Task<IActionResult> AdvancedFilterForEasyProfilerAsync([FromQuery] AdvancedFilterModel model,[FromServices]IEasyProfilerBaseService<ProfilerPostgreSqlDbContext> baseService)
+        public async Task<IActionResult> AdvancedFilterForEasyProfilerAsync([FromQuery] AdvancedFilterModel model,[FromServices]IEasyProfilerBaseService<ProfilerDbContext> baseService)
         {
             return Ok(await baseService.AdvancedFilterAsync(model));
         }
@@ -84,7 +84,7 @@ namespace EasyProfiler.Web.Controllers
         /// List of SlowestEndpointResponseModel.
         /// </returns>
         [HttpGet("SlowestEndpoint")]
-        public async Task<IActionResult> SlowestEndpointAsync([FromServices] IEasyProfilerBaseService<ProfilerPostgreSqlDbContext> baseService)
+        public async Task<IActionResult> SlowestEndpointAsync([FromServices] IEasyProfilerBaseService<ProfilerDbContext> baseService)
         {
              return Ok(await baseService.GetSlowestEndpointsAsync());
         }

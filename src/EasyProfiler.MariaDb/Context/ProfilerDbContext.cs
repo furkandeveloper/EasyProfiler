@@ -1,30 +1,27 @@
-using System.Linq;
-using System.Threading.Tasks;
-using EasyProfiler.Core.Abstractions;
-using EasyProfiler.Core.Entities;
+﻿using EasyProfiler.Core.Entities;
+using EasyProfiler.Core.Helpers.Generators;
 using Microsoft.EntityFrameworkCore;
-using EasyProfiler.EntityFrameworkCore.Generators;
+using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-namespace EasyProfiler.EntityFrameworkCore
+namespace EasyProfiler.MariaDb.Context
 {
-    public abstract class ProfilerCoreDbContext : DbContext, IEasyProfilerContext
+    /// <summary>
+    /// Profiler DbContext.
+    /// </summary>
+    public class ProfilerDbContext : DbContext
     {
-        public ProfilerCoreDbContext(DbContextOptions<ProfilerCoreDbContext> options) : base(options)
+        public ProfilerDbContext(DbContextOptions<ProfilerDbContext> options) : base(options)
         {
         }
 
-        protected ProfilerCoreDbContext()
+        public ProfilerDbContext()
         {
         }
-        
         #region Tables
         public virtual DbSet<Profiler> Profilers { get; set; }
         #endregion
-
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            base.OnModelCreating(modelBuilder);
-            
             modelBuilder.Entity<Profiler>(entity =>
             {
                 entity
@@ -41,25 +38,17 @@ namespace EasyProfiler.EntityFrameworkCore
                 entity
                     .Property(p => p.Query)
                     .IsRequired();
-                
+
+                entity
+                    .Property(p => p.QueryType)
+                    .IsRequired()
+                    .HasConversion(new EnumToStringConverter<QueryType>());
+
                 entity
                     .Property(p => p.Duration)
                     .HasColumnType("bigint");
             });
-        }
-
-        public IQueryable<T> Get<T>()
-            where T:class
-        {
-            return Set<T>().AsQueryable();
-        }
-
-        public async Task InsertAsync<T>(T entity)
-            where  T : class
-        {
-            var entry = Entry(entity);
-            entry.State = EntityState.Added;
-            await SaveChangesAsync();
+            base.OnModelCreating(modelBuilder);
         }
     }
 }
