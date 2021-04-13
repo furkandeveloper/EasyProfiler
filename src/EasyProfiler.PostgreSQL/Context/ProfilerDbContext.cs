@@ -1,11 +1,7 @@
 ﻿using EasyProfiler.Core.Entities;
 using EasyProfiler.Core.Helpers.Generators;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Query;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace EasyProfiler.PostgreSQL.Context
 {
