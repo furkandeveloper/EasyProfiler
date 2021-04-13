@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace EasyProfiler.MariaDb.Migrations
 {
-    [DbContext(typeof(ProfilerMariaDbContext))]
+    [DbContext(typeof(ProfilerDbContext))]
     [Migration("20201027202735_Initial")]
     partial class Initial
     {

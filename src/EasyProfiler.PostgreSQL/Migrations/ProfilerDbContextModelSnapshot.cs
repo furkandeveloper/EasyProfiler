@@ -8,7 +8,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace EasyProfiler.PostgreSQL.Migrations
 {
-    [DbContext(typeof(ProfilerPostgreSqlDbContext))]
+    [DbContext(typeof(ProfilerDbContext))]
     partial class ProfilerDbContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)

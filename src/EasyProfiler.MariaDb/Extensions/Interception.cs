@@ -26,10 +26,7 @@ namespace EasyProfiler.MariaDb.Extensions
         public static DbContextOptionsBuilder AddEasyProfiler(this DbContextOptionsBuilder optionsBuilder, IServiceCollection services)
         {
             var buildServices = services.BuildServiceProvider();
-            optionsBuilder.AddInterceptors(
-                new EasyProfilerInterceptors(
-                    buildServices.GetService<ProfilerMariaDbContext>(), 
-                    buildServices.GetService<IHttpContextAccessor>()));
+            optionsBuilder.AddInterceptors(new EasyProfilerInterceptors(buildServices.GetService<IEasyProfilerBaseService<ProfilerDbContext>>(), buildServices.GetService<IHttpContextAccessor>()));
             return optionsBuilder;
         }
     }

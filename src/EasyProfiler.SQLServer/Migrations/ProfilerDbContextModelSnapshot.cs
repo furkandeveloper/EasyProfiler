@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace EasyProfiler.SQLServer.Migrations
 {
-    [DbContext(typeof(ProfilerSqlServerDbContext))]
+    [DbContext(typeof(ProfilerDbContext))]
     partial class ProfilerDbContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
