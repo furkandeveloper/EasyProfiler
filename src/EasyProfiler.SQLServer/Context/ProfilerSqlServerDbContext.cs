@@ -12,7 +12,7 @@ namespace EasyProfiler.SQLServer.Context
     /// </summary>
     public class ProfilerSqlServerDbContext : ProfilerCoreDbContext, IEasyProfilerContext
     {
-        public ProfilerSqlServerDbContext(DbContextOptions<ProfilerCoreDbContext> options) : base(options)
+        public ProfilerSqlServerDbContext(DbContextOptions<ProfilerSqlServerDbContext> options) : base(options)
         {
         }
 

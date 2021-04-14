@@ -23,7 +23,7 @@ namespace EasyProfiler.PostgreSQL.Context
         /// </returns>
         public ProfilerPostgreSqlDbContext CreateDbContext(string[] args)
         {
-            var optionsBuilder = new DbContextOptionsBuilder<ProfilerCoreDbContext>();
+            var optionsBuilder = new DbContextOptionsBuilder<ProfilerPostgreSqlDbContext>();
             optionsBuilder.UseNpgsql("xxxx");
             return new ProfilerPostgreSqlDbContext(optionsBuilder.Options);
         }
