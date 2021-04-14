@@ -10,7 +10,7 @@ namespace EasyProfiler.PostgreSQL.Context
     /// </summary>
     public class ProfilerPostgreSqlDbContext : ProfilerCoreDbContext
     {
-        public ProfilerPostgreSqlDbContext(DbContextOptions<ProfilerCoreDbContext> options) : base(options)
+        public ProfilerPostgreSqlDbContext(DbContextOptions<ProfilerPostgreSqlDbContext> options) : base(options)
         {
         }
 

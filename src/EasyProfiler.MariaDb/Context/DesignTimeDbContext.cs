@@ -8,7 +8,7 @@ namespace EasyProfiler.MariaDb.Context
     {
         public ProfilerMariaDbContext CreateDbContext(string[] args)
         {
-            var optionsBuilder = new DbContextOptionsBuilder<ProfilerCoreDbContext>();
+            var optionsBuilder = new DbContextOptionsBuilder<ProfilerMariaDbContext>();
 #if NETCOREAPP3_1
             optionsBuilder.UseMySql("----");
 #elif NET5_0_OR_GREATER

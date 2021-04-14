@@ -11,7 +11,7 @@ namespace EasyProfiler.SQLServer.Context
     {
         public ProfilerSqlServerDbContext CreateDbContext(string[] args)
         {
-            var optionsBuilder = new DbContextOptionsBuilder<ProfilerCoreDbContext>();
+            var optionsBuilder = new DbContextOptionsBuilder<ProfilerSqlServerDbContext>();
             optionsBuilder.UseSqlServer("xxxx");
             return new ProfilerSqlServerDbContext(optionsBuilder.Options);
         }

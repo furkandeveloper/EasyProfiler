@@ -10,7 +10,7 @@ namespace EasyProfiler.MariaDb.Context
     /// </summary>
     public class ProfilerMariaDbContext : ProfilerCoreDbContext
     {
-        public ProfilerMariaDbContext(DbContextOptions<ProfilerCoreDbContext> options) : base(options)
+        public ProfilerMariaDbContext(DbContextOptions<ProfilerMariaDbContext> options) : base(options)
         {
         }
 
