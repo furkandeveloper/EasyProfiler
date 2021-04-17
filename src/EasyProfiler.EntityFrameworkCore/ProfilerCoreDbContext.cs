@@ -4,6 +4,7 @@ using EasyProfiler.Core.Abstractions;
 using EasyProfiler.Core.Entities;
 using Microsoft.EntityFrameworkCore;
 using EasyProfiler.EntityFrameworkCore.Generators;
+using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace EasyProfiler.EntityFrameworkCore
 {
@@ -41,6 +42,10 @@ namespace EasyProfiler.EntityFrameworkCore
                 entity
                     .Property(p => p.Query)
                     .IsRequired();
+
+                entity
+                    .Property(p => p.QueryType)
+                    .HasConversion(new EnumToStringConverter<QueryType>());
                 
                 entity
                     .Property(p => p.Duration)
