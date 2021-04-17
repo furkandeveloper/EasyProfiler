@@ -13,6 +13,7 @@ using System.Data.Common;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
+using EasyProfiler.EntityFrameworkCore.Extensions;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace EasyProfiler.PostgreSQL.Interceptors
@@ -22,13 +23,13 @@ namespace EasyProfiler.PostgreSQL.Interceptors
     /// </summary>
     public class EasyProfilerInterceptors : DbCommandInterceptor
     {
-        private readonly IEasyProfilerBaseService<ProfilerDbContext> baseService;
+        private readonly IEasyProfilerContext context;
         private readonly IHttpContextAccessor httpContextAccessor;
         private readonly IEasyCacheService easyCacheService;
 
         public EasyProfilerInterceptors(IEasyProfilerBaseService<ProfilerDbContext> baseService, IHttpContextAccessor httpContextAccessor, IEasyCacheService easyCacheService)
         {
-            this.baseService = baseService;
+            this.context = context;
             this.httpContextAccessor = httpContextAccessor;
             this.easyCacheService = easyCacheService;
         }

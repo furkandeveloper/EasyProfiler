@@ -1,49 +1,49 @@
 ﻿using EasyProfiler.Mongo.Configuration;
 using EasyProfiler.Mongo.Models;
-using Microsoft.EntityFrameworkCore;
 using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using System.Xml.Linq;
+using EasyProfiler.Core.Abstractions;
 
 namespace EasyProfiler.Mongo.Context
 {
     /// <summary>
     /// Db context
     /// </summary>
-    public class EasyProfilerContext : DbContext, IEasyProfilerContext
+    public class EasyProfilerMongoDbContext : IEasyProfilerContext
     {
         protected readonly IMongoDatabase _database;
 
-        public EasyProfilerContext(ConnectionModel connectionModel)
+        public EasyProfilerMongoDbContext(ConnectionModel connectionModel)
         {
             var client = new MongoClient(connectionModel.ConnectionString);
             if (client != null)
                 _database = client.GetDatabase(connectionModel.Database);
         }
 
-        public IMongoCollection<Profiler> Profilers
-            => Database.GetCollection<Profiler>(nameof(Profilers));
-
         /// <summary>
         /// Database object
         /// </summary>
-        public new IMongoDatabase Database
+        public IMongoDatabase Database
         {
             get
             {
                 return _database;
             }
         }
-
-        /// <summary>
-        /// It's for Entity Framework based queries
-        /// </summary>
-        /// <typeparam name="T">Type of collection (Table)</typeparam>
-        public IMongoCollection<T> Set<T>(string collection = null)
+        
+        public IQueryable<T> Get<T>() where T : class
         {
-            return Database.GetCollection<T>(collection ?? typeof(T).Name);
+           return Database.GetCollection<T>(typeof(T).Name).AsQueryable();
+        }
+
+        public Task InsertAsync<T>(T entity) where T : class
+        {
+            return Database.GetCollection<T>(typeof(T).Name).InsertOneAsync(entity);
         }
     }
 }

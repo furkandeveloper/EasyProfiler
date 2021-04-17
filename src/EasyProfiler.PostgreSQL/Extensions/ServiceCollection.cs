@@ -28,9 +28,9 @@ namespace EasyProfiler.PostgreSQL.Extensions
         /// </returns>
         public static IServiceCollection AddEasyProfilerDbContext(this IServiceCollection services, Action<DbContextOptionsBuilder> optionsBuilder, Action<DbResulationConfiguration> resulationConfiguration)
         {
-            services.AddDbContext<ProfilerDbContext>(optionsBuilder, ServiceLifetime.Transient, ServiceLifetime.Transient);
-            services.AddTransient<IEasyProfilerBaseService<ProfilerDbContext>, EasyProfilerBaseManager<ProfilerDbContext>>();
-            //services.AddEasyMemoryCache();
+            services.AddDbContext<ProfilerPostgreSqlDbContext>(optionsBuilder);
+            services.AddTransient<IEasyProfilerContext>(sp => sp.GetService<ProfilerPostgreSqlDbContext>());
+            services.AddTransient<IEasyProfilerBaseService<ProfilerPostgreSqlDbContext>, EasyProfilerBaseManager<ProfilerPostgreSqlDbContext>>();
             services.AddMemoryCache();
             DbResulationConfiguration dbResulationConfiguration = new DbResulationConfiguration();
             resulationConfiguration.Invoke(dbResulationConfiguration);
