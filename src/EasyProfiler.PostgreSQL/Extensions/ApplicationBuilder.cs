@@ -19,12 +19,12 @@ namespace EasyProfiler.PostgreSQL.Extensions
         /// <param name="app">
         /// IApplicationBuilder
         /// </param>
-        /// <param name="dbContext">
+        /// <param name="postgreSqlDbContext">
         /// Profiler DbContext
         /// </param>
-        public static void ApplyEasyProfilerPostgreSQL(this IApplicationBuilder app, ProfilerDbContext dbContext)
+        public static void ApplyEasyProfilerPostgreSQL(this IApplicationBuilder app, ProfilerPostgreSqlDbContext postgreSqlDbContext)
         {
-            dbContext.Database.Migrate();
+            postgreSqlDbContext.Database.Migrate();
         }
     }
 }
