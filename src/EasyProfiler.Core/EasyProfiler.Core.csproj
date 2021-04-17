@@ -20,7 +20,6 @@
 
   <ItemGroup>
     <PackageReference Include="AutoFilterer" Version="2.6.1" />
-    <!--<PackageReference Include="EasyCache.Memory" Version="1.0.1" />-->
   </ItemGroup>
 
 	<ItemGroup>

@@ -27,15 +27,20 @@
 		<PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="5.0.2" />
 	</ItemGroup>
 
-	<ItemGroup>
-		<ProjectReference Include="..\EasyProfiler.EntityFrameworkCore\EasyProfiler.EntityFrameworkCore.csproj" />
-	</ItemGroup>
+	<!-- <ItemGroup> -->
+		<!-- <ProjectReference Include="..\EasyProfiler.EntityFrameworkCore\EasyProfiler.EntityFrameworkCore.csproj" /> -->
+	<!-- </ItemGroup> -->
 
 	<ItemGroup>
 		<None Include="easyProfilerPostgreSQL.png">
 			<Pack>True</Pack>
 			<PackagePath></PackagePath>
 		</None>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\EasyProfiler.CronJob\EasyProfiler.CronJob.csproj" />
+	  <ProjectReference Include="..\EasyProfiler.EntityFrameworkCore\EasyProfiler.EntityFrameworkCore.csproj" />
 	</ItemGroup>
 
 </Project>

@@ -1,5 +1,4 @@
-﻿using EasyCache.Core.Abstractions;
-using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using MongoDB.Bson;
 using MongoDB.Driver.Core.Events;
@@ -8,6 +7,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 using EasyProfiler.Core.Abstractions;
+using Microsoft.Extensions.Caching.Memory;
 
 namespace EasyProfiler.Mongo.Extensions
 {
@@ -27,9 +27,12 @@ namespace EasyProfiler.Mongo.Extensions
         /// </param>
         public static void InitilazeStartedEvent(this CommandStartedEvent command, IServiceProvider serviceProvider)
         {
-            var cacheService = serviceProvider.GetService<IEasyCacheService>();
+            var cacheService = serviceProvider.GetService<IMemoryCache>();
             if (command.OperationId != null)
-                cacheService.Set<string>(command.OperationId + command.CommandName, command.Command.ToString(), TimeSpan.FromMinutes(5));
+                cacheService.Set<string>(command.OperationId + command.CommandName, command.Command.ToString(), new MemoryCacheEntryOptions
+                {
+                    Priority = CacheItemPriority.NeverRemove
+                });
         }
 
         /// <summary>
@@ -43,10 +46,11 @@ namespace EasyProfiler.Mongo.Extensions
         /// </param>
         public static void InitilazeSucceededEvent(this CommandSucceededEvent command, IServiceProvider serviceProvider)
         {
-            var cacheService = serviceProvider.GetService<IEasyCacheService>();
+            var cacheService = serviceProvider.GetService<IMemoryCache>();
             var context = serviceProvider.GetService<IEasyProfilerContext>();
             var httpContext = serviceProvider.GetService<IHttpContextAccessor>();
             var data = cacheService.Get<string>(command.OperationId + command.CommandName);
+            cacheService.Remove(command.OperationId + command.CommandName);
             if (data != null)
             {
                 Task.Run(() =>

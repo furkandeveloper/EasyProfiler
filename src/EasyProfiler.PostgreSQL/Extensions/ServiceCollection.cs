@@ -1,5 +1,4 @@
-﻿using EasyCache.Memory.Extensions;
-using EasyProfiler.Core.Abstractions;
+﻿using EasyProfiler.Core.Abstractions;
 using EasyProfiler.Core.Concrete;
 using EasyProfiler.CronJob.Common;
 using EasyProfiler.CronJob.Extensions;
@@ -28,10 +27,11 @@ namespace EasyProfiler.PostgreSQL.Extensions
         /// </returns>
         public static IServiceCollection AddEasyProfilerDbContext(this IServiceCollection services, Action<DbContextOptionsBuilder> optionsBuilder, Action<DbResulationConfiguration> resulationConfiguration)
         {
-            services.AddDbContext<ProfilerPostgreSqlDbContext>(optionsBuilder);
+            services.AddDbContext<ProfilerPostgreSqlDbContext>(optionsBuilder, ServiceLifetime.Transient, ServiceLifetime.Transient);
             services.AddTransient<IEasyProfilerContext>(sp => sp.GetService<ProfilerPostgreSqlDbContext>());
             services.AddTransient<IEasyProfilerBaseService<ProfilerPostgreSqlDbContext>, EasyProfilerBaseManager<ProfilerPostgreSqlDbContext>>();
-            services.AddMemoryCache();
+            //services.AddMemoryCache(options=> options.ExpirationScanFrequency = TimeSpan.FromDays(1));
+            services.AddSingleton<IProfilerCache, MemoryCache>();
             DbResulationConfiguration dbResulationConfiguration = new DbResulationConfiguration();
             resulationConfiguration.Invoke(dbResulationConfiguration);
             if (dbResulationConfiguration.UseCronExpression)

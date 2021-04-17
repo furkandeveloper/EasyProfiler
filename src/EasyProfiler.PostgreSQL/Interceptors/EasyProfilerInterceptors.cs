@@ -1,20 +1,11 @@
-﻿using EasyCache.Core.Abstractions;
-using EasyCache.Core.Extensions;
-using EasyProfiler.Core.Abstractions;
-using EasyProfiler.Core.Entities;
-using EasyProfiler.Core.Helpers.Extensions;
-using EasyProfiler.PostgreSQL.Context;
+﻿using EasyProfiler.Core.Entities;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore.Diagnostics;
 using Microsoft.Extensions.Caching.Memory;
-using System;
 using System.Collections.Generic;
 using System.Data.Common;
-using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
 using EasyProfiler.EntityFrameworkCore.Extensions;
-using Microsoft.Extensions.DependencyInjection;
+using System;
 
 namespace EasyProfiler.PostgreSQL.Interceptors
 {
@@ -23,15 +14,15 @@ namespace EasyProfiler.PostgreSQL.Interceptors
     /// </summary>
     public class EasyProfilerInterceptors : DbCommandInterceptor
     {
-        private readonly IEasyProfilerContext context;
         private readonly IHttpContextAccessor httpContextAccessor;
-        private readonly IEasyCacheService easyCacheService;
+        private readonly IMemoryCache memoryCache;
+        private readonly IProfilerCache profilerCache;
 
-        public EasyProfilerInterceptors(IEasyProfilerBaseService<ProfilerDbContext> baseService, IHttpContextAccessor httpContextAccessor, IEasyCacheService easyCacheService)
+        public EasyProfilerInterceptors(IHttpContextAccessor httpContextAccessor, IMemoryCache memoryCache, IProfilerCache profilerCache)
         {
-            this.context = context;
             this.httpContextAccessor = httpContextAccessor;
-            this.easyCacheService = easyCacheService;
+            this.memoryCache = memoryCache;
+            this.profilerCache = profilerCache;
         }
         /// <summary>
         /// Data reader Disposing.
@@ -48,9 +39,22 @@ namespace EasyProfiler.PostgreSQL.Interceptors
         /// <returns></returns>
         public override InterceptionResult DataReaderDisposing(DbCommand command, DataReaderDisposingEventData eventData, InterceptionResult result)
         {
-            //var cachedValue = easyCacheService.GetAndSet<Profiler>("easy-profiler", () => GetData(), TimeSpan.FromMinutes(2));
-            var cache = httpContextAccessor.HttpContext.RequestServices.GetService<IMemoryCache>();
-            cache.Set("test", "string", TimeSpan.FromMinutes(20));
+            var profilerData = new Profiler
+            {
+                Duration = eventData.Duration.Ticks,
+                Query = command.CommandText,
+                RequestUrl = httpContextAccessor?.HttpContext?.Request?.Path.Value,
+                QueryType = command.FindQueryType()
+            };
+
+            var cachedData = memoryCache.Get<List<Profiler>>("easy-profiler") ?? new List<Profiler>();
+            cachedData.Add(profilerData);
+            memoryCache.Set("easy-profiler", cachedData, TimeSpan.FromDays(1));
+            memoryCache.Set<string>("test", "test-furkan", TimeSpan.FromDays(1));
+
+            profilerCache.Set("easy-profiler", cachedData, TimeSpan.FromDays(1));
+            profilerCache.Set<string>("test", "test-furkan", TimeSpan.FromDays(1));
+            var data = profilerCache.Get<string>("test");
 
             //cachedValue.Add(new Profiler
             //{

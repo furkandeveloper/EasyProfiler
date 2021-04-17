@@ -1,5 +1,4 @@
-﻿using EasyCache.Memory.Extensions;
-using EasyProfiler.Mongo.Configuration;
+﻿using EasyProfiler.Mongo.Configuration;
 using EasyProfiler.Mongo.Context;
 using Microsoft.Extensions.DependencyInjection;
 using System;
@@ -32,7 +31,7 @@ namespace EasyProfiler.Mongo.Extensions
             ConnectionModel connectionModel = new ConnectionModel();
             configuration.Invoke(connectionModel);
             services.AddSingleton(connectionModel);
-            services.AddEasyMemoryCache();
+            services.AddMemoryCache();
             services.AddSingleton<IEasyProfilerContext, EasyProfilerMongoDbContext>();
             return services;
         }
