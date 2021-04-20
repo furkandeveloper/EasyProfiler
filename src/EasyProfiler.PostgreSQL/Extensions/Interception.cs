@@ -3,6 +3,7 @@ using EasyProfiler.PostgreSQL.Context;
 using EasyProfiler.PostgreSQL.Interceptors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Caching.Distributed;
 using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.DependencyInjection;
 using System;
@@ -30,9 +31,7 @@ namespace EasyProfiler.PostgreSQL.Extensions
             var buildServices = services.BuildServiceProvider();
             optionsBuilder.AddInterceptors(
                 new EasyProfilerInterceptors(
-                    buildServices.GetService<IHttpContextAccessor>(),
-                    buildServices.GetService<IMemoryCache>(),
-                    buildServices.GetService<IProfilerCache>()));
+                    buildServices.GetService<IHttpContextAccessor>()));
             return optionsBuilder;
         }
     }
