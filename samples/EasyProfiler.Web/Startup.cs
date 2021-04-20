@@ -49,9 +49,9 @@ namespace EasyProfiler.Web
                 options.UseNpgsql(Configuration.GetConnectionString("DefaultConnection"));
             }, options=>
             {
-                options.Resulation = CronJob.Common.Resulation.LOW;
-                //options.UseCronExpression = true;
-                //options.CronExpression = "*/2 * * * *";
+                //options.Resulation = CronJob.Common.Resulation.LOW;
+                options.UseCronExpression = true;
+                options.CronExpression = "* 1 * * *";
             });
 
             services.AddSwaggerGen(options =>
@@ -82,9 +82,9 @@ namespace EasyProfiler.Web
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ProfilerPostgreSqlDbContext profilerPostgreSqlDbContext)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            app.ApplyEasyProfilerPostgreSQL(profilerPostgreSqlDbContext);
+            app.ApplyEasyProfilerPostgreSQL();
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
