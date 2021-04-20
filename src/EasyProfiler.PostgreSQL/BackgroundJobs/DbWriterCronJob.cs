@@ -1,12 +1,10 @@
-﻿using EasyProfiler.Core.Abstractions;
-using EasyProfiler.Core.Entities;
+﻿using EasyProfiler.Core.Entities;
+using EasyProfiler.Core.Statics;
 using EasyProfiler.CronJob.Abstractions;
 using EasyProfiler.PostgreSQL.Context;
 using Microsoft.Extensions.Caching.Memory;
-using Microsoft.Extensions.DependencyInjection;
 using System;
-using System.Collections.Generic;
-using System.Text;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -14,27 +12,27 @@ namespace EasyProfiler.PostgreSQL.BackgroundJobs
 {
     public class DbWriterCronJob : CronJobService
     {
-        private readonly IMemoryCache cache;
         private readonly ProfilerPostgreSqlDbContext profilerPostgreSqlDbContext;
-        private readonly IProfilerCache profilerCache;
 
-        public DbWriterCronJob(ICronConfiguration<DbWriterCronJob> configuration, IMemoryCache cache, ProfilerPostgreSqlDbContext profilerPostgreSqlDbContext, IProfilerCache profilerCache)
+        public DbWriterCronJob(ICronConfiguration<DbWriterCronJob> configuration, ProfilerPostgreSqlDbContext profilerPostgreSqlDbContext)
             : base(configuration.CronExpression, configuration.TimeZoneInfo)
         {
-            this.cache = cache;
             this.profilerPostgreSqlDbContext = profilerPostgreSqlDbContext;
-            this.profilerCache = profilerCache;
         }
 
         public override async Task DoWork(CancellationToken cancellationToken)
         {
-            var cachedValue = profilerCache.Get<List<Profiler>>("easy-profiler") ?? new List<Profiler>();
-            var test = profilerCache.Get<string>("test");
-            //profilerCache.Remove("easy-profiler");
-            foreach (var value in cachedValue)
+            var profilerData = Values.Profilers.Select(s => new Profiler
             {
-                await profilerPostgreSqlDbContext.InsertAsync(value);
-            }
+                Duration = s.Duration,
+                Id = s.Id,
+                QueryType = s.QueryType,
+                RequestUrl = s.RequestUrl,
+                Query = s.Query,
+            }).ToList();
+            Values.Profilers.Clear();
+            foreach (var profiler in profilerData)
+                await profilerPostgreSqlDbContext.InsertAsync(profiler);
             await base.DoWork(cancellationToken);
         }
     }
