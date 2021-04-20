@@ -32,20 +32,21 @@ namespace EasyProfiler.PostgreSQL.Extensions
             services.AddTransient<IEasyProfilerBaseService<ProfilerPostgreSqlDbContext>, EasyProfilerBaseManager<ProfilerPostgreSqlDbContext>>();
             DbResulationConfiguration dbResulationConfiguration = new DbResulationConfiguration();
             resulationConfiguration.Invoke(dbResulationConfiguration);
+            
             if (dbResulationConfiguration.UseCronExpression)
             {
                 var data = Cronos.CronExpression.Parse(dbResulationConfiguration.CronExpression);
                 var nextDate = data.GetNextOccurrence(DateTime.UtcNow, TimeZoneInfo.Local);
                 if ((nextDate - DateTime.UtcNow).Value.TotalHours > 1)
                     throw new Exception("Cron expression cannot be greater than 1 hour.");
-                services.ApplyResulation<DbWriterCronJob>(options =>
+                services.ApplyResulation<EasyProfiler.CronJob.Jobs.DbWriterCronJob>(options =>
                 {
                     options.CronExpression = dbResulationConfiguration.CronExpression;
                     options.TimeZoneInfo = dbResulationConfiguration.TimeZoneInfo;
                 });
             }
             else
-                services.ApplyResulation<DbWriterCronJob>(options =>
+                services.ApplyResulation<EasyProfiler.CronJob.Jobs.DbWriterCronJob>(options =>
                 {
                     options.CronExpression = dbResulationConfiguration.Resulation.GetType().GetField(dbResulationConfiguration.Resulation.ToString()).GetCustomAttribute<ResulationCronAttribute>().Cron;
                     options.TimeZoneInfo = dbResulationConfiguration.TimeZoneInfo;
