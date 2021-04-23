@@ -2,9 +2,6 @@
 
     <Import Project="..\..\common.props" />
     <PropertyGroup>
-        <PackageReleaseNotes>
-            * TODO
-        </PackageReleaseNotes>
         <PackageId>EasyProfiler.EntityFrameworkCore</PackageId>
     </PropertyGroup>
     
