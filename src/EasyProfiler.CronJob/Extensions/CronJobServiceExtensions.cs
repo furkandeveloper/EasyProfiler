@@ -9,8 +9,26 @@ using System.Text;
 
 namespace EasyProfiler.CronJob.Extensions
 {
+    /// <summary>
+    /// Cron Job Service Collection Extensions
+    /// </summary>
     public static class CronJobServiceExtensions
     {
+        /// <summary>
+        /// Apply Resulation
+        /// </summary>
+        /// <typeparam name="T">
+        /// Cron Job Service in CronJobService type
+        /// </typeparam>
+        /// <param name="services">
+        /// Microsoft.Extensions.DependencyInjection.IServiceCollection
+        /// </param>
+        /// <param name="action">
+        /// Cron Configuration Action Object
+        /// </param>
+        /// <returns>
+        /// Microsoft.Extensions.DependencyInjection.IServiceCollection
+        /// </returns>
         public static IServiceCollection ApplyResulation<T>(this IServiceCollection services, Action<ICronConfiguration<T>> action)
             where T : CronJobService
         {
