@@ -4,9 +4,6 @@
 
   <PropertyGroup>
     <PackageIcon>easyProfilerSQLServer.png</PackageIcon>
-	  <PackageReleaseNotes>
-		  * ⬆️ Upgrade target framework
-	  </PackageReleaseNotes>
     <PackageId>EasyProfiler.Core</PackageId>
   </PropertyGroup>
 
