@@ -1,6 +1,7 @@
 ﻿using EasyProfiler.MariaDb.Context;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace EasyProfiler.MariaDb.Extensions
 {
@@ -19,9 +20,10 @@ namespace EasyProfiler.MariaDb.Extensions
         /// <param name="mariaDbContext">
         /// Profiler DbContext
         /// </param>
-        public static void ApplyEasyProfilerMariaDb(this IApplicationBuilder app, ProfilerMariaDbContext mariaDbContext)
+        public static IApplicationBuilder ApplyEasyProfilerMariaDb(this IApplicationBuilder app)
         {
-            mariaDbContext.Database.Migrate();
+            app.ApplicationServices.GetService<ProfilerMariaDbContext>().Database.Migrate();
+            return app;
         }
     }
 }

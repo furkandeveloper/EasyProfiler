@@ -28,7 +28,6 @@ namespace EasyProfiler.MariaDb.Extensions
             var buildServices = services.BuildServiceProvider();
             optionsBuilder.AddInterceptors(
                 new EasyProfilerInterceptors(
-                    buildServices.GetService<ProfilerMariaDbContext>(), 
                     buildServices.GetService<IHttpContextAccessor>()));
             return optionsBuilder;
         }

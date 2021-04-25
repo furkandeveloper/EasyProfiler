@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using EasyProfiler.Core.Abstractions;
 using Microsoft.Extensions.Caching.Memory;
+using EasyProfiler.Core.Statics;
+using EasyProfiler.Mongo.Statics;
 
 namespace EasyProfiler.Mongo.Extensions
 {
@@ -47,21 +49,17 @@ namespace EasyProfiler.Mongo.Extensions
         public static void InitilazeSucceededEvent(this CommandSucceededEvent command, IServiceProvider serviceProvider)
         {
             var cacheService = serviceProvider.GetService<IMemoryCache>();
-            var context = serviceProvider.GetService<IEasyProfilerContext>();
             var httpContext = serviceProvider.GetService<IHttpContextAccessor>();
             var data = cacheService.Get<string>(command.OperationId + command.CommandName);
             cacheService.Remove(command.OperationId + command.CommandName);
             if (data != null)
             {
-                Task.Run(() =>
+                MongoValues.Profilers.Add(new Models.Profiler
                 {
-                    context.InsertAsync(new Models.Profiler()
-                    {
-                        Duration = command.Duration.Ticks,
-                        Query = data.ToString(),
-                        QueryType = command.CommandName.FindQueryType(),
-                        RequestUrl = httpContext?.HttpContext?.Request?.Path.Value
-                    });
+                    Duration = command.Duration.Ticks,
+                    Query = data.ToString(),
+                    QueryType = command.CommandName.FindQueryType(),
+                    RequestUrl = httpContext?.HttpContext?.Request?.Path.Value
                 });
             }
         }
