@@ -1,10 +1,12 @@
 ﻿using EasyProfiler.CronJob.Abstractions;
 using EasyProfiler.CronJob.Common;
+using EasyProfiler.CronJob.Jobs;
 using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System;
 using System.Collections.Generic;
+using System.Reflection;
 using System.Text;
 
 namespace EasyProfiler.CronJob.Extensions
@@ -36,6 +38,31 @@ namespace EasyProfiler.CronJob.Extensions
             action.Invoke(options);
             services.AddSingleton<ICronConfiguration<T>>(options);
             services.AddHostedService<T>();
+            return services;
+        }
+
+        public static IServiceCollection ToResulation(this IServiceCollection services, Action<DbResulationConfiguration> resulationConfiguration)
+        {
+            DbResulationConfiguration dbResulationConfiguration = new DbResulationConfiguration();
+            resulationConfiguration.Invoke(dbResulationConfiguration);
+            if (dbResulationConfiguration.UseCronExpression)
+            {
+                var data = Cronos.CronExpression.Parse(dbResulationConfiguration.CronExpression);
+                var nextDate = data.GetNextOccurrence(DateTime.UtcNow, TimeZoneInfo.Local);
+                if ((nextDate - DateTime.UtcNow).Value.TotalHours > 1)
+                    throw new Exception("Cron expression cannot be greater than 1 hour.");
+                services.ApplyResulation<DbWriterCronJob>(options =>
+                {
+                    options.CronExpression = dbResulationConfiguration.CronExpression;
+                    options.TimeZoneInfo = dbResulationConfiguration.TimeZoneInfo;
+                });
+            }
+            else
+                services.ApplyResulation<DbWriterCronJob>(options =>
+                {
+                    options.CronExpression = dbResulationConfiguration.Resulation.GetType().GetField(dbResulationConfiguration.Resulation.ToString()).GetCustomAttribute<ResulationCronAttribute>().Cron;
+                    options.TimeZoneInfo = dbResulationConfiguration.TimeZoneInfo;
+                });
             return services;
         }
     }
