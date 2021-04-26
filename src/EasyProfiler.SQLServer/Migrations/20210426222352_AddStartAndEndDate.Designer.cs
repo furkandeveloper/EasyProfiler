@@ -4,14 +4,16 @@ using EasyProfiler.SQLServer.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace EasyProfiler.SQLServer.Migrations
 {
     [DbContext(typeof(ProfilerSqlServerDbContext))]
-    partial class ProfilerDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210426222352_AddStartAndEndDate")]
+    partial class AddStartAndEndDate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
