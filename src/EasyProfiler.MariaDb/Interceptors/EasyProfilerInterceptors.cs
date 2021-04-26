@@ -1,4 +1,5 @@
-﻿using System.Data.Common;
+﻿using System;
+using System.Data.Common;
 using System.Threading.Tasks;
 using EasyProfiler.Core.Abstractions;
 using EasyProfiler.Core.Entities;
@@ -27,7 +28,9 @@ namespace EasyProfiler.MariaDb.Interceptors
                 Duration = eventData.Duration.Ticks,
                 Query = command.CommandText,
                 RequestUrl = httpContextAccessor?.HttpContext?.Request?.Path.Value,
-                QueryType = command.FindQueryType()
+                QueryType = command.FindQueryType(),
+                EndDate = DateTime.UtcNow,
+                StartDate = DateTime.UtcNow - eventData.Duration
             };
             Values.Profilers.Add(profilerData);
             return base.DataReaderDisposing(command, eventData, result);
