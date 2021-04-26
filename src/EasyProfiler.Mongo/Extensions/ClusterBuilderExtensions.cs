@@ -59,7 +59,9 @@ namespace EasyProfiler.Mongo.Extensions
                     Duration = command.Duration.Ticks,
                     Query = data.ToString(),
                     QueryType = command.CommandName.FindQueryType(),
-                    RequestUrl = httpContext?.HttpContext?.Request?.Path.Value
+                    RequestUrl = httpContext?.HttpContext?.Request?.Path.Value,
+                    EndDate = DateTime.UtcNow,
+                    StartDate = DateTime.UtcNow - command.Duration
                 });
             }
         }
