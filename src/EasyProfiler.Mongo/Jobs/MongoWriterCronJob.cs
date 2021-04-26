@@ -48,6 +48,8 @@ namespace EasyProfiler.Mongo.Jobs
                 QueryType = s.QueryType,
                 RequestUrl = s.RequestUrl,
                 Query = s.Query,
+                StartDate = s.StartDate,
+                EndDate = s.EndDate
             }).ToList();
             MongoValues.Profilers.Clear();
             foreach (var profiler in profilerData)
