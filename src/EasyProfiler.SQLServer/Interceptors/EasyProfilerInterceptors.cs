@@ -31,7 +31,9 @@ namespace EasyProfiler.SQLServer.Interceptors
                 Duration = eventData.Duration.Ticks,
                 Query = command.CommandText,
                 RequestUrl = httpContextAccessor?.HttpContext?.Request?.Path.Value,
-                QueryType = command.FindQueryType()
+                QueryType = command.FindQueryType(),
+                EndDate = DateTime.UtcNow,
+                StartDate = DateTime.UtcNow - eventData.Duration
             };
             Values.Profilers.Add(profilerData);
             return base.DataReaderDisposing(command, eventData, result);
