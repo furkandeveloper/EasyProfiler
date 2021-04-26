@@ -51,6 +51,8 @@ namespace EasyProfiler.CronJob.Jobs
                 QueryType = s.QueryType,
                 RequestUrl = s.RequestUrl,
                 Query = s.Query,
+                StartDate = s.StartDate,
+                EndDate = s.EndDate
             }).ToList();
             Values.Profilers.Clear();
             foreach (var profiler in profilerData)
