@@ -14,5 +14,9 @@ namespace EasyProfiler.Mongo.Entities
         [BsonRepresentation(MongoDB.Bson.BsonType.ObjectId)]
         [BsonElement("_id")]
         public virtual string Id { get; set; }
+
+        public DateTime StartDate { get; set; }
+
+        public DateTime EndDate { get; set; }
     }
 }
