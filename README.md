@@ -16,7 +16,8 @@
 ![Nuget](https://img.shields.io/nuget/dt/EasyProfiler.Mongo?label=MongoDb%20Downloads)
 ![Nuget](https://img.shields.io/nuget/v/EasyProfiler.Mongo?label=MongoDb)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![HitCount](http://hits.dwyl.com/furkandeveloper/easyprofiler.svg)](http://hits.dwyl.com/furkandeveloper/easyprofiler)
+[![Sparkline](https://stars.medv.io/furkandeveloper/EasyProfiler.svg)](https://stars.medv.io/furkandeveloper/EasyProfiler)
+
 
 ## Give a Star 🌟
 If you liked the project or if EasyProfiler helped you, please give a star.
