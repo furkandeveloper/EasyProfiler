@@ -3,9 +3,6 @@
   <Import Project="..\..\common.props" />
 
   <PropertyGroup>
-	  <PackageReleaseNotes>
-		  * ⬆️ Upgrade target framework
-	  </PackageReleaseNotes>
     <PackageIcon>easyProfilerMariaDb.png</PackageIcon>
     <PackageId>EasyProfiler.MariaDb</PackageId>
   </PropertyGroup>
@@ -24,6 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\EasyProfiler.CronJob\EasyProfiler.CronJob.csproj" />
     <ProjectReference Include="..\EasyProfiler.EntityFrameworkCore\EasyProfiler.EntityFrameworkCore.csproj" />
   </ItemGroup>
 

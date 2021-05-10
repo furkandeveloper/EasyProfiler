@@ -16,7 +16,7 @@ namespace EasyProfiler.PostgreSQL.Migrations
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn)
-                .HasAnnotation("ProductVersion", "3.1.8")
+                .HasAnnotation("ProductVersion", "3.1.12")
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
             modelBuilder.Entity("EasyProfiler.Core.Entities.Profiler", b =>
@@ -27,6 +27,9 @@ namespace EasyProfiler.PostgreSQL.Migrations
 
                     b.Property<long>("Duration")
                         .HasColumnType("bigint");
+
+                    b.Property<DateTime>("EndDate")
+                        .HasColumnType("timestamp without time zone");
 
                     b.Property<string>("Query")
                         .IsRequired()
@@ -39,11 +42,14 @@ namespace EasyProfiler.PostgreSQL.Migrations
                     b.Property<string>("RequestUrl")
                         .HasColumnType("text");
 
+                    b.Property<DateTime>("StartDate")
+                        .HasColumnType("timestamp without time zone");
+
                     b.HasKey("Id");
 
                     b.HasIndex("Duration");
 
-                    b.ToTable("Profilers");
+                    b.ToTable("Profilers","easy-profiler");
                 });
 #pragma warning restore 612, 618
         }

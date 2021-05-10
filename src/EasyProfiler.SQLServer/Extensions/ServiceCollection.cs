@@ -1,5 +1,7 @@
 ﻿using EasyProfiler.Core.Abstractions;
 using EasyProfiler.Core.Concrete;
+using EasyProfiler.CronJob.Common;
+using EasyProfiler.CronJob.Extensions;
 using EasyProfiler.SQLServer.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
@@ -26,10 +28,11 @@ namespace EasyProfiler.SQLServer.Extensions
         /// <returns>
         /// Service Collection.
         /// </returns>
-        public static IServiceCollection AddEasyProfilerDbContext(this IServiceCollection services, Action<DbContextOptionsBuilder> optionsBuilder)
+        public static IServiceCollection AddEasyProfilerDbContext(this IServiceCollection services, Action<DbContextOptionsBuilder> optionsBuilder, Action<DbResulationConfiguration> resulationConfiguration)
         {
             services.AddDbContext<ProfilerSqlServerDbContext>(optionsBuilder);
             services.AddTransient<IEasyProfilerBaseService<ProfilerSqlServerDbContext>, EasyProfilerBaseManager<ProfilerSqlServerDbContext>>();
+            services = services.ToResulation(resulationConfiguration);
             return services;
         }
     }

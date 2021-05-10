@@ -30,7 +30,7 @@ namespace EasyProfiler.SQLServer.Extensions
         public static DbContextOptionsBuilder AddEasyProfiler(this DbContextOptionsBuilder optionsBuilder, IServiceCollection services)
         {
             var buildServices = services.BuildServiceProvider();
-            optionsBuilder.AddInterceptors(new EasyProfilerInterceptors(buildServices.GetService<ProfilerSqlServerDbContext>(), buildServices.GetService<IHttpContextAccessor>()));
+            optionsBuilder.AddInterceptors(new EasyProfilerInterceptors(buildServices.GetService<IHttpContextAccessor>()));
             return optionsBuilder;
         }
     }

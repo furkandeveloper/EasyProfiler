@@ -11,29 +11,31 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using EasyProfiler.EntityFrameworkCore.Extensions;
+using EasyProfiler.Core.Statics;
 
 namespace EasyProfiler.SQLServer.Interceptors
 {
     public class EasyProfilerInterceptors : DbCommandInterceptor
     {
-        private readonly IEasyProfilerContext context;
         private readonly IHttpContextAccessor httpContextAccessor;
 
-        public EasyProfilerInterceptors(IEasyProfilerContext context, IHttpContextAccessor httpContextAccessor)
+        public EasyProfilerInterceptors(IHttpContextAccessor httpContextAccessor)
         {
-            this.context = context;
             this.httpContextAccessor = httpContextAccessor;
         }
 
         public override InterceptionResult DataReaderDisposing(DbCommand command, DataReaderDisposingEventData eventData, InterceptionResult result)
         {
-            Task.Run(() => context.InsertAsync(new Profiler()
+            var profilerData = new Profiler
             {
-                Query = command.CommandText,
                 Duration = eventData.Duration.Ticks,
+                Query = command.CommandText,
                 RequestUrl = httpContextAccessor?.HttpContext?.Request?.Path.Value,
-                QueryType = command.FindQueryType()
-            }));
+                QueryType = command.FindQueryType(),
+                EndDate = DateTime.UtcNow,
+                StartDate = DateTime.UtcNow - eventData.Duration
+            };
+            Values.Profilers.Add(profilerData);
             return base.DataReaderDisposing(command, eventData, result);
         }
     }

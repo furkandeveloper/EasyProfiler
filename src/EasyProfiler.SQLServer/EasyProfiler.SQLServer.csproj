@@ -3,11 +3,7 @@
   <Import Project="..\..\common.props" />
 
   <PropertyGroup>
-	  <PackageReleaseNotes>
-		  * ⬆️ Upgrade target framework
-	  </PackageReleaseNotes>
     <PackageIcon>easyProfilerSQLServer.png</PackageIcon>
-    <Version>1.6.0</Version>
     <PackageId>EasyProfiler.SQLServer</PackageId>
   </PropertyGroup>
 
@@ -28,6 +24,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\EasyProfiler.CronJob\EasyProfiler.CronJob.csproj" />
     <ProjectReference Include="..\EasyProfiler.EntityFrameworkCore\EasyProfiler.EntityFrameworkCore.csproj" />
   </ItemGroup>
 
