@@ -15,7 +15,7 @@ namespace EasyProfiler.SQLServer.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "3.1.8")
+                .HasAnnotation("ProductVersion", "3.1.12")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -28,6 +28,9 @@ namespace EasyProfiler.SQLServer.Migrations
                     b.Property<long>("Duration")
                         .HasColumnType("bigint");
 
+                    b.Property<DateTime>("EndDate")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("Query")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -39,11 +42,14 @@ namespace EasyProfiler.SQLServer.Migrations
                     b.Property<string>("RequestUrl")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<DateTime>("StartDate")
+                        .HasColumnType("datetime2");
+
                     b.HasKey("Id");
 
                     b.HasIndex("Duration");
 
-                    b.ToTable("Profilers");
+                    b.ToTable("Profilers","easy-profiler");
                 });
 #pragma warning restore 612, 618
         }

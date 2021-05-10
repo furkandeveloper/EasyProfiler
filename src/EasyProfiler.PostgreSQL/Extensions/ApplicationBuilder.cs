@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace EasyProfiler.PostgreSQL.Extensions
 {
@@ -22,9 +23,10 @@ namespace EasyProfiler.PostgreSQL.Extensions
         /// <param name="postgreSqlDbContext">
         /// Profiler DbContext
         /// </param>
-        public static void ApplyEasyProfilerPostgreSQL(this IApplicationBuilder app, ProfilerPostgreSqlDbContext postgreSqlDbContext)
+        public static IApplicationBuilder ApplyEasyProfilerPostgreSQL(this IApplicationBuilder app)
         {
-            postgreSqlDbContext.Database.Migrate();
+            app.ApplicationServices.GetService<ProfilerPostgreSqlDbContext>().Database.Migrate();
+            return app;
         }
     }
 }

@@ -3,14 +3,16 @@ using System;
 using EasyProfiler.MariaDb.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace EasyProfiler.MariaDb.Migrations
 {
     [DbContext(typeof(ProfilerMariaDbContext))]
-    partial class ProfilerDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210424215337_ChangeDatabaseSchema")]
+    partial class ChangeDatabaseSchema
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -26,9 +28,6 @@ namespace EasyProfiler.MariaDb.Migrations
                     b.Property<long>("Duration")
                         .HasColumnType("bigint");
 
-                    b.Property<DateTime>("EndDate")
-                        .HasColumnType("datetime(6)");
-
                     b.Property<string>("Query")
                         .IsRequired()
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
@@ -39,9 +38,6 @@ namespace EasyProfiler.MariaDb.Migrations
 
                     b.Property<string>("RequestUrl")
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
-
-                    b.Property<DateTime>("StartDate")
-                        .HasColumnType("datetime(6)");
 
                     b.HasKey("Id");
 

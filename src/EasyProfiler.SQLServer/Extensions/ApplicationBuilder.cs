@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace EasyProfiler.SQLServer.Extensions
 {
@@ -23,9 +24,10 @@ namespace EasyProfiler.SQLServer.Extensions
         /// <param name="sqlServerDbContext">
         /// Profiler DbContext
         /// </param>
-        public static void ApplyEasyProfilerSQLServer(this IApplicationBuilder app, ProfilerSqlServerDbContext sqlServerDbContext)
+        public static IApplicationBuilder ApplyEasyProfilerSQLServer(this IApplicationBuilder app)
         {
-            sqlServerDbContext.Database.Migrate();
+            app.ApplicationServices.GetService<ProfilerSqlServerDbContext>().Database.Migrate();
+            return app;
         }
     }
 }

@@ -1,6 +1,8 @@
 ﻿using System;
 using EasyProfiler.Core.Abstractions;
 using EasyProfiler.Core.Concrete;
+using EasyProfiler.CronJob.Common;
+using EasyProfiler.CronJob.Extensions;
 using EasyProfiler.MariaDb.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
@@ -24,11 +26,12 @@ namespace EasyProfiler.MariaDb.Extensions
         /// <returns>
         /// Service Collection.
         /// </returns>
-        public static IServiceCollection AddEasyProfilerDbContext(this IServiceCollection services, Action<DbContextOptionsBuilder> optionsBuilder)
+        public static IServiceCollection AddEasyProfilerDbContext(this IServiceCollection services, Action<DbContextOptionsBuilder> optionsBuilder, Action<DbResulationConfiguration> resulationConfiguration)
         {
             services.AddDbContext<ProfilerMariaDbContext>(optionsBuilder);
             services.AddTransient<IEasyProfilerContext>(sp => sp.GetService<ProfilerMariaDbContext>());
             services.AddTransient<IEasyProfilerBaseService<ProfilerMariaDbContext>, EasyProfilerBaseManager<ProfilerMariaDbContext>>();
+            services = services.ToResulation(resulationConfiguration);
             return services;
         }
     }

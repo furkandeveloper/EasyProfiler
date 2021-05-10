@@ -29,6 +29,9 @@ namespace EasyProfiler.EntityFrameworkCore
             modelBuilder.Entity<Profiler>(entity =>
             {
                 entity
+                    .ToTable(nameof(Profilers), "easy-profiler");
+
+                entity
                     .HasKey(pk => pk.Id);
 
                 entity
