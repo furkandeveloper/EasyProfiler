@@ -56,7 +56,9 @@ namespace EasyProfiler.CronJob.Jobs
             }).ToList();
             Values.Profilers.Clear();
             foreach (var profiler in profilerData)
+            {
                 await profilerContext.InsertAsync(profiler);
+            }
             await base.DoWork(cancellationToken);
         }
     }
