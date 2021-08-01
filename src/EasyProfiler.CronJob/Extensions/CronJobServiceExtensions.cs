@@ -50,7 +50,9 @@ namespace EasyProfiler.CronJob.Extensions
                 var data = Cronos.CronExpression.Parse(dbResulationConfiguration.CronExpression);
                 var nextDate = data.GetNextOccurrence(DateTime.UtcNow, TimeZoneInfo.Local);
                 if ((nextDate - DateTime.UtcNow).Value.TotalHours > 1)
+                {
                     throw new Exception("Cron expression cannot be greater than 1 hour.");
+                }
                 services.ApplyResulation<DbWriterCronJob>(options =>
                 {
                     options.CronExpression = dbResulationConfiguration.CronExpression;
