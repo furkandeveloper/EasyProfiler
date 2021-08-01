@@ -10,6 +10,7 @@ using EasyProfiler.CronJob.Common;
 using EasyProfiler.CronJob.Extensions;
 using EasyProfiler.Mongo.Jobs;
 using System.Reflection;
+using EasyProfiler.Core.Exceptions;
 
 namespace EasyProfiler.Mongo.Extensions
 {
@@ -51,7 +52,7 @@ namespace EasyProfiler.Mongo.Extensions
                 var nextDate = data.GetNextOccurrence(DateTime.UtcNow, TimeZoneInfo.Local);
                 if ((nextDate - DateTime.UtcNow).Value.TotalHours > 1)
                 {
-                    throw new SystemException("Cron expression cannot be greater than 1 hour.");
+                    throw new BaseException("Cron expression cannot be greater than 1 hour.");
                 }
                 services.ApplyResulation<MongoWriterCronJob>(options =>
                 {
