@@ -12,10 +12,10 @@ namespace EasyProfiler.Mongo.Configuration
         /// <summary>
         /// Connection String
         /// </summary>
-        private string ConnectionString;
+        public string ConnectionString;
         /// <summary>
         /// Database name
         /// </summary>
-        private string Database;
+        public string Database;
     }
 }
