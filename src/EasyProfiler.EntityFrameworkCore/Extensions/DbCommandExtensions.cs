@@ -21,7 +21,6 @@ namespace EasyProfiler.EntityFrameworkCore.Extensions
         /// </returns>
         public static QueryType FindQueryType(this DbCommand dbCommand)
         {
-            QueryType queryType = QueryType.NONE;
             switch (dbCommand.CommandText.Split(' ')[0].ToLowerInvariant())
             {
                 case "select":
