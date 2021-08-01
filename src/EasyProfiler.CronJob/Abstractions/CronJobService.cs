@@ -16,7 +16,7 @@ namespace EasyProfiler.CronJob.Abstractions
         private System.Timers.Timer timer; 
         private readonly TimeZoneInfo timeZoneInfo;
         private readonly CronExpression cronExpression;
-        public CronJobService(string cronExpression, TimeZoneInfo timeZoneInfo)
+        protected CronJobService(string cronExpression, TimeZoneInfo timeZoneInfo)
         {
             this.timeZoneInfo = timeZoneInfo;
             this.cronExpression = CronExpression.Parse(cronExpression);
