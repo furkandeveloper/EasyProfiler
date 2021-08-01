@@ -16,7 +16,6 @@
 ![Nuget](https://img.shields.io/nuget/dt/EasyProfiler.Mongo?label=MongoDb%20Downloads)
 ![Nuget](https://img.shields.io/nuget/v/EasyProfiler.Mongo?label=MongoDb)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Sparkline](https://stars.medv.io/furkandeveloper/EasyProfiler.svg)](https://stars.medv.io/furkandeveloper/EasyProfiler)
 
 ***
 
