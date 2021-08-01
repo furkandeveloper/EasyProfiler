@@ -31,10 +31,12 @@ namespace EasyProfiler.Mongo.Extensions
         {
             var cacheService = serviceProvider.GetService<IMemoryCache>();
             if (command.OperationId != null)
+            {
                 cacheService.Set<string>(command.OperationId + command.CommandName, command.Command.ToString(), new MemoryCacheEntryOptions
                 {
                     Priority = CacheItemPriority.NeverRemove
                 });
+            }
         }
 
         /// <summary>

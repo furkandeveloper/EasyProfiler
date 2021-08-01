@@ -10,7 +10,7 @@ namespace EasyProfiler.EntityFrameworkCore
 {
     public abstract class ProfilerCoreDbContext : DbContext, IEasyProfilerContext
     {
-        public ProfilerCoreDbContext(DbContextOptions options) : base(options)
+        protected ProfilerCoreDbContext(DbContextOptions options) : base(options)
         {
         }
 

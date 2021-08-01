@@ -9,6 +9,9 @@ namespace EasyProfiler.Mongo.Configuration
     /// </summary>
     public class ConnectionModel
     {
+        /// <summary>
+        /// Connection String
+        /// </summary>
         public string ConnectionString;
         /// <summary>
         /// Database name

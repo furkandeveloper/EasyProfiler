@@ -1,4 +1,5 @@
-﻿using EasyProfiler.CronJob.Abstractions;
+﻿using EasyProfiler.Core.Exceptions;
+using EasyProfiler.CronJob.Abstractions;
 using EasyProfiler.CronJob.Common;
 using EasyProfiler.CronJob.Jobs;
 using Microsoft.Extensions.Caching.Memory;
@@ -50,7 +51,9 @@ namespace EasyProfiler.CronJob.Extensions
                 var data = Cronos.CronExpression.Parse(dbResulationConfiguration.CronExpression);
                 var nextDate = data.GetNextOccurrence(DateTime.UtcNow, TimeZoneInfo.Local);
                 if ((nextDate - DateTime.UtcNow).Value.TotalHours > 1)
-                    throw new Exception("Cron expression cannot be greater than 1 hour.");
+                {
+                    throw new BaseException("Cron expression cannot be greater than 1 hour.");
+                }
                 services.ApplyResulation<DbWriterCronJob>(options =>
                 {
                     options.CronExpression = dbResulationConfiguration.CronExpression;
@@ -58,11 +61,13 @@ namespace EasyProfiler.CronJob.Extensions
                 });
             }
             else
+            {
                 services.ApplyResulation<DbWriterCronJob>(options =>
                 {
                     options.CronExpression = dbResulationConfiguration.Resulation.GetType().GetField(dbResulationConfiguration.Resulation.ToString()).GetCustomAttribute<ResulationCronAttribute>().Cron;
                     options.TimeZoneInfo = dbResulationConfiguration.TimeZoneInfo;
                 });
+            }
             return services;
         }
     }
