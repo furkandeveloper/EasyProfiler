@@ -60,11 +60,13 @@ namespace EasyProfiler.CronJob.Extensions
                 });
             }
             else
+            {
                 services.ApplyResulation<DbWriterCronJob>(options =>
                 {
                     options.CronExpression = dbResulationConfiguration.Resulation.GetType().GetField(dbResulationConfiguration.Resulation.ToString()).GetCustomAttribute<ResulationCronAttribute>().Cron;
                     options.TimeZoneInfo = dbResulationConfiguration.TimeZoneInfo;
                 });
+            }
             return services;
         }
     }
