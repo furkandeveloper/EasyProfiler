@@ -53,7 +53,9 @@ namespace EasyProfiler.Mongo.Jobs
             }).ToList();
             MongoValues.Profilers.Clear();
             foreach (var profiler in profilerData)
+            {
                 await profilerContext.InsertAsync(profiler);
+            }
             await base.DoWork(cancellationToken);
         }
     }
