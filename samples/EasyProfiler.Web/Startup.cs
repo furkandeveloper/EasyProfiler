@@ -20,10 +20,20 @@ using System.Threading.Tasks;
 
 namespace EasyProfiler.Web
 {
+    /// <summary>
+    /// Startup of App
+    /// </summary>
     public class Startup
     {
+        /// <summary>
+        /// Configuration Object
+        /// </summary>
         public IConfiguration Configuration { get; }
 
+        /// <summary>
+        /// Ctor of Startup
+        /// </summary>
+        /// <param name="configuration"></param>
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
