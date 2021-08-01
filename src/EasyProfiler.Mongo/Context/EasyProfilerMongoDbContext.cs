@@ -22,7 +22,9 @@ namespace EasyProfiler.Mongo.Context
         {
             var client = new MongoClient(connectionModel.ConnectionString);
             if (client != null)
+            {
                 _database = client.GetDatabase(connectionModel.Database);
+            }
         }
 
         /// <summary>
