@@ -12,35 +12,25 @@ namespace EasyProfiler.Mongo.Extensions
     {
         public static QueryType FindQueryType(this string commandName)
         {
-            QueryType queryType = QueryType.NONE;
             switch (commandName)
             {
                 case "select":
-                    queryType = QueryType.SELECT;
-                    break;
+                    return QueryType.SELECT;
                 case "update":
-                    queryType = QueryType.UPDATE;
-                    break;
+                    return QueryType.UPDATE;
                 case "delete":
-                    queryType = QueryType.DELETE;
-                    break;
+                    return QueryType.DELETE;
                 case "insert":
-                    queryType = QueryType.INSERT;
-                    break;
+                    return QueryType.INSERT;
                 case "find":
-                    queryType = QueryType.SELECT;
-                    break;
+                    return QueryType.SELECT;
                 case "count":
-                    queryType = QueryType.SELECT;
-                    break;
+                    return QueryType.SELECT;
                 case "aggregate":
-                    queryType = QueryType.SELECT;
-                    break;
+                    return QueryType.SELECT;
                 default:
-                    queryType = QueryType.OTHER;
-                    break;
+                    return QueryType.OTHER;
             }
-            return queryType;
         }
     }
 }
