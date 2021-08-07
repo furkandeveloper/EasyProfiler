@@ -24,6 +24,17 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "furkandeveloper",
+      "name": "Furkan Güngör",
+      "avatar_url": "https://avatars.githubusercontent.com/u/47147484?v=4",
+      "profile": "https://furkangungor.krawl.me/",
+      "contributions": [
+        "infra",
+        "test",
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,
