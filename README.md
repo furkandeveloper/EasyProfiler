@@ -1,6 +1,6 @@
 <p align="center">
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-2-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-3-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
   <img src="https://user-images.githubusercontent.com/47147484/97106329-e885f080-16d1-11eb-9278-e266673cdc67.png" style="max-width:100%;" height="140" />
 </p>
@@ -64,6 +64,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
   <tr>
     <td align="center"><a href="http://enisnecipoglu.com"><img src="https://avatars.githubusercontent.com/u/23705418?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Enis Necipoglu</b></sub></a><br /><a href="#infra-enisn" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a> <a href="https://github.com/furkandeveloper/EasyProfiler/commits?author=enisn" title="Tests">⚠️</a> <a href="https://github.com/furkandeveloper/EasyProfiler/commits?author=enisn" title="Code">💻</a></td>
     <td align="center"><a href="https://selcukkutuk.com"><img src="https://avatars.githubusercontent.com/u/2015168?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Selçuk KÜTÜK</b></sub></a><br /><a href="https://github.com/furkandeveloper/EasyProfiler/commits?author=selcukkutuk" title="Code">💻</a></td>
+    <td align="center"><a href="https://furkangungor.krawl.me/"><img src="https://avatars.githubusercontent.com/u/47147484?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Furkan Güngör</b></sub></a><br /><a href="#infra-furkandeveloper" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a> <a href="https://github.com/furkandeveloper/EasyProfiler/commits?author=furkandeveloper" title="Tests">⚠️</a> <a href="https://github.com/furkandeveloper/EasyProfiler/commits?author=furkandeveloper" title="Code">💻</a></td>
   </tr>
 </table>
 
