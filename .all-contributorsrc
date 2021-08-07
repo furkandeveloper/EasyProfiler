@@ -33,7 +33,24 @@
       "contributions": [
         "infra",
         "test",
-        "code"
+        "code",
+        "bug",
+        "blog",
+        "business",
+        "content",
+        "doc",
+        "design",
+        "example",
+        "eventOrganizing",
+        "ideas",
+        "maintenance",
+        "mentoring",
+        "review",
+        "question",
+        "security",
+        "tool",
+        "tutorial",
+        "talk"
       ]
     }
   ],
