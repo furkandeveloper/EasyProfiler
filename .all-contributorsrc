@@ -1,0 +1,26 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "contributors": [
+    {
+      "login": "enisn",
+      "name": "Enis Necipoglu",
+      "avatar_url": "https://avatars.githubusercontent.com/u/23705418?v=4",
+      "profile": "http://enisnecipoglu.com",
+      "contributions": [
+        "infra",
+        "test",
+        "code"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "projectName": "EasyProfiler",
+  "projectOwner": "furkandeveloper",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "skipCi": true
+}
