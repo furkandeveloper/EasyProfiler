@@ -12,7 +12,7 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="AspNetCore.MarkdownDocumenting" Version="2.1.2" />
+		<PackageReference Include="AspNetCore.MarkdownDocumenting" Version="2.3.0" />
 		<PackageReference Include="AutoFilterer.Swagger" Version="2.2.0" />
 		<!--<PackageReference Include="EasyProfiler.SQLServer" Version="1.0.0" />-->
 		<PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.9">
