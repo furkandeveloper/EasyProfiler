@@ -4,18 +4,25 @@ using EasyProfiler.PostgreSQL.Context;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace EasyProfiler.Web.Controllers
 {
+    /// <summary>
+    /// Default Controller
+    /// </summary>
     [ApiController]
     [Route("[controller]")]
     public class DefaultController : ControllerBase
     {
         private readonly SampleDbContext sampleDbContext;
 
+        /// <summary>
+        /// Ctor
+        /// </summary>
+        /// <param name="sampleDbContext">
+        /// DB Context
+        /// </param>
         public DefaultController(SampleDbContext sampleDbContext)
         {
             this.sampleDbContext = sampleDbContext;
@@ -62,7 +69,7 @@ namespace EasyProfiler.Web.Controllers
         /// <param name="model">
         /// Advanced filter model.
         /// </param>
-        /// <param name="easyProfilerService">
+        /// <param name="baseService">
         /// Easy profiler service.
         /// </param>
         /// <returns>
