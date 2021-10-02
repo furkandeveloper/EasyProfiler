@@ -13,7 +13,7 @@ namespace EasyProfiler.MariaDb.Context
             optionsBuilder.UseMySql("----");
 #elif NET5_0_OR_GREATER
             // TODO: Remove here if not necessary.
-            optionsBuilder.UseMySql("----", ServerVersion.FromString("10.5.9")); 
+            optionsBuilder.UseMySql("----", ServerVersion.AutoDetect("10.5.9")); 
 #endif
 
             return new ProfilerMariaDbContext(optionsBuilder.Options);

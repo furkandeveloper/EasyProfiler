@@ -1,22 +1,16 @@
 using AutoFilterer.Swagger;
-using EasyProfiler.PostgreSQL.Context;
 using EasyProfiler.PostgreSQL.Extensions;
 using MarkdownDocumenting.Extensions;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Reflection;
-using System.Runtime.Intrinsics;
 using System.Text.Json.Serialization;
-using System.Threading.Tasks;
 
 namespace EasyProfiler.Web
 {
@@ -38,6 +32,10 @@ namespace EasyProfiler.Web
         {
             Configuration = configuration;
         }
+        /// <summary>
+        /// This method gets called by the runtime. Use this method to add services to the container.
+        /// </summary>
+        /// <param name="services"></param>
         // This method gets called by the runtime. Use this method to add services to the container.
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
@@ -91,7 +89,11 @@ namespace EasyProfiler.Web
             services.AddDocumentation();
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+        /// <summary>
+        /// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+        /// </summary>
+        /// <param name="app"></param>
+        /// <param name="env"></param>
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             app.ApplyEasyProfilerPostgreSQL();
