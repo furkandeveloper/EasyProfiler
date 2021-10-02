@@ -27,7 +27,7 @@ namespace EasyProfiler.MariaDb.Interceptors
             {
                 Duration = eventData.Duration.Ticks,
                 Query = command.CommandText,
-                RequestUrl = httpContextAccessor?.HttpContext?.Request?.Path.Value,
+                RequestUrl = httpContextAccessor?.HttpContext?.GetEndpoint()?.DisplayName ?? "Not Http",
                 QueryType = command.FindQueryType(),
                 EndDate = DateTime.UtcNow,
                 StartDate = DateTime.UtcNow - eventData.Duration

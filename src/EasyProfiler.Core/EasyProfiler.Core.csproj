@@ -7,16 +7,12 @@
     <PackageId>EasyProfiler.Core</PackageId>
   </PropertyGroup>
 
-  <ItemGroup Condition="'$(TargetFramework)' == 'netcoreapp3.1'">
-    <FrameworkReference Include="Microsoft.AspNetCore.App" />
-  </ItemGroup>
-
   <ItemGroup Condition="'$(TargetFramework)' == 'net5.0'">
     <FrameworkReference Include="Microsoft.AspNetCore.App" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="AutoFilterer" Version="2.6.1" />
+    <PackageReference Include="AutoFilterer" Version="2.8.0" />
   </ItemGroup>
 
 	<ItemGroup>
