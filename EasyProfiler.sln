@@ -32,6 +32,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyProfiler.CronJob", "src
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyProfiler.PostgreSQL", "src\EasyProfiler.PostgreSQL\EasyProfiler.PostgreSQL.csproj", "{03C244B6-0E16-4020-A3C4-802E83CC5843}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyProfiler.AspNetCore", "src\EasyProfiler.AspNetCore\EasyProfiler.AspNetCore.csproj", "{90F18CF1-9E38-4F92-93A8-6153D724D79A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -70,6 +72,10 @@ Global
 		{03C244B6-0E16-4020-A3C4-802E83CC5843}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{03C244B6-0E16-4020-A3C4-802E83CC5843}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{03C244B6-0E16-4020-A3C4-802E83CC5843}.Release|Any CPU.Build.0 = Release|Any CPU
+		{90F18CF1-9E38-4F92-93A8-6153D724D79A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{90F18CF1-9E38-4F92-93A8-6153D724D79A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{90F18CF1-9E38-4F92-93A8-6153D724D79A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{90F18CF1-9E38-4F92-93A8-6153D724D79A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -83,6 +89,7 @@ Global
 		{35CF2F0B-7790-46D9-89F7-89E3985B7ACA} = {9AE5BFB8-BA7B-4939-934E-B28220564041}
 		{0180C130-A0AD-4EA4-A298-3FF6BD80B86F} = {9AE5BFB8-BA7B-4939-934E-B28220564041}
 		{03C244B6-0E16-4020-A3C4-802E83CC5843} = {9AE5BFB8-BA7B-4939-934E-B28220564041}
+		{90F18CF1-9E38-4F92-93A8-6153D724D79A} = {9AE5BFB8-BA7B-4939-934E-B28220564041}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A7351DCA-54A1-42A4-B8D8-50F5E9F1444A}
