@@ -1,12 +1,16 @@
 <Project>
 	<PropertyGroup>
 		<TargetFrameworks>net5.0</TargetFrameworks>
-		<Version>2.1.0</Version>
+		<Version>2.2.0</Version>
 		<LangVersion>latest</LangVersion>
 		<PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
 		<RepositoryUrl>https://github.com/furkandeveloper/EasyProfiler</RepositoryUrl>
 		<Authors>furkandeveloper</Authors>
 		<Description>This repo, provides query profiler for .Net</Description>
 		<PackageTags>mariadb, profiler, query-profiler,query-analyzer</PackageTags>
+		<PackageReleaseNotes>
+			✨ Added EasyProfiler.AspNetCore library
+			♻ Fixed Request Url Query Condition on Base Service
+		</PackageReleaseNotes>
 	</PropertyGroup>
 </Project>
