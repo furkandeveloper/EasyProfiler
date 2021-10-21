@@ -17,7 +17,6 @@ namespace EasyProfiler.AspNetCore.Controllers
     /// <summary>
     /// Easy Profiler Endpoints
     /// </summary>
-    [ApiController]
     [Route("easy-profiler")]
     public class EasyProfilerController : ControllerBase
     {
@@ -88,7 +87,7 @@ namespace EasyProfiler.AspNetCore.Controllers
         /// <returns>
         /// Status Code : 200 | Name-Count Value
         /// </returns>
-        [HttpGet("most-requested-endpoint",Name ="MostRequestedEndpoint")]
+        [HttpGet("most-requested-endpoint", Name = "MostRequestedEndpoint")]
         [ProducesResponseType(200)]
         public async Task<IActionResult> MostRequestedEndpointAsync()
         {
@@ -97,7 +96,7 @@ namespace EasyProfiler.AspNetCore.Controllers
                 {
                     Name = a.Key,
                     Count = a.Count()
-                }).OrderBy(a=>a.Count).ToListAsync();
+                }).OrderByDescending(a => a.Count).ToListAsync();
             return Ok(data);
         }
 
