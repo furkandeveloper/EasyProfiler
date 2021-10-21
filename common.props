@@ -8,9 +8,5 @@
 		<Authors>furkandeveloper</Authors>
 		<Description>This repo, provides query profiler for .Net</Description>
 		<PackageTags>mariadb, profiler, query-profiler,query-analyzer</PackageTags>
-		<PackageReleaseNotes>
-			🔥 Removes .Net Core 3.x support
-			♻ Change request url property set scenario from path value to get endpoint information from all providers
-		</PackageReleaseNotes>
 	</PropertyGroup>
 </Project>
