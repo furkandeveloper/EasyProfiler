@@ -8,4 +8,8 @@
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.2.5" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\EasyProfiler.Core\EasyProfiler.Core.csproj" />
+  </ItemGroup>
+
 </Project>
