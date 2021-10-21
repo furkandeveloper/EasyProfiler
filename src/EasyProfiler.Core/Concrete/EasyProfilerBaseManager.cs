@@ -27,7 +27,7 @@ namespace EasyProfiler.Core.Concrete
 
         public virtual async Task<List<SlowestEndpointResponseModel>> GetSlowestEndpointsAsync()
         {
-            var data = await dbContext.Get<Profiler>().Where(x => !string.IsNullOrEmpty(x.RequestUrl) && x.RequestUrl != "/")
+            var data = await dbContext.Get<Profiler>().Where(x => !string.IsNullOrEmpty(x.RequestUrl) && x.RequestUrl != "Not Http")
                 .GroupBy(g => g.RequestUrl).Select(s => new SlowestEndpointResponseModel
                 {
                     RequestUrl = s.Key,
