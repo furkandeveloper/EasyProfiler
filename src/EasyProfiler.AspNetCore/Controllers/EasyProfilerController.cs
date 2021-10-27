@@ -60,7 +60,7 @@ namespace EasyProfiler.AspNetCore.Controllers
         [ProducesResponseType(typeof(SlowestEndpointResponseModel[]), 200)]
         public async Task<IActionResult> GetSlowestEndpointAsync()
         {
-            var data = await FindEndpointsAsync();
+            var data = await FindEndpointsAsync().ConfigureAwait(false);
             data = data.OrderByDescending(x => x.AvarageDurationTime).ToList();
             return Ok(data);
         }
@@ -75,7 +75,7 @@ namespace EasyProfiler.AspNetCore.Controllers
         [ProducesResponseType(typeof(SlowestEndpointResponseModel[]), 200)]
         public async Task<IActionResult> GetFastestEndpointAsync()
         {
-            var data = await FindEndpointsAsync();
+            var data = await FindEndpointsAsync().ConfigureAwait(false);
             data = data.OrderBy(o => o.AvarageDurationTime).ToList();
             return Ok(data);
         }
