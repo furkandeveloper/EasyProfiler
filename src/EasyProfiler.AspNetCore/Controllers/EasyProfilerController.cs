@@ -50,7 +50,6 @@ namespace EasyProfiler.AspNetCore.Controllers
             return Ok(profilers);
         }
 
-
         /// <summary>
         /// Get Slowest Endpoint
         /// </summary>
