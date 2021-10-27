@@ -24,6 +24,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <ProjectReference Include="..\..\src\EasyProfiler.AspNetCore\EasyProfiler.AspNetCore.csproj" />
 	  <ProjectReference Include="..\..\src\EasyProfiler.PostgreSQL\EasyProfiler.PostgreSQL.csproj" />
 	</ItemGroup>
 
