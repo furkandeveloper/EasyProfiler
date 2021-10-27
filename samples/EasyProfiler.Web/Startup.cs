@@ -42,7 +42,6 @@ namespace EasyProfiler.Web
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc()
-                .AddEasyProfilerControllers()
                 .AddJsonOptions(options =>
                 {
                     options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
