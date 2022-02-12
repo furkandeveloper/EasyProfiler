@@ -1,16 +1,14 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
+
 	<Import Project="..\..\common.props" />
 
 	<ItemGroup>
 		<PackageReference Include="Cronos" Version="0.7.1" />
-	</ItemGroup>
-
-	<ItemGroup Condition="'$(TargetFramework)' == 'net5.0'">
-		<PackageReference Include="Microsoft.Extensions.Hosting.Abstractions" Version="5.0.0" />
+		<PackageReference Include="Microsoft.Extensions.Hosting.Abstractions" Version="6.0.0" />
 	</ItemGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\EasyProfiler.Core\EasyProfiler.Core.csproj" />
+		<ProjectReference Include="..\EasyProfiler.Core\EasyProfiler.Core.csproj" />
 	</ItemGroup>
 
 </Project>
