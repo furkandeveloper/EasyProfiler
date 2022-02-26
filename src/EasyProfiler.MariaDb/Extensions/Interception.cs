@@ -1,10 +1,6 @@
-﻿using System.Linq;
-using EasyProfiler.Core.Abstractions;
-using EasyProfiler.MariaDb.Context;
-using EasyProfiler.MariaDb.Interceptors;
+﻿using EasyProfiler.MariaDb.Interceptors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Diagnostics;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace EasyProfiler.MariaDb.Extensions
