@@ -24,11 +24,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\..\src\EasyProfiler.AspNetCore\EasyProfiler.AspNetCore.csproj" />
-	  <ProjectReference Include="..\..\src\EasyProfiler.PostgreSQL\EasyProfiler.PostgreSQL.csproj" />
-	</ItemGroup>
-
-	<ItemGroup>
 	  <None Update="Docs\README.md">
 	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
 	  </None>

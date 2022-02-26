@@ -1,8 +1,4 @@
-﻿using EasyProfiler.Core.Abstractions;
-using EasyProfiler.Core.Helpers.AdvancedQuery;
-using EasyProfiler.PostgreSQL.Context;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Threading.Tasks;
 

@@ -49,19 +49,19 @@ namespace EasyProfiler.Web
             
             services.AddDbContext<SampleDbContext>(options =>
             {
-                options.UseNpgsql(Configuration.GetConnectionString("DefaultConnection"))
-                .AddEasyProfiler(services);
+                options.UseNpgsql(Configuration.GetConnectionString("DefaultConnection"));
+                //.AddEasyProfiler(services);
             });
 
-            services.AddEasyProfilerDbContext(options =>
-            {
-                options.UseNpgsql(Configuration.GetConnectionString("DefaultConnection"));
-            }, options=>
-            {
-                options.Resulation = CronJob.Common.Resulation.HIGH;
-                //options.UseCronExpression = true;
-                //options.CronExpression = "* 1 * * *";
-            });
+            //services.AddEasyProfilerDbContext(options =>
+            //{
+            //    options.UseNpgsql(Configuration.GetConnectionString("DefaultConnection"));
+            //}, options=>
+            //{
+            //    options.Resulation = CronJob.Common.Resulation.HIGH;
+            //    //options.UseCronExpression = true;
+            //    //options.CronExpression = "* 1 * * *";
+            //});
 
             services.AddSwaggerGen(options =>
             {
