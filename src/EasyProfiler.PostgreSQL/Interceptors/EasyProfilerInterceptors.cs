@@ -1,15 +1,11 @@
 ﻿using EasyProfiler.Core.Entities;
-using Microsoft.AspNetCore.Http;
-using Microsoft.EntityFrameworkCore.Diagnostics;
-using Microsoft.Extensions.Caching.Memory;
-using System.Collections.Generic;
-using System.Data.Common;
-using EasyProfiler.EntityFrameworkCore.Extensions;
-using System;
-using Microsoft.Extensions.Caching.Distributed;
-using System.Runtime.Serialization.Formatters.Binary;
-using System.IO;
 using EasyProfiler.Core.Statics;
+using EasyProfiler.EntityFrameworkCore.Extensions;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Http.Features;
+using Microsoft.EntityFrameworkCore.Diagnostics;
+using System;
+using System.Data.Common;
 
 namespace EasyProfiler.PostgreSQL.Interceptors
 {
@@ -44,7 +40,7 @@ namespace EasyProfiler.PostgreSQL.Interceptors
             {
                 Duration = eventData.Duration.Ticks,
                 Query = command.CommandText,
-                RequestUrl = httpContextAccessor?.HttpContext?.GetEndpoint()?.DisplayName ?? "Not Http",
+                RequestUrl = httpContextAccessor.HttpContext.Features.Get<IEndpointFeature>()?.Endpoint?.DisplayName ?? "Not Http",
                 QueryType = command.FindQueryType(),
                 EndDate = DateTime.UtcNow,
                 StartDate = DateTime.UtcNow - eventData.Duration
