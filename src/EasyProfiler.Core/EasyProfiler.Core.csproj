@@ -9,7 +9,7 @@
 	<ItemGroup>
 		<PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" />
 		<PackageReference Include="Microsoft.AspNetCore.Routing.Abstractions" Version="2.2.0" />
-		<PackageReference Include="AutoFilterer" Version="2.11.0" />
+		<PackageReference Include="AutoFilterer" Version="2.12.0" />
 	</ItemGroup>
 
 	<ItemGroup>
