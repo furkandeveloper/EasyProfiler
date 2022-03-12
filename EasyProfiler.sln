@@ -18,8 +18,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "samples", "samples", "{E7EE1DF1-9E6C-4B2B-9847-3C03030EFF6E}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyProfiler.Web", "samples\EasyProfiler.Web\EasyProfiler.Web.csproj", "{E08FD8E2-2D4F-4DA2-A668-E7A3E84B8DE9}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyProfiler.Core", "src\EasyProfiler.Core\EasyProfiler.Core.csproj", "{5900675D-AC82-4F00-A90E-486AA22F8FDF}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyProfiler.MariaDb", "src\EasyProfiler.MariaDb\EasyProfiler.MariaDb.csproj", "{7D777586-91E5-4826-91AC-4ED0C9C30B13}"
@@ -34,7 +32,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyProfiler.PostgreSQL", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyProfiler.AspNetCore", "src\EasyProfiler.AspNetCore\EasyProfiler.AspNetCore.csproj", "{90F18CF1-9E38-4F92-93A8-6153D724D79A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyProfiler.Web.Dotnet6", "samples\EasyProfiler.Web.Dotnet6\EasyProfiler.Web.Dotnet6.csproj", "{B82DAC61-377D-48FE-A0C0-6B3C2C40DDD7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyProfiler.Web.Dotnet6", "samples\EasyProfiler.Web.Dotnet6\EasyProfiler.Web.Dotnet6.csproj", "{B82DAC61-377D-48FE-A0C0-6B3C2C40DDD7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -46,10 +44,6 @@ Global
 		{A6CF2E31-7D4C-465A-9E3D-72DD012C26C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A6CF2E31-7D4C-465A-9E3D-72DD012C26C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A6CF2E31-7D4C-465A-9E3D-72DD012C26C3}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E08FD8E2-2D4F-4DA2-A668-E7A3E84B8DE9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E08FD8E2-2D4F-4DA2-A668-E7A3E84B8DE9}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E08FD8E2-2D4F-4DA2-A668-E7A3E84B8DE9}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E08FD8E2-2D4F-4DA2-A668-E7A3E84B8DE9}.Release|Any CPU.Build.0 = Release|Any CPU
 		{5900675D-AC82-4F00-A90E-486AA22F8FDF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{5900675D-AC82-4F00-A90E-486AA22F8FDF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5900675D-AC82-4F00-A90E-486AA22F8FDF}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -88,7 +82,6 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{A6CF2E31-7D4C-465A-9E3D-72DD012C26C3} = {9AE5BFB8-BA7B-4939-934E-B28220564041}
-		{E08FD8E2-2D4F-4DA2-A668-E7A3E84B8DE9} = {E7EE1DF1-9E6C-4B2B-9847-3C03030EFF6E}
 		{5900675D-AC82-4F00-A90E-486AA22F8FDF} = {9AE5BFB8-BA7B-4939-934E-B28220564041}
 		{7D777586-91E5-4826-91AC-4ED0C9C30B13} = {9AE5BFB8-BA7B-4939-934E-B28220564041}
 		{0B3E45F9-7597-4828-B676-6A63BE13AA76} = {9AE5BFB8-BA7B-4939-934E-B28220564041}
