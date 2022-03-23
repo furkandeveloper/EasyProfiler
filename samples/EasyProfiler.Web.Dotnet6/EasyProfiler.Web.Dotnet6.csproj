@@ -19,4 +19,10 @@
 	  <ProjectReference Include="..\..\src\EasyProfiler.PostgreSQL\EasyProfiler.PostgreSQL.csproj" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <None Update="Docs\README.md">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </None>
+	</ItemGroup>
+
 </Project>
