@@ -1,25 +1,22 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <Import Project="..\..\common.props" />
-
-  <PropertyGroup>
-    <PackageIcon>easyProfilerSQLServer.png</PackageIcon>
-    <PackageId>EasyProfiler.Core</PackageId>
-  </PropertyGroup>
-
-  <ItemGroup Condition="'$(TargetFramework)' == 'net5.0'">
-    <FrameworkReference Include="Microsoft.AspNetCore.App" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="AutoFilterer" Version="2.8.0" />
-  </ItemGroup>
+	<Import Project="..\..\common.props" />
+	<PropertyGroup>
+		<PackageIcon>easyProfilerSQLServer.png</PackageIcon>
+		<PackageId>EasyProfiler.Core</PackageId>
+	</PropertyGroup>
 
 	<ItemGroup>
-	  <None Include="easyProfilerSQLServer.png">
-	    <Pack>True</Pack>
-	    <PackagePath></PackagePath>
-	  </None>
+		<PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" />
+		<PackageReference Include="Microsoft.AspNetCore.Routing.Abstractions" Version="2.2.0" />
+		<PackageReference Include="AutoFilterer" Version="2.12.0" />
 	</ItemGroup>
-	
+
+	<ItemGroup>
+		<None Include="easyProfilerSQLServer.png">
+			<Pack>True</Pack>
+			<PackagePath></PackagePath>
+		</None>
+	</ItemGroup>
+
 </Project>

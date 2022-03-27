@@ -1,14 +1,11 @@
-﻿using System;
-using System.Data.Common;
-using System.Threading.Tasks;
-using EasyProfiler.Core.Abstractions;
-using EasyProfiler.Core.Entities;
-using EasyProfiler.Core.Helpers.Extensions;
+﻿using EasyProfiler.Core.Entities;
 using EasyProfiler.Core.Statics;
 using EasyProfiler.EntityFrameworkCore.Extensions;
-using EasyProfiler.MariaDb.Context;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Http.Features;
 using Microsoft.EntityFrameworkCore.Diagnostics;
+using System;
+using System.Data.Common;
 
 namespace EasyProfiler.MariaDb.Interceptors
 {
@@ -27,7 +24,7 @@ namespace EasyProfiler.MariaDb.Interceptors
             {
                 Duration = eventData.Duration.Ticks,
                 Query = command.CommandText,
-                RequestUrl = httpContextAccessor?.HttpContext?.GetEndpoint()?.DisplayName ?? "Not Http",
+                RequestUrl = httpContextAccessor.HttpContext.Features.Get<IEndpointFeature>()?.Endpoint?.DisplayName ?? "Not Http",
                 QueryType = command.FindQueryType(),
                 EndDate = DateTime.UtcNow,
                 StartDate = DateTime.UtcNow - eventData.Duration

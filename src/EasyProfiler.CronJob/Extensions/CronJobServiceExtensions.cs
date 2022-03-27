@@ -2,13 +2,9 @@
 using EasyProfiler.CronJob.Abstractions;
 using EasyProfiler.CronJob.Common;
 using EasyProfiler.CronJob.Jobs;
-using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
 using System;
-using System.Collections.Generic;
 using System.Reflection;
-using System.Text;
 
 namespace EasyProfiler.CronJob.Extensions
 {

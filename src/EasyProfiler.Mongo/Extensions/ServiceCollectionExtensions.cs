@@ -1,16 +1,13 @@
-﻿using EasyProfiler.Mongo.Configuration;
-using EasyProfiler.Mongo.Context;
-using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Text;
-using EasyProfiler.Core.Abstractions;
+﻿using EasyProfiler.Core.Abstractions;
+using EasyProfiler.Core.Exceptions;
 using EasyProfiler.CronJob.Common;
 using EasyProfiler.CronJob.Extensions;
+using EasyProfiler.Mongo.Configuration;
+using EasyProfiler.Mongo.Context;
 using EasyProfiler.Mongo.Jobs;
+using Microsoft.Extensions.DependencyInjection;
+using System;
 using System.Reflection;
-using EasyProfiler.Core.Exceptions;
 
 namespace EasyProfiler.Mongo.Extensions
 {

@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Threading.Tasks;
 
-namespace EasyProfiler.Web.Controllers
+namespace EasyProfiler.Web.Dotnet6.Controllers
 {
     /// <summary>
     /// Default Controller

@@ -1,7 +1,7 @@
 <Project>
 	<PropertyGroup>
-		<TargetFrameworks>net5.0</TargetFrameworks>
-		<Version>2.2.0</Version>
+		<TargetFramework>net6.0</TargetFramework>
+		<Version>3.0.0</Version>
 		<LangVersion>latest</LangVersion>
 		<PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
 		<RepositoryUrl>https://github.com/furkandeveloper/EasyProfiler</RepositoryUrl>

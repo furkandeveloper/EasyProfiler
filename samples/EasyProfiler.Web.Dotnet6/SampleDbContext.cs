@@ -1,10 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
-namespace EasyProfiler.Web
+namespace EasyProfiler.Web.Dotnet6
 {
     /// <summary>
     /// Sample Db Context
@@ -27,6 +23,7 @@ namespace EasyProfiler.Web
         protected SampleDbContext()
         {
         }
+
         /// <summary>
         /// Customer Table
         /// </summary>

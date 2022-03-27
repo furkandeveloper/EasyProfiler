@@ -1,15 +1,10 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using EasyProfiler.Mongo.Statics;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Http.Features;
+using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.DependencyInjection;
-using MongoDB.Bson;
 using MongoDB.Driver.Core.Events;
 using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading.Tasks;
-using EasyProfiler.Core.Abstractions;
-using Microsoft.Extensions.Caching.Memory;
-using EasyProfiler.Core.Statics;
-using EasyProfiler.Mongo.Statics;
 
 namespace EasyProfiler.Mongo.Extensions
 {
@@ -61,7 +56,7 @@ namespace EasyProfiler.Mongo.Extensions
                     Duration = command.Duration.Ticks,
                     Query = data.ToString(),
                     QueryType = command.CommandName.FindQueryType(),
-                    RequestUrl = httpContext?.HttpContext?.GetEndpoint()?.DisplayName ?? "Not Http",
+                    RequestUrl = httpContext.HttpContext.Features.Get<IEndpointFeature>()?.Endpoint?.DisplayName ?? "Not Http",
                     EndDate = DateTime.UtcNow,
                     StartDate = DateTime.UtcNow - command.Duration
                 });
