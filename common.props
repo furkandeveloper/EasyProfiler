@@ -9,8 +9,17 @@
 		<Description>This repo, provides query profiler for .Net</Description>
 		<PackageTags>mariadb, profiler, query-profiler,query-analyzer</PackageTags>
 		<PackageReleaseNotes>
-			⬆️ Bump Npgsql.EntityFrameworkCore.PostgreSQL from 6.0.3 to 6.0.4
-			⬆️ Bump Microsoft.VisualStudio.Azure.Containers.Tools.Targets from 1.15.0 to 1.15.1
+			⬆️ Upgrade Swashbuckle.AspNetCore from 6.3.0 to 6.4.0
+			⬆️ Upgrade Pomelo.EntityFrameworkCore.MySql from 6.0.1 to 6.0.2
+			⬆️ Upgrade Npgsql.EntityFrameworkCore.PostgreSQL from 6.0.4 to 6.0.5
+			⬆️ Upgrade MongoDB.Driver from 2.15.0 to 2.17.0
+			⬆️ Upgrade Microsoft.VisualStudio.Azure.Containers.Tools.Targets from 1.15.1 to 1.16.1
+			⬆️ Upgrade Microsoft.EntityFrameworkCore.Tools from 6.0.4 to 6.0.7 for EasyProfiler.SQLServer
+			⬆️ Upgrade Microsoft.EntityFrameworkCore.Tools from 6.0.4 to 6.0.7 for EasyProfiler.PostgreSQL
+			⬆️ Upgrade Microsoft.EntityFrameworkCore.Tools from 6.0.4 to 6.0.7 for EasyProfiler.MariaDb
+			⬆️ Upgrade Microsoft.EntityFrameworkCore.SqlServer from 6.0.4 to 6.0.7
+			⬆️ Upgrade Microsoft.EntityFrameworkCore.Relational from 6.0.4 to 6.0.7
+			⬆️ Upgrade Microsoft.EntityFrameworkCore from 6.0.4 to 6.0.7
 		</PackageReleaseNotes>
 	</PropertyGroup>
 </Project>
