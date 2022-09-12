@@ -83,4 +83,9 @@ This project follows the [all-contributors](https://github.com/all-contributors/
 
 ![Alt](https://repobeats.axiom.co/api/embed/cdb4644b789ed469362899495116074a677e9304.svg "Repobeats analytics image")
 
+## Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=furkandeveloper/EasyProfiler&type=Date)](https://star-history.com/#furkandeveloper/EasyProfiler&Date)
+
+
 
