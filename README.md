@@ -19,7 +19,6 @@
 | `Github Activity` | ![GitHub commit activity](https://img.shields.io/github/commit-activity/y/furkandeveloper/EasyProfiler) ![GitHub contributors](https://img.shields.io/github/contributors/furkandeveloper/EasyProfiler) ![GitHub last commit](https://img.shields.io/github/last-commit/furkandeveloper/EasyProfiler) ![GitHub search hit counter](https://img.shields.io/github/search/furkandeveloper/EasyProfiler/EasyProfiler) ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/furkandeveloper/EasyProfiler) ![GitHub repo size](https://img.shields.io/github/repo-size/furkandeveloper/EasyProfiler)|
 | `Languages` | ![GitHub top language](https://img.shields.io/github/languages/top/furkandeveloper/EasyProfiler) |
 | `Issue Tracking` | ![GitHub issues](https://img.shields.io/github/issues/furkandeveloper/EasyProfiler) ![GitHub closed issues](https://img.shields.io/github/issues-closed/furkandeveloper/EasyProfiler) ![GitHub closed pull requests](https://img.shields.io/github/issues-pr-closed/furkandeveloper/EasyProfiler) ![GitHub pull requests](https://img.shields.io/github/issues-pr/furkandeveloper/EasyProfiler) |
-| `Source Code` | [![Open in Visual Studio Code](https://open.vscode.dev/badges/open-in-vscode.svg)](https://open.vscode.dev/furkandeveloper/EasyProfiler) |
 
 <p align="center">
   <a href="https://gitmoji.carloscuesta.me">
